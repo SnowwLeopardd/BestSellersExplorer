@@ -2,10 +2,11 @@
 //  AppDelegate.swift
 //  BestSellers Explorer
 //
-//  Created by Aleksandr Bochkarev on 4/8/24.
+//  Created by Aleksandr Bochkarev on 1/22/24.
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,7 +31,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 
