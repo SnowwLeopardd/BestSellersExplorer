@@ -10,7 +10,6 @@
 		5386897D2BC4D242000B79B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386897C2BC4D242000B79B7 /* AppDelegate.swift */; };
 		5386897F2BC4D242000B79B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386897E2BC4D242000B79B7 /* SceneDelegate.swift */; };
 		538689812BC4D242000B79B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538689802BC4D242000B79B7 /* ViewController.swift */; };
-		538689842BC4D242000B79B7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 538689832BC4D242000B79B7 /* Base */; };
 		538689862BC4D243000B79B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538689852BC4D243000B79B7 /* Assets.xcassets */; };
 		538689892BC4D243000B79B7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 538689882BC4D243000B79B7 /* Base */; };
 /* End PBXBuildFile section */
@@ -20,7 +19,6 @@
 		5386897C2BC4D242000B79B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5386897E2BC4D242000B79B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		538689802BC4D242000B79B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		538689832BC4D242000B79B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		538689852BC4D243000B79B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		538689882BC4D243000B79B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5386898A2BC4D243000B79B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +54,62 @@
 		5386897B2BC4D242000B79B7 /* BestSellers Explorer */ = {
 			isa = PBXGroup;
 			children = (
-				5386897C2BC4D242000B79B7 /* AppDelegate.swift */,
-				5386897E2BC4D242000B79B7 /* SceneDelegate.swift */,
-				538689802BC4D242000B79B7 /* ViewController.swift */,
-				538689822BC4D242000B79B7 /* Main.storyboard */,
-				538689852BC4D243000B79B7 /* Assets.xcassets */,
-				538689872BC4D243000B79B7 /* LaunchScreen.storyboard */,
-				5386898A2BC4D243000B79B7 /* Info.plist */,
+				538689902BC4D946000B79B7 /* Models */,
+				538689912BC4D955000B79B7 /* Services */,
+				538689922BC4D969000B79B7 /* ViewControllers */,
+				538689932BC4DCF2000B79B7 /* StoryBoards */,
+				538689942BC4DCFD000B79B7 /* Resources */,
+				538689952BC4DD0A000B79B7 /* App */,
 			);
 			path = "BestSellers Explorer";
+			sourceTree = "<group>";
+		};
+		538689902BC4D946000B79B7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		538689912BC4D955000B79B7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		538689922BC4D969000B79B7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				538689802BC4D242000B79B7 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		538689932BC4DCF2000B79B7 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				538689872BC4D243000B79B7 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		538689942BC4DCFD000B79B7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				538689852BC4D243000B79B7 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		538689952BC4DD0A000B79B7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5386897C2BC4D242000B79B7 /* AppDelegate.swift */,
+				5386897E2BC4D242000B79B7 /* SceneDelegate.swift */,
+				5386898A2BC4D243000B79B7 /* Info.plist */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +172,6 @@
 			files = (
 				538689862BC4D243000B79B7 /* Assets.xcassets in Resources */,
 				538689892BC4D243000B79B7 /* Base in Resources */,
-				538689842BC4D242000B79B7 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +191,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		538689822BC4D242000B79B7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				538689832BC4D242000B79B7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		538689872BC4D243000B79B7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -293,10 +329,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BestSellers Explorer/Info.plist";
+				INFOPLIST_FILE = "BestSellers Explorer/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -306,9 +341,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "AlexBochkarev.BestSellers-Explorer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,10 +359,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BestSellers Explorer/Info.plist";
+				INFOPLIST_FILE = "BestSellers Explorer/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -333,9 +371,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "AlexBochkarev.BestSellers-Explorer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
