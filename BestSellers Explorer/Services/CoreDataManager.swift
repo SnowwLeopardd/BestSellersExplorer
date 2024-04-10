@@ -71,4 +71,21 @@ class CoreDataManager {
         context.delete(favoriteBook)
         saveContext()
     }
+    
+    func isUnique(_ primaryIsbn13: String) -> Bool {
+        let fetchRequest = FavoriteBook.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "(primaryIsbn13 = %@)", primaryIsbn13)
+        
+        var similarbooks: [FavoriteBook] = []
+            
+        do {
+            similarbooks = try context.fetch(fetchRequest)
+        } catch {
+            print("Error fetching")
+        }
+        
+        return similarbooks.isEmpty
+    
+    }
 }

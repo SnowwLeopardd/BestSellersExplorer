@@ -95,9 +95,9 @@
 		538689902BC4D946000B79B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				53868B702BC4FD7D000B79B7 /* BookReview.swift */,
-				53868B6F2BC4FD7D000B79B7 /* CategotyList.swift */,
 				53868B6E2BC4FD7D000B79B7 /* TopBooksList.swift */,
+				53868B6F2BC4FD7D000B79B7 /* CategotyList.swift */,
+				53868B702BC4FD7D000B79B7 /* BookReview.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

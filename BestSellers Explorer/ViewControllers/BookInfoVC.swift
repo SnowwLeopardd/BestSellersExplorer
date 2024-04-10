@@ -20,6 +20,7 @@ class BookInfoVC: UIViewController {
     let exploreAgain = UIButton()
     let addTofavorites = UIButton()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchBookImage(from: book)
@@ -141,16 +142,25 @@ class BookInfoVC: UIViewController {
     }
     
     // MARK: - ButtonsLogic
+    // TODO: - Notification about duplicate
     // TODO: - Update FavoritesVC after button is tapped.
     @objc private func setupAddToFavoriesLogic() {
-        CoreDataManager.shared.create(book, bookImage.image)
+        let isUnique = CoreDataManager.shared.isUnique(book.primaryIsbn13)
+        isUnique ? CoreDataManager.shared.create(book, bookImage.image) : showErrorAlert()
         
-        // TODO: - add book to FavoritesVC
     }
-    
     
     @objc func setupExploreAgainLogic() {
         navigationController?.pushViewController(QuizVC(), animated: true)
+    }
+    
+    private func showErrorAlert() {
+        let alert = UIAlertController(title: "Error", message: "This book has already been added to your favorites.", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .destructive)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
 
