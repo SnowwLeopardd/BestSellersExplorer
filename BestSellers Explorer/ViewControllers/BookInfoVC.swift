@@ -143,13 +143,9 @@ class BookInfoVC: UIViewController {
     // MARK: - ButtonsLogic
     // TODO: - Update FavoritesVC after button is tapped.
     @objc private func setupAddToFavoriesLogic() {
-        guard let convertedImage = bookImage.image?.pngData() else { return }
-//        CoreDataManager.shared.create(book, convertedImage)
+        CoreDataManager.shared.create(book, bookImage.image)
         
-        
-//        let favoritesVC = FavoritesVC()
-//        favoritesVC.updateUI()
-//        // TODO: - add book to FavoritesVC
+        // TODO: - add book to FavoritesVC
     }
     
     

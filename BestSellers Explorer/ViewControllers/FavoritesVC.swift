@@ -9,7 +9,7 @@ import UIKit
 
 class FavoritesVC: UIViewController {
     
-    var favoritesBooks: [Book]!
+    var favoritesBooks: [FavoriteBook]!
     private let tableView = UITableView()
 
     override func viewDidLoad() {
@@ -60,7 +60,7 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
         let selectedBook = favoritesBooks[indexPath.row]
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [unowned self] _, _, _ in
             self.favoritesBooks.remove(at: indexPath.row)
-//            CoreDataManager.shared.delete(selectedBook)
+            CoreDataManager.shared.delete(selectedBook)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
@@ -96,13 +96,13 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
 
 extension FavoritesVC {
     private func fetchData() {
-//        CoreDataManager.shared.fetchData { result in
-//            switch result {
-//            case .success(let favoritesBooks):
-//                self.favoritesBooks = favoritesBooks
-//            case .failure(let error):
-//                print(error.localizedDescription)
+        CoreDataManager.shared.fetchData { result in
+            switch result {
+            case .success(let favoritesBooks):
+                self.favoritesBooks = favoritesBooks
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
-//    }
-//}
+    }
+}
