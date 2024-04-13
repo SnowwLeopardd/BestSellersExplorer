@@ -30,7 +30,6 @@ class BookInfoVC: UIViewController {
         setupBookDescription()
         setupAddToFavoritesUI()
         setupExploreAgainUI()
-        print(book.primaryIsbn13)
         
         view.backgroundColor = .white
     }
@@ -142,11 +141,10 @@ class BookInfoVC: UIViewController {
     }
     
     // MARK: - ButtonsLogic
-    // TODO: - Notification about duplicate
     // TODO: - Update FavoritesVC after button is tapped.
     @objc private func setupAddToFavoriesLogic() {
         let isUnique = CoreDataManager.shared.isUnique(book.primaryIsbn13)
-        isUnique ? CoreDataManager.shared.create(book, bookImage.image) : showErrorAlert()
+        isUnique ? CoreDataManager.shared.create(book) : showErrorAlert()
         
     }
     

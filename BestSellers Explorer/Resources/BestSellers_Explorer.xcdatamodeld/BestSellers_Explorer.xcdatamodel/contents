@@ -4,7 +4,7 @@
         <attribute name="about" optional="YES" attributeType="String"/>
         <attribute name="amazonProductUrl" attributeType="String"/>
         <attribute name="author" attributeType="String"/>
-        <attribute name="image" attributeType="Binary"/>
+        <attribute name="imageUrl" attributeType="String"/>
         <attribute name="primaryIsbn13" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
     </entity>

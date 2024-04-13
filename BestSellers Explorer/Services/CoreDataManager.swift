@@ -43,16 +43,15 @@ class CoreDataManager {
     }
     
     // MARK: - CRUD operators
-    func create(_ book: Book, _ bookImage: UIImage?) {
-        guard let convertedImage = bookImage?.pngData() else { return }
-        
+    func create(_ book: Book) {
         let favoriteBook = FavoriteBook(context: context)
+        
         favoriteBook.title = book.title
         favoriteBook.author = book.author
         favoriteBook.about = book.description
         favoriteBook.amazonProductUrl = book.amazonProductUrl
         favoriteBook.primaryIsbn13 = Int64(book.primaryIsbn13) ?? 0
-        favoriteBook.image = convertedImage
+        favoriteBook.imageUrl = book.bookImage
         saveContext()
     }
     

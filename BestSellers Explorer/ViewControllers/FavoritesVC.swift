@@ -9,21 +9,28 @@ import UIKit
 
 class FavoritesVC: UIViewController {
     
+    static let shared = FavoritesVC()
+    
     var favoritesBooks: [FavoriteBook]!
-    private let tableView = UITableView()
+    let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
         setupTableViewUI()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
+        tableView.reloadData()
     }
 }
 
 extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        favoritesBooks.count
+        return favoritesBooks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,7 +45,6 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK: - UITableViewDelegate
-    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         configureHeader(view: header)
@@ -85,13 +91,6 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     // TODO: - Create emply "Welcome list" when this is no favorites books in Core Data.
-    
-    func updateUI() {
-        fetchData()
-        
-        let rowIndex = IndexPath(row: favoritesBooks.count, section: 0)
-        tableView.insertRows(at: [rowIndex], with: .automatic)
-    }
 }
 
 extension FavoritesVC {
