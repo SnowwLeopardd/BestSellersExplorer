@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5379F9E02BCCBD32003C9023 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379F9DF2BCCBD32003C9023 /* FavoriteViewCell.swift */; };
 		538689862BC4D243000B79B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538689852BC4D243000B79B7 /* Assets.xcassets */; };
 		538689892BC4D243000B79B7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 538689882BC4D243000B79B7 /* Base */; };
 		53868B712BC4FD7D000B79B7 /* TopBooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53868B6E2BC4FD7D000B79B7 /* TopBooksList.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5379F9DF2BCCBD32003C9023 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		538689792BC4D242000B79B7 /* BestSellers Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BestSellers Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		538689852BC4D243000B79B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		538689882BC4D243000B79B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				53868B7D2BC4FD9C000B79B7 /* TopBooksViewCell.swift */,
 				53868B7E2BC4FD9C000B79B7 /* BookInfoVC.swift */,
 				53868B7C2BC4FD9C000B79B7 /* FavoritesVC.swift */,
+				5379F9DF2BCCBD32003C9023 /* FavoriteViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				53868B862BC4FD9C000B79B7 /* TabBarViewController.swift in Sources */,
 				53868B792BC4FD8A000B79B7 /* ImageCacheManager.swift in Sources */,
 				53868B732BC4FD7D000B79B7 /* BookReview.swift in Sources */,
+				5379F9E02BCCBD32003C9023 /* FavoriteViewCell.swift in Sources */,
 				53868B772BC4FD8A000B79B7 /* NetworkManager.swift in Sources */,
 				53868B712BC4FD7D000B79B7 /* TopBooksList.swift in Sources */,
 				53868B812BC4FD9C000B79B7 /* TopBooksVC.swift in Sources */,

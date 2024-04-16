@@ -34,9 +34,11 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Book", for: indexPath)
-        let title = favoritesBooks[indexPath.row].title
-        cell.textLabel?.text = title
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Book", for: indexPath) as? FavoriteViewCell else {
+            fatalError("Unable to dequeue FavoriteViewCell")
+        }
+        let favoriteBook = favoritesBooks[indexPath.row]
+        cell.configure(with: favoriteBook)
         return cell
     }
     
@@ -77,7 +79,9 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Book")
+        tableView.rowHeight = 120
+        tableView.register(FavoriteViewCell.self, forCellReuseIdentifier: "Book")
+        
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
