@@ -9,106 +9,118 @@ import UIKit
 
 class TopBooksViewCell: UICollectionViewCell {
     
-     private let bookImage: UIImageView = {
-       let image = UIImageView()
-//        image.contentMode = .scaleAspectFill
-//        image.tintColor = .white
-//        image.clipsToBounds = true
-        return image
-    }()
-    
-    let bookAuthor: UILabel = {
-        let bookAuthor = UILabel()
-        bookAuthor.textAlignment = .left
-        return bookAuthor
-    }()
-    
-    let bookTitle: UILabel = {
-        let bookTitle = UILabel()
-        bookTitle.font = UIFont.boldSystemFont(ofSize: 14)
-        bookTitle.textAlignment = .left
-        return bookTitle
-    }()
-    
-    let bookRank: UILabel = {
-        let bookRank = UILabel()
-        bookRank.font = UIFont.boldSystemFont(ofSize: 16)
-        bookRank.textAlignment = .center
-        return bookRank
-    }()
-    
+     private let bookImageView = UIImageView()
+     private let activityIndicator = UIActivityIndicatorView()
+     private let bookAuthorLabel = UILabel()
+     private let bookTitleLabel = UILabel()
+     private let bookRankLabel = UILabel()
     
     func configure(with book: Book) {
         fetchBookImage(from: book)
-        setupBookImage()
-        setupBookRank(book)
-        setupBookTitle(book)
-        setupBookAuthor(book)
         
+        self.addSubview(activityIndicator)
+        self.addSubview(bookRankLabel)
+        self.addSubview(bookImageView)
+        self.addSubview(bookTitleLabel)
+        self.addSubview(bookAuthorLabel)
         
-    }
-    
-    // MARK: - Setup UI
-    private func setupBookRank(_ book:Book) {
-        self.bookRank.text = String("Rank № \(book.rank)")
+        setupBookImageConstrains()
+        setupBookRankConstrains()
+        setupBookTitleConstrains()
+        setupBookAuthorConstrains()
+        setupActivityIndicatorConstrains()
         
-        self.addSubview(bookRank)
-        bookRank.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            bookRank.topAnchor.constraint(equalTo: self.topAnchor),
-            bookRank.bottomAnchor.constraint(equalTo: bookImage.topAnchor),
-            bookRank.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            bookRank.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
-    }
-    
-    private func setupBookImage() {
-//        backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-        backgroundColor = .white
-
-        self.addSubview(bookImage)
-        bookImage.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            bookImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
-            bookImage.bottomAnchor.constraint(equalTo: self.bottomAnchor,  constant: -40),
-            bookImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            bookImage.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
-    }
-    
-    private func setupBookTitle(_ book: Book) {
-        self.bookTitle.text = book.title
-        
-        self.addSubview(bookTitle)
-        bookTitle.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            bookTitle.topAnchor.constraint(equalTo: bookImage.bottomAnchor),
-            bookTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            bookTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
-    }
-    
-    private func setupBookAuthor(_ book: Book) {
-        self.bookAuthor.text = book.author
-        
-        self.addSubview(bookAuthor)
-        bookAuthor.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            bookAuthor.topAnchor.constraint(equalTo: bookTitle.bottomAnchor),
-            bookAuthor.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            bookAuthor.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            bookAuthor.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
+        configureActivityIndicator()
+        configureBookAuthorLabel(with: book)
+        configureBookTitleLabel(with: book)
+        configureBookRankLabel(with: book)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        bookImage.image = nil
+        bookImageView.image = nil
     }
+    
+    // MARK: - Configure subViews
+    private func configureActivityIndicator() {
+        activityIndicator.style = .large
+        activityIndicator.startAnimating()
+    }
+    
+    private func configureBookImageView() {
+        bookImageView.backgroundColor = .white
+    }
+    
+    private func configureBookAuthorLabel(with book: Book) {
+        bookAuthorLabel.text = book.author
+        bookAuthorLabel.textAlignment = .left
+    }
+    
+    private func configureBookTitleLabel(with book: Book) {
+        bookTitleLabel.text = book.title
+        bookTitleLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        bookTitleLabel.textAlignment = .left
+    }
+    
+    private func configureBookRankLabel(with book: Book) {
+        bookRankLabel.text = String("Rank № \(book.rank)")
+        bookRankLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        bookRankLabel.textAlignment = .center
+    }
+    
+    // MARK: - Setup constrains
+    private func setupBookRankConstrains() {
+        bookRankLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            bookRankLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            bookRankLabel.bottomAnchor.constraint(equalTo: bookImageView.topAnchor),
+            bookRankLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            bookRankLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+    }
+    
+    private func setupBookImageConstrains() {
+        bookImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            bookImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
+            bookImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor,  constant: -40),
+            bookImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            bookImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+    }
+    
+    private func setupActivityIndicatorConstrains() {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.topAnchor.constraint(equalTo: bookImageView.topAnchor, constant: 50),
+            activityIndicator.centerXAnchor.constraint(equalTo: bookImageView.centerXAnchor)
+        ])
+    }
+    
+    private func setupBookTitleConstrains() {
+        bookTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            bookTitleLabel.topAnchor.constraint(equalTo: bookImageView.bottomAnchor),
+            bookTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            bookTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+    }
+    
+    private func setupBookAuthorConstrains() {
+        bookAuthorLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            bookAuthorLabel.topAnchor.constraint(equalTo: bookTitleLabel.bottomAnchor),
+            bookAuthorLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            bookAuthorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            bookAuthorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+    }
+    
 }
 
 // MARK: - Networking
@@ -116,7 +128,7 @@ extension TopBooksViewCell {
     private func fetchBookImage(from book: Book) {
         
         if let cacheImage = ImageCacheManager.shared.object(forKey: book.bookImage as NSString) {
-            bookImage.image = cacheImage
+            bookImageView.image = cacheImage
             return
         }
         
@@ -124,8 +136,9 @@ extension TopBooksViewCell {
             switch result {
             case .success(let bookImage):
                 guard let bookImage = UIImage(data: bookImage) else { return }
-                self?.bookImage.image = bookImage
+                self?.bookImageView.image = bookImage
                 ImageCacheManager.shared.setObject(bookImage, forKey: book.bookImage as NSString)
+                self?.activityIndicator.stopAnimating()
             case .failure(let error):
                 print(error.localizedDescription)
             }
