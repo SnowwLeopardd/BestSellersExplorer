@@ -11,23 +11,7 @@ struct CategotyList: Decodable {
     let results: InfoList
 }
 
-struct InfoList: Decodable {
-//    let bestsellersDate: String
-//    let publishedDate: String
-//    let publishedDateDescription: String
-//    let previousPublishedDate: String
-//    let nextPublishedDate: String
-    let lists: [List]
-}
 
-struct List: Decodable {
-    let listId: Int
-    let listName: String
-//    let listNameEncoded: String
-//    let displayName: String
-//    let updated: String
-//    let books: [BookReview]
-}
 //
 //struct BookReview: Decodable {
 //    let ageGroup: String

@@ -7,33 +7,29 @@
 
 import UIKit
 
-class QuizVC: UIViewController {
+class CategoryListVC: UIViewController {
     
     private var categoryList: CategotyList!
     private var sortedCategories: [List]!
     
     private let tableView = UITableView()
-    private let calendarStack = UIStackView()
     
     private var numberOfQuestionLabel = UILabel()
     private let progressView = UIProgressView()
     private let questionLabel = UILabel()
-    private let calendarView = UICalendarView()
-    
-    private let NYTimesLogo: UIImage
-    private let NYTimesLogoImageView: UIImageView
-    
-    private let alertController: UIAlertController
     
     private var questions: [String]
     private var currentQuestion = 0
     private var currentProgress: Float!
     
-    init() {
-        questions = UserDefaultsManager.shared.getQuestions()
-        NYTimesLogo = UIImage(named: "NYTimes Logo 1") ?? UIImage()
-        NYTimesLogoImageView = UIImageView(image: NYTimesLogo)
+    private let alertController: UIAlertController
+    private var date: String
+
+    init(with date: String) {
+        questions = QuizManager.shared.getQuestions()
         alertController = UIAlertController(title: "Loading", message: "\n", preferredStyle: .alert)
+        
+        self.date = date
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,24 +37,21 @@ class QuizVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationItem.hidesBackButton = true
-
+        
+        print("This is \(date)")
+        fetchCategoriesData()
         setupNumberOfQuestionsLabel()
         setupProgreeView()
         setupQuestionLabel()
-        setupCalendar()
-        setupNYTimesLogo()
-        setupCalendarStack()
-        setQuizUI()
     }
 }
 
 // MARK: - UIElements
-extension QuizVC {
+extension CategoryListVC {
     // MARK: - NumberOfQuestionsLabel
     private func setupNumberOfQuestionsLabel() {
         
@@ -75,7 +68,6 @@ extension QuizVC {
             numberOfQuestionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             numberOfQuestionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             numberOfQuestionLabel.heightAnchor.constraint(equalToConstant: 30)
-            
         ])
     }
     
@@ -114,26 +106,14 @@ extension QuizVC {
         ])
         
     }
-    
-    // MARK: - NYTimes Logo
-    private func setupNYTimesLogo() {
-        NYTimesLogoImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(NYTimesLogoImageView)
-        
-        NSLayoutConstraint.activate([
-            NYTimesLogoImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 10),
-            NYTimesLogoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-    }
 }
 
 // MARK: - QuizLogic
-extension QuizVC {
+extension CategoryListVC {
     private func setCurrentProgress() {
         currentProgress = Float(currentQuestion + 1) / Float(questions.count)
         numberOfQuestionLabel.text = "Question \(currentQuestion + 1) from \(questions.count)"
-        progressView.setProgress(currentProgress, animated: true)
+        progressView.setProgress(currentProgress, animated: false)
         questionLabel.text = questions[currentQuestion]
     }
     
@@ -150,79 +130,10 @@ extension QuizVC {
         currentQuestion = 1
         setCurrentProgress()
     }
-    
-    // MARK: - UIStackView
-        private func setupCalendarStack() {
-            calendarStack.axis = .vertical
-            calendarStack.alignment = .center
-            calendarStack.distribution = .fill
-            calendarStack.spacing = 16
-            
-            calendarStack.addArrangedSubview(calendarView)
-            calendarStack.addArrangedSubview(NYTimesLogoImageView)
-            
-            view.addSubview(calendarStack)
-            
-            calendarStack.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                calendarStack.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 20),
-                calendarStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                calendarStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                calendarStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
-            ])
-        }
-}
-
-
-
-// MARK: - Calendar
-extension QuizVC: UICalendarSelectionSingleDateDelegate {
-    func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
-        UserDefaultsManager.shared.saveSelectedDate(dateComponents)
-        showLoadingAlert()
-        fetchCategoriesData()
-
-    }
-    
-    private func setupCalendar() {
-        calendarView.calendar = .current
-        calendarView.locale = .current
-        calendarView.fontDesign = .rounded
-        
-        calendarView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let dateSelection = UICalendarSelectionSingleDate(delegate: self)
-        calendarView.selectionBehavior = dateSelection
-    }
-}
-
-// MARK: - UIAlertController
-extension QuizVC {
-    private func showLoadingAlert() {
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
-        
-        alertController.view.addSubview(activityIndicator)
-        
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            activityIndicator.topAnchor.constraint(equalTo: alertController.view.topAnchor, constant: 45),
-            activityIndicator.centerXAnchor.constraint(equalTo: alertController.view.centerXAnchor)
-        ])
-        
-        activityIndicator.startAnimating()
-        
-        present(alertController, animated: true)
-    }
-    
-    private func hideLoadingAlert() {
-        alertController.dismiss(animated: true)
-    }
 }
 
 // MARK: - UITableView
-extension QuizVC: UITableViewDataSource, UITableViewDelegate {
+extension CategoryListVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sortedCategories.count
@@ -238,8 +149,8 @@ extension QuizVC: UITableViewDataSource, UITableViewDelegate {
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCategory = sortedCategories[indexPath.row].listName
-        UserDefaultsManager.shared.saveSelectedCategory(selectedCategory)
-        pushTopBestSellersViewController()
+        let topBooksVC = TopBooksVC(selectedCategory: selectedCategory, selectedDate: date)
+        navigationController?.pushViewController(topBooksVC, animated: true)
     }
     
     // MARK: - SetupTableViewUI
@@ -262,7 +173,9 @@ extension QuizVC: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - NetWorking
     private func fetchCategoriesData() {
-        let url = Link.fullOverview.rawValue + UserDefaultsManager.shared.retrieveDate() + "/" + Link.NYTimesApiKey.rawValue
+        print("This is date 2 \(date)")
+        let url = Link.fullOverview.rawValue + date + "/" + Link.NYTimesApiKey.rawValue
+        print(url)
         NetworkManager.shared.fetch(CategotyList.self, from: url ) { [weak self] result in
             switch result {
             case .success(let list):
@@ -270,7 +183,6 @@ extension QuizVC: UITableViewDataSource, UITableViewDelegate {
                 self?.sortedCategories = sortedCategories
                 DispatchQueue.main.async {
                     self?.setupTableViewUI()
-                    self?.hideLoadingAlert()
                     self?.setQuizUI()
                 }
             case .failure(let error):
@@ -278,11 +190,38 @@ extension QuizVC: UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+extension CategoryListVC {
+    private func showLoadingAlert() {
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        
+        alertController.view.addSubview(activityIndicator)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.topAnchor.constraint(equalTo: alertController.view.topAnchor, constant: 45),
+            activityIndicator.centerXAnchor.constraint(equalTo: alertController.view.centerXAnchor)
+        ])
+        
+        activityIndicator.startAnimating()
+        
+        present(alertController, animated: true)
+    }
     
-    // MARK: - Navigation
-    private func pushTopBestSellersViewController() {
-        let topBooksVC = TopBooksVC()
-        navigationController?.pushViewController(topBooksVC, animated: true)
+    private func hideLoadingAlert() {
+        alertController.dismiss(animated: true)
     }
 }
 

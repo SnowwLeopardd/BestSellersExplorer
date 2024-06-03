@@ -9,63 +9,64 @@ import UIKit
 
 class FavoriteViewCell: UITableViewCell {
         
-        private let bookImageView = UIImageView()
-        private let bookAuthorLabel = UILabel()
-        private let bookTitleLabel  = UILabel()
-        private let activityIndicator = UIActivityIndicatorView()
+    private let bookImageView = UIImageView()
+    private let bookAuthorLabel = UILabel()
+    private let bookTitleLabel  = UILabel()
+    private let activityIndicator = UIActivityIndicatorView()
 
-        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-            super.init(style: style, reuseIdentifier: reuseIdentifier)
-            addSubview(bookImageView)
-            addSubview(activityIndicator)
-            addSubview(bookAuthorLabel)
-            addSubview(bookTitleLabel)
-            
-            configureBookImageView()
-            configureActivityIndicator()
-            configureBookAuthorLabel()
-            configureBookTitleLabel()
-            
-            setupBookImageConstrains()
-            setupActivityIndicatorConstrains()
-            setupBookTitleConstrains()
-            setupBookAuthorConstrains()
-        }
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubview(bookImageView)
+        addSubview(activityIndicator)
+        addSubview(bookAuthorLabel)
+        addSubview(bookTitleLabel)
+        
+        configureBookImageView()
+        configureActivityIndicator()
+        configureBookAuthorLabel()
+        configureBookTitleLabel()
+        
+        setupBookImageConstrains()
+        setupActivityIndicatorConstrains()
+        setupBookTitleConstrains()
+        setupBookAuthorConstrains()
+        print("init worked")
+    }
 
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bookImageView.image = nil
+    }
     
-        override func prepareForReuse() {
-            super.prepareForReuse()
-            bookImageView.image = nil
-        }
+    func configure(with book: FavoriteBook) {
+        fetchBookImage(from: book.imageUrl ?? "No url")
         
-        func configure(with book: FavoriteBook) {
-            fetchBookImage(from: book.imageUrl ?? "No url")
-            
-            bookAuthorLabel.text = book.author
-            bookTitleLabel.text = book.title
-        }
-    
-        private func configureActivityIndicator() {
-            activityIndicator.style = .large
-            activityIndicator.startAnimating()
-        }
-    
-        private func configureBookImageView() {
-            
-        }
+        bookAuthorLabel.text = book.author
+        bookTitleLabel.text = book.title
+    }
+
+    private func configureActivityIndicator() {
+        activityIndicator.style = .large
+        activityIndicator.startAnimating()
+    }
+
+    private func configureBookImageView() {
         
-        private func configureBookAuthorLabel() {
-            
-        }
+    }
     
-        private func configureBookTitleLabel() {
-            
-        }
-    
-    
+    private func configureBookAuthorLabel() {
+        
+    }
+
+    private func configureBookTitleLabel() {
+        
+    }
+
+
     private func setupBookImageConstrains() {
         bookImageView.translatesAutoresizingMaskIntoConstraints = false
         

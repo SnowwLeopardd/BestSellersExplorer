@@ -149,7 +149,7 @@ class BookInfoVC: UIViewController {
     }
     
     @objc func setupExploreAgainLogic() {
-        navigationController?.pushViewController(QuizVC(), animated: true)
+        navigationController?.pushViewController(CalendarVC(), animated: true)
     }
     
     private func showErrorAlert() {

@@ -12,16 +12,23 @@ class FavoritesVC: UIViewController {
     static let shared = FavoritesVC()
     
     var favoritesBooks: [FavoriteBook]!
+    
     let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //view = UITableView() - подумать над этим
+        
         fetchData()
         setupTableViewUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // if faviritesBooks.hasChanged { do rest } - подумать
+        
         fetchData()
         tableView.reloadData()
     }
@@ -62,6 +69,7 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedBook = favoritesBooks[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

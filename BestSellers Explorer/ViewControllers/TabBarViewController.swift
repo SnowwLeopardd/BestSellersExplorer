@@ -18,16 +18,16 @@ class TabBarViewController: UITabBarController {
     }
     
     private func setupVC() {
-        let quizVC = UINavigationController(rootViewController: QuizVC())
+        let calendarVC = UINavigationController(rootViewController: CalendarVC())
         let favoritesVC = UINavigationController(rootViewController: FavoritesVC())
         
-        quizVC.tabBarItem.title = "TopBooks"
-        quizVC.tabBarItem.image = UIImage(systemName: "books.vertical")
+        calendarVC.tabBarItem.title = "TopBooks"
+        calendarVC.tabBarItem.image = UIImage(systemName: "books.vertical")
         
         favoritesVC.tabBarItem.title = "Favorites"
         favoritesVC.tabBarItem.image = UIImage(systemName: "star")
         
-        setViewControllers([quizVC, favoritesVC], animated: true)
+        setViewControllers([calendarVC, favoritesVC], animated: true)
         
     }
 

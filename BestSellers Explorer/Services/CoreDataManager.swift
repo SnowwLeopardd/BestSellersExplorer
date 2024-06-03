@@ -50,7 +50,7 @@ class CoreDataManager {
         favoriteBook.author = book.author
         favoriteBook.about = book.description
         favoriteBook.amazonProductUrl = book.amazonProductUrl
-        favoriteBook.primaryIsbn13 = Int64(book.primaryIsbn13) ?? 0
+        favoriteBook.primaryIsbn13 = book.primaryIsbn13
         favoriteBook.imageUrl = book.bookImage
         saveContext()
     }

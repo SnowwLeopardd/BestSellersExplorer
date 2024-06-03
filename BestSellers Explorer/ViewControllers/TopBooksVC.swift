@@ -11,6 +11,19 @@ class TopBooksVC: UIViewController {
     
     private var sortedBooks: [Book]!
     private let sortButton = UIBarButtonItem()
+    private var selectedCategory: String
+    private var selectedDate: String
+    
+    init(selectedCategory: String, selectedDate: String) {
+        self.selectedCategory = selectedCategory
+        self.selectedDate = selectedDate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     // MARK: - UI Components
    private var collectionView: UICollectionView = {
@@ -58,7 +71,7 @@ class TopBooksVC: UIViewController {
     
     @objc func sortButtonPressed() {
         let isAscending = sortButton.title == "Sort By: ↓"
-        sortedBooks.sort { isAscending ? $0.rank < $1.rank : $0.rank > $1.rank }
+        sortedBooks?.sort { isAscending ? $0.rank < $1.rank : $0.rank > $1.rank }
         sortButton.title = isAscending ? "Sort By: ↑": "Sort By: ↓"
         collectionView.reloadData()
     }
@@ -94,8 +107,10 @@ extension TopBooksVC: UICollectionViewDelegate, UICollectionViewDataSource {
 // MARK: - FetchData
 extension TopBooksVC {
     private func fetchTopBestSellers() {
-        let url = Link.TopBooksList.rawValue + UserDefaultsManager.shared.retrieveDate() + "/" + UserDefaultsManager().retrieveSelectedCategory() + Link.NYTimesApiKey.rawValue
-        
+        print(selectedCategory)
+        print(selectedDate)
+        let url = Link.TopBooksList.rawValue + selectedDate + "/" + selectedCategory + Link.NYTimesApiKey.rawValue
+        print(url)
         NetworkManager.shared.fetch(TopBooksList.self, from: url) { [weak self] result in
             switch result {
             case .success(let bestSellersList):
