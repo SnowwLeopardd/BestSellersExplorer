@@ -113,6 +113,7 @@ extension FavoriteViewCell {
     private func fetchBookImage(from url: String) {
         if let cacheImage = ImageCacheManager.shared.object(forKey: url as NSString) {
             bookImageView.image = cacheImage
+            self.activityIndicator.stopAnimating()
             return
         }
         

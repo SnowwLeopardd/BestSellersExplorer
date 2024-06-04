@@ -10,7 +10,7 @@ import UIKit
 class CategoryListVC: UIViewController {
     
     private var categoryList: CategotyList!
-    private var sortedCategories: [List]!
+    internal var sortedCategories: [List]!
     
     private let tableView = UITableView()
     
@@ -22,13 +22,12 @@ class CategoryListVC: UIViewController {
     private var currentQuestion = 0
     private var currentProgress: Float!
     
-    private let alertController: UIAlertController
-    private var date: String
-
+    internal let alertController: UIAlertController
+    internal var date: String
+    
     init(with date: String) {
         questions = QuizManager.shared.getQuestions()
         alertController = UIAlertController(title: "Loading", message: "\n", preferredStyle: .alert)
-        
         self.date = date
         super.init(nibName: nil, bundle: nil)
     }
@@ -39,22 +38,23 @@ class CategoryListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    private func setupUI() {
         view.backgroundColor = .white
-        navigationItem.hidesBackButton = true
         
         print("This is \(date)")
+        
+        showLoadingAlert()
         fetchCategoriesData()
         setupNumberOfQuestionsLabel()
         setupProgreeView()
         setupQuestionLabel()
     }
-}
-
-// MARK: - UIElements
-extension CategoryListVC {
-    // MARK: - NumberOfQuestionsLabel
+    
+    // MARK: - UIElements
     private func setupNumberOfQuestionsLabel() {
-        
         numberOfQuestionLabel.textAlignment = .center
         numberOfQuestionLabel.textColor = UIColor.black
         numberOfQuestionLabel.font = UIFont.boldSystemFont(ofSize: 25)
@@ -71,9 +71,7 @@ extension CategoryListVC {
         ])
     }
     
-    // MARK: - UIProgressView
     private func setupProgreeView() {
-        
         progressView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(progressView)
@@ -86,9 +84,7 @@ extension CategoryListVC {
         ])
     }
     
-    // MARK: - Question Label
     private func setupQuestionLabel() {
-        
         questionLabel.textColor = UIColor.purple
         questionLabel.textAlignment = .center
         questionLabel.numberOfLines = 0
@@ -104,9 +100,31 @@ extension CategoryListVC {
             questionLabel.topAnchor.constraint(equalTo: progressView.safeAreaLayoutGuide.bottomAnchor, constant: 16),
             questionLabel.heightAnchor.constraint(equalToConstant: 30),
         ])
+    }
+    
+    internal func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ListCell")
         
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 20),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        ])
     }
 }
+
+
+
+
+
+
+
 
 // MARK: - QuizLogic
 extension CategoryListVC {
@@ -131,99 +149,4 @@ extension CategoryListVC {
         setCurrentProgress()
     }
 }
-
-// MARK: - UITableView
-extension CategoryListVC: UITableViewDataSource, UITableViewDelegate {
-    // MARK: - UITableViewDataSource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        sortedCategories.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
-        let text = sortedCategories[indexPath.row].listName
-        cell.textLabel?.text = text
-        return cell
-    }
-    
-    // MARK: - UITableViewDelegate
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCategory = sortedCategories[indexPath.row].listName
-        let topBooksVC = TopBooksVC(selectedCategory: selectedCategory, selectedDate: date)
-        navigationController?.pushViewController(topBooksVC, animated: true)
-    }
-    
-    // MARK: - SetupTableViewUI
-    private func setupTableViewUI() {
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ListCell")
-        
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 20),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-        ])
-    }
-    
-    // MARK: - NetWorking
-    private func fetchCategoriesData() {
-        print("This is date 2 \(date)")
-        let url = Link.fullOverview.rawValue + date + "/" + Link.NYTimesApiKey.rawValue
-        print(url)
-        NetworkManager.shared.fetch(CategotyList.self, from: url ) { [weak self] result in
-            switch result {
-            case .success(let list):
-                let sortedCategories = list.results.lists.sorted { $0.listName < $1.listName }
-                self?.sortedCategories = sortedCategories
-                DispatchQueue.main.async {
-                    self?.setupTableViewUI()
-                    self?.setQuizUI()
-                }
-            case .failure(let error):
-                print("Error fetching data: \(error.localizedDescription)")
-            }
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-extension CategoryListVC {
-    private func showLoadingAlert() {
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
-        
-        alertController.view.addSubview(activityIndicator)
-        
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            activityIndicator.topAnchor.constraint(equalTo: alertController.view.topAnchor, constant: 45),
-            activityIndicator.centerXAnchor.constraint(equalTo: alertController.view.centerXAnchor)
-        ])
-        
-        activityIndicator.startAnimating()
-        
-        present(alertController, animated: true)
-    }
-    
-    private func hideLoadingAlert() {
-        alertController.dismiss(animated: true)
-    }
-}
-
-
 

@@ -19,8 +19,6 @@ class CalendarVC: UIViewController {
     private let NYTimesLogo: UIImage
     private let NYTimesLogoImageView: UIImageView
     
-    private let alertController: UIAlertController
-    
     private var questions: [String]
     private var currentQuestion = 0
     private var currentProgress: Float = 0.00
@@ -29,7 +27,6 @@ class CalendarVC: UIViewController {
         questions = QuizManager.shared.getQuestions()
         NYTimesLogo = UIImage(named: "NYTimes Logo 1") ?? UIImage()
         NYTimesLogoImageView = UIImageView(image: NYTimesLogo)
-        alertController = UIAlertController(title: "Loading", message: "\n", preferredStyle: .alert)
         super.init(nibName: nil, bundle: nil)
     }
     
