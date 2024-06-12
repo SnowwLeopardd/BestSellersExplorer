@@ -11,6 +11,7 @@ enum NetworkError: Error {
     case invalidURL
     case noData
     case decodingError
+    case quotaLimitExceeded
 }
 
 enum Link: String {
@@ -37,13 +38,22 @@ class NetworkManager {
         }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
+            // Handle rate limit exceeded error
+            if let data = data,
+               let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+               let fault = json["fault"] as? [String: Any],
+               let faultString = fault["faultstring"] as? String,
+               faultString.contains("Rate limit quota violation") {
+                completion(.failure(.quotaLimitExceeded))
+                return
+            }
+            
             guard let data = data else {
                 completion(.failure(.noData))
                 return
             }
             
             do {
-                print(data)
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let result = try decoder.decode(T.self, from: data)
