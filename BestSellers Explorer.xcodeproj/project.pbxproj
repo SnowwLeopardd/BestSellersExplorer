@@ -16,10 +16,10 @@
 		530071822C0A8BCD00FB176F /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071812C0A8BCD00FB176F /* CalendarVC.swift */; };
 		530071842C0A974400FB176F /* QuizManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071832C0A974400FB176F /* QuizManager.swift */; };
 		5338659B2C0E802200E362CB /* CalendarVC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5338659A2C0E802200E362CB /* CalendarVC+Extensions.swift */; };
-		537592742C0FA3E10074D220 /* CategoryListVC + Entension + UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592732C0FA3E10074D220 /* CategoryListVC + Entension + UIAlertController.swift */; };
 		537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592752C0FA3F60074D220 /* ActivityIndicator.swift */; };
 		537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592772C0FA4790074D220 /* CategoryListVC + Network.swift */; };
-		5375927A2C0FA5B30074D220 /* CategoryListVC + Entension + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592792C0FA5B30074D220 /* CategoryListVC + Entension + TableView.swift */; };
+		5375927A2C0FA5B30074D220 /* CategoryListVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */; };
+		5375927C2C0FD8740074D220 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5375927B2C0FD8740074D220 /* UIAlertController.swift */; };
 		5379F9E02BCCBD32003C9023 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379F9DF2BCCBD32003C9023 /* FavoriteViewCell.swift */; };
 		538689862BC4D243000B79B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538689852BC4D243000B79B7 /* Assets.xcassets */; };
 		538689892BC4D243000B79B7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 538689882BC4D243000B79B7 /* Base */; };
@@ -50,10 +50,10 @@
 		530071812C0A8BCD00FB176F /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		530071832C0A974400FB176F /* QuizManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManager.swift; sourceTree = "<group>"; };
 		5338659A2C0E802200E362CB /* CalendarVC+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVC+Extensions.swift"; sourceTree = "<group>"; };
-		537592732C0FA3E10074D220 /* CategoryListVC + Entension + UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + Entension + UIAlertController.swift"; sourceTree = "<group>"; };
 		537592752C0FA3F60074D220 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		537592772C0FA4790074D220 /* CategoryListVC + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + Network.swift"; sourceTree = "<group>"; };
-		537592792C0FA5B30074D220 /* CategoryListVC + Entension + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + Entension + TableView.swift"; sourceTree = "<group>"; };
+		537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + TableView.swift"; sourceTree = "<group>"; };
+		5375927B2C0FD8740074D220 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		5379F9DF2BCCBD32003C9023 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		538689792BC4D242000B79B7 /* BestSellers Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BestSellers Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		538689852BC4D243000B79B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,8 +92,7 @@
 			children = (
 				5338659A2C0E802200E362CB /* CalendarVC+Extensions.swift */,
 				537592772C0FA4790074D220 /* CategoryListVC + Network.swift */,
-				537592732C0FA3E10074D220 /* CategoryListVC + Entension + UIAlertController.swift */,
-				537592792C0FA5B30074D220 /* CategoryListVC + Entension + TableView.swift */,
+				537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -102,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				537592752C0FA3F60074D220 /* ActivityIndicator.swift */,
+				5375927B2C0FD8740074D220 /* UIAlertController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -280,6 +280,7 @@
 				53868B8A2BC4FDCD000B79B7 /* SceneDelegate.swift in Sources */,
 				5300717C2C0A7CAD00FB176F /* List.swift in Sources */,
 				53868B842BC4FD9C000B79B7 /* TopBooksViewCell.swift in Sources */,
+				5375927C2C0FD8740074D220 /* UIAlertController.swift in Sources */,
 				5386C1132BC608D3005EF50F /* BestSellers_Explorer.xcdatamodeld in Sources */,
 				5386C1152BC608E7005EF50F /* CoreDataManager.swift in Sources */,
 				530071802C0A7D4100FB176F /* Isbn.swift in Sources */,
@@ -289,7 +290,6 @@
 				5338659B2C0E802200E362CB /* CalendarVC+Extensions.swift in Sources */,
 				53868B722BC4FD7D000B79B7 /* CategotyList.swift in Sources */,
 				530071762C0A7C2700FB176F /* Results.swift in Sources */,
-				537592742C0FA3E10074D220 /* CategoryListVC + Entension + UIAlertController.swift in Sources */,
 				5300717E2C0A7D1500FB176F /* BookDescription.swift in Sources */,
 				53868B822BC4FD9C000B79B7 /* CategoryListVC.swift in Sources */,
 				53868B862BC4FD9C000B79B7 /* TabBarViewController.swift in Sources */,
@@ -298,7 +298,7 @@
 				530071822C0A8BCD00FB176F /* CalendarVC.swift in Sources */,
 				530071782C0A7C5B00FB176F /* Book.swift in Sources */,
 				53868B732BC4FD7D000B79B7 /* BookReview.swift in Sources */,
-				5375927A2C0FA5B30074D220 /* CategoryListVC + Entension + TableView.swift in Sources */,
+				5375927A2C0FA5B30074D220 /* CategoryListVC + TableView.swift in Sources */,
 				5300717A2C0A7C8E00FB176F /* InfoList.swift in Sources */,
 				5379F9E02BCCBD32003C9023 /* FavoriteViewCell.swift in Sources */,
 				53868B772BC4FD8A000B79B7 /* NetworkManager.swift in Sources */,

@@ -12,6 +12,7 @@ class ActivityIndicator {
     static func start(in view: UIView, topAnchorConstant: CGFloat, size: UIActivityIndicatorView.Style = .medium ) -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(style: size)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
         
         NSLayoutConstraint.activate([

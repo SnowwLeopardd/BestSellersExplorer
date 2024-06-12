@@ -22,12 +22,11 @@ class CategoryListVC: UIViewController {
     private var currentQuestion = 0
     private var currentProgress: Float!
     
-    internal let alertController: UIAlertController
+    private var alertController: UIAlertController?
     internal var date: String
     
     init(with date: String) {
         questions = QuizManager.shared.getQuestions()
-        alertController = UIAlertController(title: "Loading", message: "\n", preferredStyle: .alert)
         self.date = date
         super.init(nibName: nil, bundle: nil)
     }
@@ -51,6 +50,16 @@ class CategoryListVC: UIViewController {
         setupNumberOfQuestionsLabel()
         setupProgreeView()
         setupQuestionLabel()
+    }
+    
+    private func showLoadingAlert() {
+        alertController = AlertController.showLoadingAlert(on: self)
+    }
+    
+    internal func stopLoadingAlert() {
+        if let alertController = alertController {
+            AlertController.dismissAlert(alert: alertController)
+        }
     }
     
     // MARK: - UIElements

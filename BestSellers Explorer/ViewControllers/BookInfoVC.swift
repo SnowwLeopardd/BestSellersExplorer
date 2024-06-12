@@ -144,21 +144,15 @@ class BookInfoVC: UIViewController {
     // TODO: - Update FavoritesVC after button is tapped.
     @objc private func setupAddToFavoriesLogic() {
         let isUnique = CoreDataManager.shared.isUnique(book.primaryIsbn13)
-        isUnique ? CoreDataManager.shared.create(book) : showErrorAlert()
-        
+        if isUnique {
+            CoreDataManager.shared.create(book)
+        } else {
+            AlertController.showErrorAlert(on: self, message: "This book has already been added to your favorites.")
+        }
     }
     
     @objc func setupExploreAgainLogic() {
         navigationController?.pushViewController(CalendarVC(), animated: true)
-    }
-    
-    private func showErrorAlert() {
-        let alert = UIAlertController(title: "Error", message: "This book has already been added to your favorites.", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .destructive)
-        
-        alert.addAction(okAction)
-        present(alert, animated: true)
     }
 }
 
