@@ -35,7 +35,6 @@ class CoreDataManager {
         if context.hasChanges {
             do {
                 try context.save()
-                NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -53,6 +52,7 @@ class CoreDataManager {
         favoriteBook.amazonProductUrl = book.amazonProductUrl
         favoriteBook.primaryIsbn13 = book.primaryIsbn13
         favoriteBook.imageUrl = book.bookImage
+        NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
         saveContext()
     }
     
