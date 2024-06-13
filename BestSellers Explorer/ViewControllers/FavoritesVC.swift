@@ -14,14 +14,17 @@ class FavoritesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
-        setupTableViewUI()
+        setupFavoritesVC()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .favoriteBooksUpdated, object: nil)
+    }
+    
+    private func setupFavoritesVC() {
         fetchData()
-        tableView.reloadData()
+        setupTableViewUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(favoriteBooksUpdated), name: .favoriteBooksUpdated, object: nil)
     }
     
     private func setupTableViewUI() {
@@ -40,6 +43,11 @@ class FavoritesVC: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
+    }
+    
+    @objc private func favoriteBooksUpdated() {
+        fetchData()
+        tableView.reloadData()
     }
 }
 

@@ -35,6 +35,7 @@ class CoreDataManager {
         if context.hasChanges {
             do {
                 try context.save()
+                NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")

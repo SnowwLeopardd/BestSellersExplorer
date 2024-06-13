@@ -41,7 +41,6 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedBook = favoritesBooks[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
