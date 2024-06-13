@@ -52,8 +52,8 @@ class CoreDataManager {
         favoriteBook.amazonProductUrl = book.amazonProductUrl
         favoriteBook.primaryIsbn13 = book.primaryIsbn13
         favoriteBook.imageUrl = book.bookImage
-        NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
         saveContext()
+        NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
     }
     
     func fetchData(completion: (Result<[FavoriteBook], Error>) -> Void) {
