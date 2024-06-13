@@ -41,6 +41,7 @@ class CalendarVC: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
+        navigationItem.hidesBackButton = true
         
         setupQuizUI()
         setupNumberOfQuestionsLabel()

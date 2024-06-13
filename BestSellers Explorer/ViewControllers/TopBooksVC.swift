@@ -120,7 +120,18 @@ extension TopBooksVC {
                         self?.setupCollectionView()
                     }
             case .failure(let error):
-                print(error.localizedDescription)
+                switch error {
+                case .quotaLimitExceeded:
+                    guard let self = self else { return }
+                    DispatchQueue.main.async {
+                        AlertController.showErrorAlert(on: self,
+                                                       title: "Quota limit exceeded",
+                                                       message: "NY Times API blocks too many inquiries. Please, wait 20 seconds")
+                    }
+                default:
+                    print(error.localizedDescription)
+                }
+
             }
         }
     }

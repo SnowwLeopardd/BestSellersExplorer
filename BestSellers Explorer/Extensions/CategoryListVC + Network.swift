@@ -19,7 +19,7 @@ extension CategoryListVC {
                 let sortedCategories = list.results.lists.sorted { $0.listName < $1.listName }
                 self?.sortedCategories = sortedCategories
                 DispatchQueue.main.async {
-                    self?.stopLoadingAlert()
+                    self?.activityIndocator?.stopAnimating()
                     self?.setupTableView()
                     self?.setQuizUI()
                 }
@@ -28,9 +28,10 @@ extension CategoryListVC {
                 case .quotaLimitExceeded:
                     print("Quota limit exceeded. Please try again later.")
                     DispatchQueue.main.async {
-                        self?.stopLoadingAlert()
-                        AlertController.showErrorAlert(on: self ?? UIViewController(),
-                                                       title: "Try again",
+                        self?.activityIndocator?.stopAnimating()
+                        guard let self = self else { return }
+                        AlertController.showErrorAlert(on: self,
+                                                       title: "Quota limit exceeded",
                                                        message: "Quota limit exceeded. Please try again later.")
                     }
                 default:

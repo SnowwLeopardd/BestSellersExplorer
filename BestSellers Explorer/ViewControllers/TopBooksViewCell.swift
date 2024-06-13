@@ -18,7 +18,6 @@ class TopBooksViewCell: UICollectionViewCell {
     func configure(with book: Book) {
         activityIndicator = ActivityIndicator.start(in: bookImageView, topAnchorConstant: (self.frame.height) / 2, size: .large)
         print(bookImageView.bounds.height)
-        activityIndicator?.startAnimating()
         fetchBookImage(from: book)
         
         self.addSubview(bookRankLabel)
@@ -119,6 +118,7 @@ extension TopBooksViewCell {
     private func fetchBookImage(from book: Book) {
         if let cacheImage = ImageCacheManager.shared.object(forKey: book.bookImage as NSString) {
             bookImageView.image = cacheImage
+            activityIndicator?.stopAnimating()
             return
         }
         

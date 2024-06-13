@@ -22,7 +22,7 @@ class CategoryListVC: UIViewController {
     private var currentQuestion = 0
     private var currentProgress: Float!
     
-    private var alertController: UIAlertController?
+    internal var activityIndocator: UIActivityIndicatorView?
     internal var date: String
     
     init(with date: String) {
@@ -42,24 +42,15 @@ class CategoryListVC: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
+        navigationItem.hidesBackButton = true
+        activityIndocator = ActivityIndicator.start(in: self.view, topAnchorConstant: 400, size: .large)
         
         print("This is \(date)")
         
-        showLoadingAlert()
         fetchCategoriesData()
         setupNumberOfQuestionsLabel()
         setupProgreeView()
         setupQuestionLabel()
-    }
-    
-    private func showLoadingAlert() {
-        alertController = AlertController.showLoadingAlert(on: self)
-    }
-    
-    internal func stopLoadingAlert() {
-        if let alertController = alertController {
-            AlertController.dismissAlert(alert: alertController)
-        }
     }
     
     // MARK: - UIElements
