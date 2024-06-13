@@ -6,7 +6,6 @@
 //
 import UIKit
 
-// FIXME: - add NSCacheManager
 // MARK: - FetchData
 extension TopBooksVC {
     internal func fetchTopBestSellers() {

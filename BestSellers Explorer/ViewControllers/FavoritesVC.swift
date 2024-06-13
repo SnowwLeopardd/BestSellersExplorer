@@ -9,8 +9,6 @@ import UIKit
 
 class FavoritesVC: UIViewController {
     
-    static let shared = FavoritesVC()
-    
     var favoritesBooks: [FavoriteBook]!
     
     let tableView = UITableView()

@@ -7,31 +7,35 @@
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class TabBarVC: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.delegate = self
-        setupVC()
-        setupTabBarUI()
+        setupTabBar()
     }
     
-    private func setupVC() {
+    private func setupTabBar() {
+        setupViewControllers()
+        setupTabBarAppearance()
+    }
+    
+    private func setupViewControllers() {
         let calendarVC = UINavigationController(rootViewController: CalendarVC())
         let favoritesVC = UINavigationController(rootViewController: FavoritesVC())
         
-        calendarVC.tabBarItem.title = "TopBooks"
-        calendarVC.tabBarItem.image = UIImage(systemName: "books.vertical")
-        
-        favoritesVC.tabBarItem.title = "Favorites"
-        favoritesVC.tabBarItem.image = UIImage(systemName: "star")
+        configureTabBarItem(for: calendarVC, withTitle: "TopBooks", andImage: UIImage(systemName: "books.vertical"))
+        configureTabBarItem(for: favoritesVC, withTitle: "Favorites", andImage: UIImage(systemName: "star"))
         
         setViewControllers([calendarVC, favoritesVC], animated: true)
-        
     }
-
-    private func setupTabBarUI() {
+    
+    private func configureTabBarItem(for viewController: UIViewController, withTitle title: String, andImage image: UIImage?) {
+        viewController.tabBarItem.title = title
+        viewController.tabBarItem.image = image
+    }
+    
+    private func setupTabBarAppearance() {
         let appearance = UITabBarAppearance()
         appearance.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         tabBar.standardAppearance = appearance
@@ -42,12 +46,3 @@ class TabBarViewController: UITabBarController {
     }
 }
 
-// MARK: - UITabBarControllerDelegate
-extension TabBarViewController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if let selectedViewController = tabBarController.selectedViewController, selectedViewController == viewController {
-            return false
-        }
-        return true
-    }
-}

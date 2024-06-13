@@ -152,7 +152,6 @@ class BookInfoVC: UIViewController {
     }
     
     // MARK: - ButtonsLogic
-    // TODO: - Update FavoritesVC after button is tapped.
     @objc private func setupAddToFavoriesLogic() {
         let isUnique = CoreDataManager.shared.isUnique(book.primaryIsbn13)
         if isUnique {
