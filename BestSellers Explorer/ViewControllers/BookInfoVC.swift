@@ -91,13 +91,11 @@ class BookInfoVC: UIViewController {
     private func setupBookDescription() {
         let noDescription = "API doesn't provide description for books in this category"
         bookDescription.text = book.description.isEmpty ? noDescription : book.description
-        
+        bookDescription.numberOfLines = 10
         
         view.addSubview(bookDescription)
         
         bookDescription.translatesAutoresizingMaskIntoConstraints = false
-        
-        bookDescription.numberOfLines = 10
         
         NSLayoutConstraint.activate([
             bookDescription.topAnchor.constraint(equalTo: authorLabel.bottomAnchor),
@@ -108,16 +106,14 @@ class BookInfoVC: UIViewController {
     
     
     private func setupAddToFavoritesUI() {
-        
-        view.addSubview(addTofavorites)
-        
-        addTofavorites.addTarget(self, action: #selector(setupAddToFavoriesLogic), for: .touchUpInside)
-        
         addTofavorites.setTitle("Add to Favorites", for: .normal)
         addTofavorites.backgroundColor = UIColor.blue
         addTofavorites.setTitleColor(UIColor.white, for: .normal)
         addTofavorites.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         addTofavorites.layer.cornerRadius = 10
+        addTofavorites.addTarget(self, action: #selector(setupAddToFavoriesLogic), for: .touchUpInside)
+        
+        view.addSubview(addTofavorites)
         
         addTofavorites.translatesAutoresizingMaskIntoConstraints = false
         
@@ -130,17 +126,15 @@ class BookInfoVC: UIViewController {
     }
     
     private func setupExploreAgainUI() {
-        
-        exploreAgain.addTarget(self, action: #selector(setupExploreAgainLogic), for: .touchUpInside)
-        
-        view.addSubview(exploreAgain)
-        
         exploreAgain.setTitle("Explore again", for: .normal)
         exploreAgain.backgroundColor = UIColor.blue
         exploreAgain.setTitleColor(UIColor.white, for: .normal)
         exploreAgain.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         exploreAgain.layer.cornerRadius = 10
+        exploreAgain.addTarget(self, action: #selector(setupExploreAgainLogic), for: .touchUpInside)
         
+        view.addSubview(exploreAgain)
+    
         exploreAgain.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -164,13 +158,5 @@ class BookInfoVC: UIViewController {
     
     @objc func setupExploreAgainLogic() {
         navigationController?.pushViewController(CalendarVC(), animated: true)
-    }
-}
-
-// MARK: - Networking
-extension BookInfoVC {
-    private func fetchBookImage(from book: Book) {
-        let chacheImage = ImageCacheManager.shared.object(forKey: book.bookImage as NSString)
-        bookImage.image = chacheImage
     }
 }

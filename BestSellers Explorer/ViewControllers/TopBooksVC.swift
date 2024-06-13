@@ -9,10 +9,11 @@ import UIKit
 
 class TopBooksVC: UIViewController {
     
-    internal var sortedBooks: [Book]!
     private let sortButton = UIBarButtonItem()
+    internal var sortedBooks: [Book] = []
     internal var selectedCategory: String
     internal var selectedDate: String
+    private var collectionView: UICollectionView?
     
     init(selectedCategory: String, selectedDate: String) {
         self.selectedCategory = selectedCategory
@@ -24,19 +25,7 @@ class TopBooksVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     // MARK: - UI Components
-   private var collectionView: UICollectionView = {
-       let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = .init(width: 190, height: 400)
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .systemBackground
-        collectionView.register(TopBooksViewCell.self, forCellWithReuseIdentifier: "TopBestSellersViewCell")
-        return collectionView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -49,6 +38,14 @@ class TopBooksVC: UIViewController {
     }
     
     internal func setupCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: 190, height: 400)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.register(TopBooksViewCell.self, forCellWithReuseIdentifier: "TopBestSellersViewCell")
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -74,9 +71,9 @@ class TopBooksVC: UIViewController {
     
     @objc func sortButtonPressed() {
         let isAscending = sortButton.title == "Sort By: ↓"
-        sortedBooks?.sort { isAscending ? $0.rank < $1.rank : $0.rank > $1.rank }
+        sortedBooks.sort { isAscending ? $0.rank < $1.rank : $0.rank > $1.rank }
         sortButton.title = isAscending ? "Sort By: ↑": "Sort By: ↓"
-        collectionView.reloadData()
+        collectionView?.reloadData()
     }
 }
 

@@ -8,10 +8,6 @@
 import UIKit
 
 class CategoryListVC: UIViewController {
-    
-    private var categoryList: CategotyList!
-    internal var sortedCategories: [List]!
-    
     private let tableView = UITableView()
     
     private var numberOfQuestionLabel = UILabel()
@@ -22,6 +18,7 @@ class CategoryListVC: UIViewController {
     private var currentQuestion = 0
     private var currentProgress: Float!
     
+    internal var sortedCategories: [List] = []
     internal var activityIndocator: UIActivityIndicatorView?
     internal var date: String
     
@@ -43,10 +40,9 @@ class CategoryListVC: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         navigationItem.hidesBackButton = true
-        activityIndocator = ActivityIndicator.start(in: self.view, topAnchorConstant: 400, size: .large)
-        
-        print("This is \(date)")
-        
+        activityIndocator = ActivityIndicator.start(in: self.view, 
+                                                    topAnchorConstant: 400,
+                                                    size: .large)
         fetchCategoriesData()
         setupNumberOfQuestionsLabel()
         setupProgreeView()

@@ -20,6 +20,9 @@
 		532D2DE92C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D2DE82C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift */; };
 		532D2DEB2C1AB7A40047DD91 /* TabBarVC + Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D2DEA2C1AB7A40047DD91 /* TabBarVC + Delegate.swift */; };
 		5338659B2C0E802200E362CB /* CalendarVC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5338659A2C0E802200E362CB /* CalendarVC+Extensions.swift */; };
+		5368EB742C1B7F810096BF28 /* BookInfoVC + NSCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB732C1B7F810096BF28 /* BookInfoVC + NSCache.swift */; };
+		5368EB762C1B80060096BF28 /* FavoritesVC + CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB752C1B80060096BF28 /* FavoritesVC + CoreData.swift */; };
+		5368EB782C1B81250096BF28 /* FavoriteVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB772C1B81250096BF28 /* FavoriteVC + TableView.swift */; };
 		537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592752C0FA3F60074D220 /* ActivityIndicator.swift */; };
 		537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592772C0FA4790074D220 /* CategoryListVC + Network.swift */; };
 		5375927A2C0FA5B30074D220 /* CategoryListVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */; };
@@ -58,6 +61,9 @@
 		532D2DE82C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopBooksViewCell + Network.swift"; sourceTree = "<group>"; };
 		532D2DEA2C1AB7A40047DD91 /* TabBarVC + Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarVC + Delegate.swift"; sourceTree = "<group>"; };
 		5338659A2C0E802200E362CB /* CalendarVC+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVC+Extensions.swift"; sourceTree = "<group>"; };
+		5368EB732C1B7F810096BF28 /* BookInfoVC + NSCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookInfoVC + NSCache.swift"; sourceTree = "<group>"; };
+		5368EB752C1B80060096BF28 /* FavoritesVC + CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesVC + CoreData.swift"; sourceTree = "<group>"; };
+		5368EB772C1B81250096BF28 /* FavoriteVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteVC + TableView.swift"; sourceTree = "<group>"; };
 		537592752C0FA3F60074D220 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		537592772C0FA4790074D220 /* CategoryListVC + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + Network.swift"; sourceTree = "<group>"; };
 		537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + TableView.swift"; sourceTree = "<group>"; };
@@ -105,6 +111,9 @@
 				532D2DE42C1AAED60047DD91 /* TopBooksVC+Network.swift */,
 				532D2DE62C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift */,
 				532D2DE82C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift */,
+				5368EB732C1B7F810096BF28 /* BookInfoVC + NSCache.swift */,
+				5368EB752C1B80060096BF28 /* FavoritesVC + CoreData.swift */,
+				5368EB772C1B81250096BF28 /* FavoriteVC + TableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +298,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				532D2DE72C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift in Sources */,
+				5368EB762C1B80060096BF28 /* FavoritesVC + CoreData.swift in Sources */,
+				5368EB782C1B81250096BF28 /* FavoriteVC + TableView.swift in Sources */,
 				53868B832BC4FD9C000B79B7 /* FavoritesVC.swift in Sources */,
 				53868B8A2BC4FDCD000B79B7 /* SceneDelegate.swift in Sources */,
 				5300717C2C0A7CAD00FB176F /* List.swift in Sources */,
@@ -307,6 +318,7 @@
 				5300717E2C0A7D1500FB176F /* BookDescription.swift in Sources */,
 				532D2DEB2C1AB7A40047DD91 /* TabBarVC + Delegate.swift in Sources */,
 				53868B822BC4FD9C000B79B7 /* CategoryListVC.swift in Sources */,
+				5368EB742C1B7F810096BF28 /* BookInfoVC + NSCache.swift in Sources */,
 				53868B862BC4FD9C000B79B7 /* TabBarVC.swift in Sources */,
 				537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */,
 				53868B792BC4FD8A000B79B7 /* ImageCacheManager.swift in Sources */,
