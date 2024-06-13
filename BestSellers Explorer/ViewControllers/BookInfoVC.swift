@@ -9,7 +9,7 @@ import UIKit
 
 class BookInfoVC: UIViewController {
     
-    var book: Book!
+    var book: Book
     
     let bookImage = UIImageView()
     
@@ -20,9 +20,22 @@ class BookInfoVC: UIViewController {
     let exploreAgain = UIButton()
     let addTofavorites = UIButton()
     
+    init(book: Book) {
+        self.book = book
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    private func setupUI() {
+        view.backgroundColor = .white
         fetchBookImage(from: book)
         setupBookImage()
         setupBookName()
@@ -30,8 +43,6 @@ class BookInfoVC: UIViewController {
         setupBookDescription()
         setupAddToFavoritesUI()
         setupExploreAgainUI()
-        
-        view.backgroundColor = .white
     }
     
     // MARK: - SetupUI
@@ -147,7 +158,8 @@ class BookInfoVC: UIViewController {
         if isUnique {
             CoreDataManager.shared.create(book)
         } else {
-            AlertController.showErrorAlert(on: self, message: "This book has already been added to your favorites.")
+            AlertController.showErrorAlert(on: self, 
+                                           message: "This book has already been added to your favorites.")
         }
     }
     

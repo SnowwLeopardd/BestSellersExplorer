@@ -33,7 +33,6 @@ struct AlertController {
                 restartAction.isEnabled = true
             }
         }
-        
         viewController.present(alert, animated: true)
     }
 

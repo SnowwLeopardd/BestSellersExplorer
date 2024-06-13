@@ -9,15 +9,16 @@ import UIKit
 
 class TopBooksViewCell: UICollectionViewCell {
     
-     private let bookImageView = UIImageView()
-     private var activityIndicator: UIActivityIndicatorView?
+     internal let bookImageView = UIImageView()
+     internal var activityIndicator: UIActivityIndicatorView?
      private let bookAuthorLabel = UILabel()
      private let bookTitleLabel = UILabel()
      private let bookRankLabel = UILabel()
     
     func configure(with book: Book) {
-        activityIndicator = ActivityIndicator.start(in: bookImageView, topAnchorConstant: (self.frame.height) / 2, size: .large)
-        print(bookImageView.bounds.height)
+        activityIndicator = ActivityIndicator.start(in: bookImageView, 
+                                                    topAnchorConstant: (self.frame.height) / 2,
+                                                    size: .large)
         fetchBookImage(from: book)
         
         self.addSubview(bookRankLabel)
@@ -40,12 +41,7 @@ class TopBooksViewCell: UICollectionViewCell {
         bookImageView.image = nil
     }
     
-    // MARK: - Configure subViews
-//    private func configureActivityIndicator() {
-//        activityIndicator.style = .large
-//        activityIndicator.startAnimating()
-//    }
-    
+    // MARK: - Configure subViews    
     private func configureBookImageView() {
         bookImageView.backgroundColor = .white
     }
@@ -110,28 +106,6 @@ class TopBooksViewCell: UICollectionViewCell {
             bookAuthorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
-    
 }
 
-// MARK: - Networking
-extension TopBooksViewCell {
-    private func fetchBookImage(from book: Book) {
-        if let cacheImage = ImageCacheManager.shared.object(forKey: book.bookImage as NSString) {
-            bookImageView.image = cacheImage
-            activityIndicator?.stopAnimating()
-            return
-        }
-        
-        NetworkManager.shared.fetchImage(from: book.bookImage) { [weak self] result in
-            switch result {
-            case .success(let bookImage):
-                guard let bookImage = UIImage(data: bookImage) else { return }
-                self?.bookImageView.image = bookImage
-                ImageCacheManager.shared.setObject(bookImage, forKey: book.bookImage as NSString)
-                self?.activityIndicator?.stopAnimating()
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-}
+
