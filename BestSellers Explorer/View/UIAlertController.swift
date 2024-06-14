@@ -14,7 +14,7 @@ struct AlertController {
         
         let okAction = UIAlertAction(title: "OK", style: .destructive)
         
-        let restartAction = UIAlertAction(title: "Restart", style: .cancel) {_ in
+        let restartAction = UIAlertAction(title: "Wait for timer", style: .cancel) {_ in
             viewController.navigationController?.pushViewController(CalendarVC(), animated: true)
         }
         restartAction.isEnabled = false

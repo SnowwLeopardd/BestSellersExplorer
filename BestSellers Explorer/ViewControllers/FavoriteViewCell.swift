@@ -30,7 +30,6 @@ class FavoriteViewCell: UITableViewCell {
         setupActivityIndicatorConstrains()
         setupBookTitleConstrains()
         setupBookAuthorConstrains()
-        print("init worked")
     }
 
     required init?(coder aDecoder: NSCoder) {

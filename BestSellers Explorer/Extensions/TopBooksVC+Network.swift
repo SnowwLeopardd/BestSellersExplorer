@@ -10,7 +10,6 @@ import UIKit
 extension TopBooksVC {
     internal func fetchTopBestSellers() {
         let topBooksURL = Link.topBooksList(date: selectedDate, category: selectedCategory).url
-        print(topBooksURL)
         NetworkManager.shared.fetch(TopBooksList.self, from: topBooksURL) { [weak self] result in
             switch result {
             case .success(let bestSellersList):
@@ -31,7 +30,6 @@ extension TopBooksVC {
                 default:
                     print(error.localizedDescription)
                 }
-
             }
         }
     }

@@ -11,7 +11,6 @@ import UIKit
 extension CategoryListVC {
     internal func fetchCategoriesData() {
         let fullOverviewURL = Link.fullOverview(date: date).url
-        print(fullOverviewURL)
         NetworkManager.shared.fetch(CategotyList.self, from: fullOverviewURL) { [weak self] result in
             switch result {
             case .success(let list):
@@ -31,7 +30,7 @@ extension CategoryListVC {
                         guard let self = self else { return }
                         AlertController.showErrorAlert(on: self,
                                                        title: "Quota limit exceeded",
-                                                       message: "Quota limit exceeded. Please try again later.")
+                                                       message: "NY Times API blocks too many inquiries. Please, wait 20 seconds.")
                     }
                 default:
                     print("Error fetching data: \(error.localizedDescription)")
