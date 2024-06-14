@@ -77,7 +77,7 @@ class NetworkManager {
             return
         }
 
-        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+        URLSession.shared.dataTask(with: url) { data, _, _ in
             guard let data = data else {
                 completion(.failure(.noData))
                 return
@@ -85,7 +85,6 @@ class NetworkManager {
             DispatchQueue.main.async {
                 completion(.success(data))
             }
-        }
-        task.resume()
+        }.resume()
     }
 }

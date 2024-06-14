@@ -10,8 +10,10 @@ import UIKit
 extension TopBooksViewCell {
     internal func fetchBookImage(from book: Book) {
         if let cacheImage = ImageCacheManager.shared.object(forKey: book.bookImage as NSString) {
-            bookImageView.image = cacheImage
-            activityIndicator?.stopAnimating()
+            DispatchQueue.main.async {
+                self.bookImageView.image = cacheImage
+                self.activityIndicator?.stopAnimating()
+            }
             return
         }
         
@@ -19,9 +21,11 @@ extension TopBooksViewCell {
             switch result {
             case .success(let bookImage):
                 guard let bookImage = UIImage(data: bookImage) else { return }
-                self?.bookImageView.image = bookImage
+                DispatchQueue.main.async {
+                    self?.bookImageView.image = bookImage
+                    self?.activityIndicator?.stopAnimating()
+                }
                 ImageCacheManager.shared.setObject(bookImage, forKey: book.bookImage as NSString)
-                self?.activityIndicator?.stopAnimating()
             case .failure(let error):
                 print(error.localizedDescription)
             }

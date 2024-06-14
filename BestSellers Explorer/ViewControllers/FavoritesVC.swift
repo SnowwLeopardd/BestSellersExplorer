@@ -50,5 +50,3 @@ class FavoritesVC: UIViewController {
         tableView.reloadData()
     }
 }
-
-
