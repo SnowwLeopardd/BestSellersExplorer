@@ -14,15 +14,21 @@ enum NetworkError: Error {
     case quotaLimitExceeded
 }
 
-enum Link: String {
-    case NYTimesApiKey = ".json?api-key=AkNsiAR3NZkyJqlUX98Xh4ExBrFX42Al"
+enum Link {
+    case topBooksList(date: String, category: String)
+    case fullOverview(date: String)
+    case bookReview
     
-    //https://api.nytimes.com/svc/books/v3/lists/{date}/{list}
-    case TopBooksList = "https://api.nytimes.com/svc/books/v3/lists/"
-    
-    case fullOverview = "https://api.nytimes.com/svc/books/v3/lists/full-overview/"
-    
-    case bookReview = "https://api.nytimes.com/svc/books/v3/reviews/"
+    var url: String {
+        switch self {
+        case .topBooksList(let date, let category):
+            return "https://api.nytimes.com/svc/books/v3/lists/\(date)/\(category).json?api-key=AkNsiAR3NZkyJqlUX98Xh4ExBrFX42Al"
+        case .fullOverview(let date):
+            return "https://api.nytimes.com/svc/books/v3/lists/full-overview/\(date).json?api-key=AkNsiAR3NZkyJqlUX98Xh4ExBrFX42Al"
+        case .bookReview:
+            return  "https://api.nytimes.com/svc/books/v3/reviews.json?api-key=AkNsiAR3NZkyJqlUX98Xh4ExBrFX42Al"
+        }
+    }
 }
 
 class NetworkManager {

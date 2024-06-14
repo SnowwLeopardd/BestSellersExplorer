@@ -9,11 +9,9 @@ import UIKit
 // MARK: - FetchData
 extension TopBooksVC {
     internal func fetchTopBestSellers() {
-        print(selectedCategory)
-        print(selectedDate)
-        let url = Link.TopBooksList.rawValue + selectedDate + "/" + selectedCategory + Link.NYTimesApiKey.rawValue
-        print(url)
-        NetworkManager.shared.fetch(TopBooksList.self, from: url) { [weak self] result in
+        let topBooksURL = Link.topBooksList(date: selectedDate, category: selectedCategory).url
+        print(topBooksURL)
+        NetworkManager.shared.fetch(TopBooksList.self, from: topBooksURL) { [weak self] result in
             switch result {
             case .success(let bestSellersList):
                 let sortedBooks = bestSellersList.results.books.sorted { $0.rank < $1.rank }

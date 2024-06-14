@@ -10,10 +10,9 @@ import UIKit
 // MARK: - Networking
 extension CategoryListVC {
     internal func fetchCategoriesData() {
-        print("This is date 2 \(date)")
-        let url = Link.fullOverview.rawValue + date + "/" + Link.NYTimesApiKey.rawValue
-        print(url)
-        NetworkManager.shared.fetch(CategotyList.self, from: url) { [weak self] result in
+        let fullOverviewURL = Link.fullOverview(date: date).url
+        print(fullOverviewURL)
+        NetworkManager.shared.fetch(CategotyList.self, from: fullOverviewURL) { [weak self] result in
             switch result {
             case .success(let list):
                 let sortedCategories = list.results.lists.sorted { $0.listName < $1.listName }
