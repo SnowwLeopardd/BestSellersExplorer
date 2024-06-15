@@ -9,16 +9,18 @@ import UIKit
 
 class BookInfoVC: UIViewController {
     
-    var book: Book
+    private var book: Book
     
-    let bookImage = UIImageView()
+    private let bookImage = UIImageView()
     
-    let bookName = UILabel()
-    let authorLabel = UILabel()
-    let bookDescription = UILabel()
+    internal let bookName = UILabel()
+    private let authorLabel = UILabel()
+    private let bookDescription = UILabel()
     
-    let exploreAgain = UIButton()
-    let addTofavorites = UIButton()
+    private let exploreAgain = UIButton()
+    private let addTofavorites = UIButton()
+    
+    private let coreDataManager: CoreDataManagerProtocol = CoreDataManager()
     
     init(book: Book) {
         self.book = book
@@ -147,9 +149,9 @@ class BookInfoVC: UIViewController {
     
     // MARK: - ButtonsLogic
     @objc private func setupAddToFavoriesLogic() {
-        let isUnique = CoreDataManager.shared.isUnique(book.primaryIsbn13)
+        let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
         if isUnique {
-            CoreDataManager.shared.create(book)
+            coreDataManager.create(book)
         } else {
             AlertController.showErrorAlert(on: self, 
                                            message: "This book has already been added to your favorites.")

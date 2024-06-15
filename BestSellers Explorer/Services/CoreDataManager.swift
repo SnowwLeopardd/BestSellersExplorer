@@ -7,9 +7,7 @@
 
 import CoreData
 
-class CoreDataManager {
-    
-    static let shared = CoreDataManager()
+class CoreDataManager: CoreDataManagerProtocol {
     
     // MARK: - CoreData stack
     private var persistentContainer: NSPersistentContainer = {
@@ -24,12 +22,12 @@ class CoreDataManager {
     
     private let context: NSManagedObjectContext
     
-    private init() {
+    init() {
         context = persistentContainer.viewContext
     }
     
     // MARK: - Core Data saving support
-    func saveContext() {
+    private func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -42,7 +40,7 @@ class CoreDataManager {
     }
     
     // MARK: - CRUD operators
-    func create(_ book: Book) {
+    internal func create(_ book: Book) {
         let favoriteBook = FavoriteBook(context: context)
         
         favoriteBook.title = book.title
@@ -55,7 +53,7 @@ class CoreDataManager {
         NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
     }
     
-    func fetchData(completion: (Result<[FavoriteBook], Error>) -> Void) {
+    internal func fetchData(completion: (Result<[FavoriteBook], Error>) -> Void) {
         let fetchRequest = FavoriteBook.fetchRequest()
         
         do {
@@ -66,12 +64,12 @@ class CoreDataManager {
         }
     }
     
-    func delete(_ favoriteBook: FavoriteBook) {
+    internal func delete(_ favoriteBook: FavoriteBook) {
         context.delete(favoriteBook)
         saveContext()
     }
     
-    func isUnique(_ primaryIsbn13: String) -> Bool {
+    internal func isUnique(_ primaryIsbn13: String) -> Bool {
         let fetchRequest = FavoriteBook.fetchRequest()
         
         fetchRequest.predicate = NSPredicate(format: "(primaryIsbn13 = %@)", primaryIsbn13)
