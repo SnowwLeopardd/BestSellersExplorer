@@ -6,7 +6,6 @@
 //
 
 import CoreData
-import UIKit
 
 class CoreDataManager {
     
@@ -86,6 +85,5 @@ class CoreDataManager {
         }
         
         return similarbooks.isEmpty
-    
     }
 }

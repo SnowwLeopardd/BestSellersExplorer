@@ -23,6 +23,8 @@
 		5368EB762C1B80060096BF28 /* FavoritesVC + CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB752C1B80060096BF28 /* FavoritesVC + CoreData.swift */; };
 		5368EB782C1B81250096BF28 /* FavoriteVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB772C1B81250096BF28 /* FavoriteVC + TableView.swift */; };
 		5368EB7A2C1B8D740096BF28 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB792C1B8D740096BF28 /* Notifications.swift */; };
+		5368EB8B2C1D22F60096BF28 /* CalendarVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */; };
+		5368EB8D2C1D30FB0096BF28 /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB8C2C1D30FB0096BF28 /* CoreDataManagerTest.swift */; };
 		537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592752C0FA3F60074D220 /* ActivityIndicator.swift */; };
 		537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592772C0FA4790074D220 /* CategoryListVC + Network.swift */; };
 		5375927A2C0FA5B30074D220 /* CategoryListVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */; };
@@ -47,6 +49,16 @@
 		5386C1152BC608E7005EF50F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386C1142BC608E7005EF50F /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5368EB852C1D228C0096BF28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 538689712BC4D242000B79B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 538689782BC4D242000B79B7;
+			remoteInfo = "BestSellers Explorer";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		530071752C0A7C2700FB176F /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		530071772C0A7C5B00FB176F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -64,6 +76,9 @@
 		5368EB752C1B80060096BF28 /* FavoritesVC + CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesVC + CoreData.swift"; sourceTree = "<group>"; };
 		5368EB772C1B81250096BF28 /* FavoriteVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteVC + TableView.swift"; sourceTree = "<group>"; };
 		5368EB792C1B8D740096BF28 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		5368EB812C1D228C0096BF28 /* BestSellers ExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BestSellers ExplorerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVCTest.swift; sourceTree = "<group>"; };
+		5368EB8C2C1D30FB0096BF28 /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
 		537592752C0FA3F60074D220 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		537592772C0FA4790074D220 /* CategoryListVC + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + Network.swift"; sourceTree = "<group>"; };
 		537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + TableView.swift"; sourceTree = "<group>"; };
@@ -91,6 +106,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5368EB7E2C1D228C0096BF28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		538689762BC4D242000B79B7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -118,6 +140,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		5368EB822C1D228C0096BF28 /* BestSellers ExplorerTests */ = {
+			isa = PBXGroup;
+			children = (
+				5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */,
+				5368EB8C2C1D30FB0096BF28 /* CoreDataManagerTest.swift */,
+			);
+			path = "BestSellers ExplorerTests";
+			sourceTree = "<group>";
+		};
 		537592722C0FA3C40074D220 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				5386897B2BC4D242000B79B7 /* BestSellers Explorer */,
+				5368EB822C1D228C0096BF28 /* BestSellers ExplorerTests */,
 				5386897A2BC4D242000B79B7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -139,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				538689792BC4D242000B79B7 /* BestSellers Explorer.app */,
+				5368EB812C1D228C0096BF28 /* BestSellers ExplorerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -230,6 +263,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5368EB802C1D228C0096BF28 /* BestSellers ExplorerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5368EB872C1D228C0096BF28 /* Build configuration list for PBXNativeTarget "BestSellers ExplorerTests" */;
+			buildPhases = (
+				5368EB7D2C1D228C0096BF28 /* Sources */,
+				5368EB7E2C1D228C0096BF28 /* Frameworks */,
+				5368EB7F2C1D228C0096BF28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5368EB862C1D228C0096BF28 /* PBXTargetDependency */,
+			);
+			name = "BestSellers ExplorerTests";
+			productName = "BestSellers ExplorerTests";
+			productReference = 5368EB812C1D228C0096BF28 /* BestSellers ExplorerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		538689782BC4D242000B79B7 /* BestSellers Explorer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5386898D2BC4D243000B79B7 /* Build configuration list for PBXNativeTarget "BestSellers Explorer" */;
@@ -254,9 +305,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					5368EB802C1D228C0096BF28 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 538689782BC4D242000B79B7;
+					};
 					538689782BC4D242000B79B7 = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -276,11 +331,19 @@
 			projectRoot = "";
 			targets = (
 				538689782BC4D242000B79B7 /* BestSellers Explorer */,
+				5368EB802C1D228C0096BF28 /* BestSellers ExplorerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5368EB7F2C1D228C0096BF28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		538689772BC4D242000B79B7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +356,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5368EB7D2C1D228C0096BF28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5368EB8D2C1D30FB0096BF28 /* CoreDataManagerTest.swift in Sources */,
+				5368EB8B2C1D22F60096BF28 /* CalendarVCTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		538689752BC4D242000B79B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -338,6 +410,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5368EB862C1D228C0096BF28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 538689782BC4D242000B79B7 /* BestSellers Explorer */;
+			targetProxy = 5368EB852C1D228C0096BF28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		538689872BC4D243000B79B7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -350,6 +430,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5368EB882C1D228C0096BF28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "AlexBochkarev.BestSellers-ExplorerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BestSellers Explorer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BestSellers Explorer";
+			};
+			name = Debug;
+		};
+		5368EB892C1D228C0096BF28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "AlexBochkarev.BestSellers-ExplorerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BestSellers Explorer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BestSellers Explorer";
+			};
+			name = Release;
+		};
 		5386898B2BC4D243000B79B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -402,7 +518,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -450,6 +566,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -459,7 +576,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -532,6 +649,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5368EB872C1D228C0096BF28 /* Build configuration list for PBXNativeTarget "BestSellers ExplorerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5368EB882C1D228C0096BF28 /* Debug */,
+				5368EB892C1D228C0096BF28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		538689742BC4D242000B79B7 /* Build configuration list for PBXProject "BestSellers Explorer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

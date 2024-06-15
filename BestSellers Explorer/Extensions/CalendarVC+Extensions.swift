@@ -14,12 +14,11 @@ extension CalendarVC: UICalendarSelectionSingleDateDelegate {
         navigationController?.pushViewController(categoryListVC, animated: false)
     }
     
-    private func dateToString(_ dateComponents: DateComponents?) -> String {
+    internal func dateToString(_ dateComponents: DateComponents?) -> String {
         guard let dateComponents = dateComponents,
               let year = dateComponents.year,
               let month = dateComponents.month,
               let day = dateComponents.day else { return "no date" }
-        
         return String(format: "%04d-%02d-%02d", year, month, day)
     }
 }
