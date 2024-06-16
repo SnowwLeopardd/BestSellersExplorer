@@ -6,5 +6,10 @@
 //
 
 struct InfoList: Decodable {
+//    let bestsellersDate: String
+//    let publishedDate: String
+//    let publishedDateDescription: String
+//    let previousPublishedDate: String
+//    let nextPublishedDate: String
     let lists: [List]
 }

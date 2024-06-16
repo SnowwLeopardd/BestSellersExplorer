@@ -8,4 +8,8 @@
 struct List: Decodable {
     let listId: Int
     let listName: String
+//    let listNameEncoded: String
+//    let displayName: String
+//    let updated: String
+//    let books: [BookReview]
 }
