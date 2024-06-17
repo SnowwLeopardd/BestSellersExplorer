@@ -45,10 +45,10 @@ class CoreDataManager {
     func create(_ book: Book) {
         let favoriteBook = FavoriteBook(context: context)
         
+        favoriteBook.rank = Int32(book.rank)
         favoriteBook.title = book.title
         favoriteBook.author = book.author
         favoriteBook.about = book.description
-        favoriteBook.amazonProductUrl = book.amazonProductUrl
         favoriteBook.primaryIsbn13 = book.primaryIsbn13
         favoriteBook.imageUrl = book.bookImage
         saveContext()
