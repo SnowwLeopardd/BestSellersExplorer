@@ -9,7 +9,7 @@ import Foundation
 
 extension FavoritesVC {
     internal func fetchData() {
-        coreDataManager.fetchData { result in
+        CoreDataManager.shared.fetchData { result in
             switch result {
             case .success(let favoritesBooks):
                 self.favoritesBooks = favoritesBooks

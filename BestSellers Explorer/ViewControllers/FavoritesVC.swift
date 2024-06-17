@@ -9,10 +9,8 @@ import UIKit
 
 class FavoritesVC: UIViewController {
     
-    internal var favoritesBooks: [FavoriteBook] = []
-    private let tableView = UITableView()
-    
-    internal let coreDataManager: CoreDataManagerProtocol = CoreDataManager()
+    var favoritesBooks: [FavoriteBook] = []
+    let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()

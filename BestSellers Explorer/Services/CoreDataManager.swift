@@ -7,7 +7,9 @@
 
 import CoreData
 
-class CoreDataManager: CoreDataManagerProtocol {
+class CoreDataManager {
+    
+    static let shared = CoreDataManager()
     
     // MARK: - CoreData stack
     private var persistentContainer: NSPersistentContainer = {
@@ -22,12 +24,12 @@ class CoreDataManager: CoreDataManagerProtocol {
     
     private let context: NSManagedObjectContext
     
-    init() {
+    private init() {
         context = persistentContainer.viewContext
     }
     
     // MARK: - Core Data saving support
-    private func saveContext() {
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -40,7 +42,7 @@ class CoreDataManager: CoreDataManagerProtocol {
     }
     
     // MARK: - CRUD operators
-    internal func create(_ book: Book) {
+    func create(_ book: Book) {
         let favoriteBook = FavoriteBook(context: context)
         
         favoriteBook.title = book.title
@@ -53,7 +55,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
     }
     
-    internal func fetchData(completion: (Result<[FavoriteBook], Error>) -> Void) {
+    func fetchData(completion: (Result<[FavoriteBook], Error>) -> Void) {
         let fetchRequest = FavoriteBook.fetchRequest()
         
         do {
@@ -64,12 +66,12 @@ class CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
-    internal func delete(_ favoriteBook: FavoriteBook) {
+    func delete(_ favoriteBook: FavoriteBook) {
         context.delete(favoriteBook)
         saveContext()
     }
     
-    internal func isUnique(_ primaryIsbn13: String) -> Bool {
+    func isUnique(_ primaryIsbn13: String) -> Bool {
         let fetchRequest = FavoriteBook.fetchRequest()
         
         fetchRequest.predicate = NSPredicate(format: "(primaryIsbn13 = %@)", primaryIsbn13)
