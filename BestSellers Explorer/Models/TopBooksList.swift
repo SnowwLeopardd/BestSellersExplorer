@@ -6,10 +6,6 @@
 //
 
 struct TopBooksList: Decodable {
-//    let status: String
-//    let copyright: String
-//    let numResults: Int
-//    let lastModified: String
     let results: Results
 }
 
