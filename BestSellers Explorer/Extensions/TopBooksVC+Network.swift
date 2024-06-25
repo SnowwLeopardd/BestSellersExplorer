@@ -15,20 +15,20 @@ extension TopBooksVC {
             case .success(let bestSellersList):
                 let sortedBooks = bestSellersList.results.books.sorted { $0.rank < $1.rank }
                 self?.sortedBooks = sortedBooks
-                    DispatchQueue.main.async {
-                        self?.setupCollectionView()
-                    }
+                DispatchQueue.main.async {
+                    self?.setupCollectionView()
+                }
             case .failure(let error):
-                switch error {
-                case .quotaLimitExceeded:
-                    guard let self = self else { return }
-                    DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    switch error {
+                    case .quotaLimitExceeded:
+                        guard let self = self else { return }
                         AlertController.showErrorAlert(on: self,
                                                        title: "Quota limit exceeded",
                                                        message: "NY Times API blocks too many inquiries. Please, wait 20 seconds")
+                    default:
+                        print(error.localizedDescription)
                     }
-                default:
-                    print(error.localizedDescription)
                 }
             }
         }
