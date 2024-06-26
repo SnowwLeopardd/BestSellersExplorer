@@ -24,8 +24,9 @@
 		5368EB782C1B81250096BF28 /* FavoriteVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB772C1B81250096BF28 /* FavoriteVC + TableView.swift */; };
 		5368EB7A2C1B8D740096BF28 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB792C1B8D740096BF28 /* Notifications.swift */; };
 		5368EB8B2C1D22F60096BF28 /* CalendarVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */; };
-		5368EB8D2C1D30FB0096BF28 /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB8C2C1D30FB0096BF28 /* CoreDataManagerTest.swift */; };
 		53697D8C2C2BAB04003F5592 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */; };
+		53697D8E2C2BB876003F5592 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697D8D2C2BB876003F5592 /* MockNetworkManager.swift */; };
+		53697D902C2BBD55003F5592 /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697D8F2C2BBD55003F5592 /* NetworkManagerTest.swift */; };
 		537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592752C0FA3F60074D220 /* ActivityIndicator.swift */; };
 		537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592772C0FA4790074D220 /* CategoryListVC + Network.swift */; };
 		5375927A2C0FA5B30074D220 /* CategoryListVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */; };
@@ -79,8 +80,9 @@
 		5368EB792C1B8D740096BF28 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		5368EB812C1D228C0096BF28 /* BestSellers ExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BestSellers ExplorerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVCTest.swift; sourceTree = "<group>"; };
-		5368EB8C2C1D30FB0096BF28 /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
 		53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
+		53697D8D2C2BB876003F5592 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		53697D8F2C2BBD55003F5592 /* NetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
 		537592752C0FA3F60074D220 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		537592772C0FA4790074D220 /* CategoryListVC + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + Network.swift"; sourceTree = "<group>"; };
 		537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + TableView.swift"; sourceTree = "<group>"; };
@@ -146,7 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */,
-				5368EB8C2C1D30FB0096BF28 /* CoreDataManagerTest.swift */,
+				53697D8F2C2BBD55003F5592 /* NetworkManagerTest.swift */,
+				53697D8D2C2BB876003F5592 /* MockNetworkManager.swift */,
 			);
 			path = "BestSellers ExplorerTests";
 			sourceTree = "<group>";
@@ -371,7 +374,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5368EB8D2C1D30FB0096BF28 /* CoreDataManagerTest.swift in Sources */,
+				53697D902C2BBD55003F5592 /* NetworkManagerTest.swift in Sources */,
+				53697D8E2C2BB876003F5592 /* MockNetworkManager.swift in Sources */,
 				5368EB8B2C1D22F60096BF28 /* CalendarVCTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

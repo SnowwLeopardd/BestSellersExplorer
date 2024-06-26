@@ -12,8 +12,8 @@ final class CalendarVCTest: XCTestCase {
 
     func testSucessfulDateConvertion() {
         // Given (Arrange)
-        let date = DateComponents(year: 2024, month: 06, day: 14)
         let calendarVC = CalendarVC()
+        let date = DateComponents(year: 2024, month: 06, day: 14)
         
         // When (Act)
         let convertedDate = calendarVC.dateToString(date)
