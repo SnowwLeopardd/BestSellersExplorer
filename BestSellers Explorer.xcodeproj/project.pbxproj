@@ -25,6 +25,7 @@
 		5368EB7A2C1B8D740096BF28 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB792C1B8D740096BF28 /* Notifications.swift */; };
 		5368EB8B2C1D22F60096BF28 /* CalendarVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */; };
 		5368EB8D2C1D30FB0096BF28 /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB8C2C1D30FB0096BF28 /* CoreDataManagerTest.swift */; };
+		53697D8C2C2BAB04003F5592 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */; };
 		537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592752C0FA3F60074D220 /* ActivityIndicator.swift */; };
 		537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592772C0FA4790074D220 /* CategoryListVC + Network.swift */; };
 		5375927A2C0FA5B30074D220 /* CategoryListVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */; };
@@ -79,6 +80,7 @@
 		5368EB812C1D228C0096BF28 /* BestSellers ExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BestSellers ExplorerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVCTest.swift; sourceTree = "<group>"; };
 		5368EB8C2C1D30FB0096BF28 /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
+		53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		537592752C0FA3F60074D220 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		537592772C0FA4790074D220 /* CategoryListVC + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + Network.swift"; sourceTree = "<group>"; };
 		537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + TableView.swift"; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 			path = "BestSellers ExplorerTests";
 			sourceTree = "<group>";
 		};
+		53697D8A2C2BAAEB003F5592 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		537592722C0FA3C40074D220 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +189,7 @@
 		5386897B2BC4D242000B79B7 /* BestSellers Explorer */ = {
 			isa = PBXGroup;
 			children = (
+				53697D8A2C2BAAEB003F5592 /* Protocols */,
 				538689902BC4D946000B79B7 /* Models */,
 				538689912BC4D955000B79B7 /* Services */,
 				538689922BC4D969000B79B7 /* ViewControllers */,
@@ -392,6 +403,7 @@
 				53868B822BC4FD9C000B79B7 /* CategoryListVC.swift in Sources */,
 				5368EB742C1B7F810096BF28 /* BookInfoVC + NSCache.swift in Sources */,
 				53868B862BC4FD9C000B79B7 /* TabBarVC.swift in Sources */,
+				53697D8C2C2BAB04003F5592 /* NetworkManagerProtocol.swift in Sources */,
 				537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */,
 				53868B792BC4FD8A000B79B7 /* ImageCacheManager.swift in Sources */,
 				530071822C0A8BCD00FB176F /* CalendarVC.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 extension TopBooksVC {
     internal func fetchTopBestSellers() {
         let topBooksURL = Link.topBooksList(date: selectedDate, category: selectedCategory).url
-        NetworkManager.shared.fetch(TopBooksList.self, from: topBooksURL) { [weak self] result in
+        networkManager.fetch(TopBooksList.self, from: topBooksURL) { [weak self] result in
             switch result {
             case .success(let bestSellersList):
                 let sortedBooks = bestSellersList.results.books.sorted { $0.rank < $1.rank }

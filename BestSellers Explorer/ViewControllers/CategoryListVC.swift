@@ -21,6 +21,7 @@ class CategoryListVC: UIViewController {
     internal var sortedCategories: [List] = []
     internal var activityIndocator: UIActivityIndicatorView?
     internal var date: String
+    internal let networkManager: NetworkManagerProtocol = NetworkManager()
     
     init(with date: String) {
         questions = QuizManager.shared.getQuestions()

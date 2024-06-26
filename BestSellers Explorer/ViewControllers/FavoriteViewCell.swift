@@ -13,7 +13,8 @@ class FavoriteViewCell: UITableViewCell {
     private let bookAuthorLabel = UILabel()
     private let bookTitleLabel  = UILabel()
     private let activityIndicator = UIActivityIndicatorView()
-
+    internal let networkManager: NetworkManagerProtocol = NetworkManager()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(bookImageView)
@@ -116,7 +117,7 @@ extension FavoriteViewCell {
             return
         }
         
-        NetworkManager.shared.fetchImage(from: url) { result in
+        networkManager.fetchImage(from: url) { result in
             switch result {
             case .success(let bookImage):
                 guard let extractedImage = UIImage(data: bookImage) else { return }

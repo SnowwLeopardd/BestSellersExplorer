@@ -31,11 +31,7 @@ enum Link {
     }
 }
 
-class NetworkManager {
-    
-    static let shared = NetworkManager()
-    
-    private init() {}
+class NetworkManager: NetworkManagerProtocol {
     
     func fetch<T:Decodable>(_ type: T.Type, from url: String?, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let url = URL(string:  url ?? "") else {

@@ -14,6 +14,7 @@ class TopBooksViewCell: UICollectionViewCell {
      private let bookAuthorLabel = UILabel()
      private let bookTitleLabel = UILabel()
      private let bookRankLabel = UILabel()
+     internal let networkManager: NetworkManagerProtocol = NetworkManager()
     
     func configure(with book: Book) {
         activityIndicator = ActivityIndicator.start(in: bookImageView, 

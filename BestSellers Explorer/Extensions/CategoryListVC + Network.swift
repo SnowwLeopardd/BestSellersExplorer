@@ -11,7 +11,7 @@ import UIKit
 extension CategoryListVC {
     internal func fetchCategoriesData() {
         let fullOverviewURL = Link.fullOverview(date: date).url
-        NetworkManager.shared.fetch(CategotyList.self, from: fullOverviewURL) { [weak self] result in
+        networkManager.fetch(CategotyList.self, from: fullOverviewURL) { [weak self] result in
             switch result {
             case .success(let list):
                 let sortedCategories = list.results.lists.sorted { $0.listName < $1.listName }

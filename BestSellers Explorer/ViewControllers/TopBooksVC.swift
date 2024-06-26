@@ -14,6 +14,7 @@ class TopBooksVC: UIViewController {
     internal var selectedCategory: String
     internal var selectedDate: String
     private var collectionView: UICollectionView?
+    internal let networkManager: NetworkManagerProtocol = NetworkManager()
     
     init(selectedCategory: String, selectedDate: String) {
         self.selectedCategory = selectedCategory
