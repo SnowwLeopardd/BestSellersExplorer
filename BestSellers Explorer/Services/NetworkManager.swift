@@ -71,20 +71,21 @@ class NetworkManager {
     }
     
     
-    func fetchImage(from urlString: String, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        guard let url = URL(string: urlString) else {
+    func fetchImage(from url: String?, completion: @escaping (Result<Data, NetworkError>) -> Void) {
+        guard let url = URL(string: url ?? "") else {
             completion(.failure(.invalidURL))
             return
         }
-
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard let data = data else {
+        
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: url) else {
                 completion(.failure(.noData))
                 return
             }
+        
             DispatchQueue.main.async {
-                completion(.success(data))
+                completion(.success(imageData))
             }
-        }.resume()
+        }
     }
 }
