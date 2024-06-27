@@ -7,33 +7,19 @@
 
 import CoreData
 
-class CoreDataManager {
+class CoreDataManager: CoreDataManagerProtocol {
     
-    static let shared = CoreDataManager()
+    let mainContext: NSManagedObjectContext
     
-    // MARK: - CoreData stack
-    private var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "BestSellers_Explorer")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-    
-    private let context: NSManagedObjectContext
-    
-    private init() {
-        context = persistentContainer.viewContext
+    init(mainContext: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        self.mainContext = mainContext
     }
     
     // MARK: - Core Data saving support
     func saveContext() {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
+        if mainContext.hasChanges {
             do {
-                try context.save()
+                try mainContext.save()
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -43,7 +29,7 @@ class CoreDataManager {
     
     // MARK: - CRUD operators
     func create(_ book: Book) {
-        let favoriteBook = FavoriteBook(context: context)
+        let favoriteBook = FavoriteBook(context: mainContext)
         
         favoriteBook.rank = Int32(book.rank)
         favoriteBook.title = book.title
@@ -59,7 +45,7 @@ class CoreDataManager {
         let fetchRequest = FavoriteBook.fetchRequest()
         
         do {
-            let favoriteBooks = try context.fetch(fetchRequest)
+            let favoriteBooks = try mainContext.fetch(fetchRequest)
             completion(.success(favoriteBooks))
         } catch let error {
             completion(.failure(error))
@@ -67,7 +53,7 @@ class CoreDataManager {
     }
     
     func delete(_ favoriteBook: FavoriteBook) {
-        context.delete(favoriteBook)
+        mainContext.delete(favoriteBook)
         saveContext()
     }
     
@@ -79,7 +65,7 @@ class CoreDataManager {
         var similarbooks: [FavoriteBook] = []
             
         do {
-            similarbooks = try context.fetch(fetchRequest)
+            similarbooks = try mainContext.fetch(fetchRequest)
         } catch {
             print("Error fetching")
         }

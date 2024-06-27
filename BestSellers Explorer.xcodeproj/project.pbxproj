@@ -29,6 +29,8 @@
 		53697D922C2CF23A003F5592 /* CategotyListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 53697D912C2CF23A003F5592 /* CategotyListResponse.json */; };
 		53697D982C2CF3C5003F5592 /* TopBooksListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 53697D972C2CF3C5003F5592 /* TopBooksListResponse.json */; };
 		53697DA42C2D0546003F5592 /* QuotaLimitResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 53697DA32C2D0546003F5592 /* QuotaLimitResponse.json */; };
+		53697DA62C2E1624003F5592 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697DA52C2E1624003F5592 /* CoreDataStack.swift */; };
+		53697DA82C2E1840003F5592 /* CoreDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697DA72C2E1840003F5592 /* CoreDataManagerProtocol.swift */; };
 		537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592752C0FA3F60074D220 /* ActivityIndicator.swift */; };
 		537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592772C0FA4790074D220 /* CategoryListVC + Network.swift */; };
 		5375927A2C0FA5B30074D220 /* CategoryListVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */; };
@@ -86,6 +88,8 @@
 		53697D912C2CF23A003F5592 /* CategotyListResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CategotyListResponse.json; sourceTree = "<group>"; };
 		53697D972C2CF3C5003F5592 /* TopBooksListResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TopBooksListResponse.json; sourceTree = "<group>"; };
 		53697DA32C2D0546003F5592 /* QuotaLimitResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuotaLimitResponse.json; sourceTree = "<group>"; };
+		53697DA52C2E1624003F5592 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		53697DA72C2E1840003F5592 /* CoreDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerProtocol.swift; sourceTree = "<group>"; };
 		537592752C0FA3F60074D220 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		537592772C0FA4790074D220 /* CategoryListVC + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + Network.swift"; sourceTree = "<group>"; };
 		537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + TableView.swift"; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */,
+				53697DA72C2E1840003F5592 /* CoreDataManagerProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 			children = (
 				53868B762BC4FD89000B79B7 /* ImageCacheManager.swift */,
 				53868B742BC4FD89000B79B7 /* NetworkManager.swift */,
+				53697DA52C2E1624003F5592 /* CoreDataStack.swift */,
 				5386C1142BC608E7005EF50F /* CoreDataManager.swift */,
 				530071832C0A974400FB176F /* QuizManager.swift */,
 				5368EB792C1B8D740096BF28 /* Notifications.swift */,
@@ -393,6 +399,7 @@
 				532D2DE72C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift in Sources */,
 				5368EB762C1B80060096BF28 /* FavoritesVC + CoreData.swift in Sources */,
 				5368EB782C1B81250096BF28 /* FavoriteVC + TableView.swift in Sources */,
+				53697DA62C2E1624003F5592 /* CoreDataStack.swift in Sources */,
 				53868B832BC4FD9C000B79B7 /* FavoritesVC.swift in Sources */,
 				53868B8A2BC4FDCD000B79B7 /* SceneDelegate.swift in Sources */,
 				5368EB7A2C1B8D740096BF28 /* Notifications.swift in Sources */,
@@ -411,6 +418,7 @@
 				532D2DEB2C1AB7A40047DD91 /* TabBarVC + Delegate.swift in Sources */,
 				53868B822BC4FD9C000B79B7 /* CategoryListVC.swift in Sources */,
 				5368EB742C1B7F810096BF28 /* BookInfoVC + NSCache.swift in Sources */,
+				53697DA82C2E1840003F5592 /* CoreDataManagerProtocol.swift in Sources */,
 				53868B862BC4FD9C000B79B7 /* TabBarVC.swift in Sources */,
 				53697D8C2C2BAB04003F5592 /* NetworkManagerProtocol.swift in Sources */,
 				537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */,
