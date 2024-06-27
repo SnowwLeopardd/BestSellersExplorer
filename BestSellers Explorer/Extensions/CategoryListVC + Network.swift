@@ -11,6 +11,7 @@ import UIKit
 extension CategoryListVC {
     internal func fetchCategoriesData() {
         let fullOverviewURL = Link.fullOverview(date: date).url
+        print(fullOverviewURL)
         networkManager.fetch(CategotyList.self, from: fullOverviewURL) { [weak self] result in
             switch result {
             case .success(let list):

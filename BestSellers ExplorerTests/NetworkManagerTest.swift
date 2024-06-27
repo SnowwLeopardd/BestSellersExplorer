@@ -162,6 +162,26 @@ class NetworkManagerTest: XCTestCase {
         XCTAssertNil(receivedData)
     }
     
+    // MARK: - QuotaLimit
+    func testQuotaLimitSuccess() {
+        mockNetworkManager.quotaLimitError = true
+        var receivedData: TopBooksList?
+        var receivedError: NetworkError?
+        
+        mockNetworkManager.fetch(TopBooksList.self, from: "Test") { result in
+            switch result {
+            case .success(let data):
+                receivedData = data
+            case .failure(let error):
+                receivedError = error
+            }
+        }
+        
+        XCTAssertNotNil(receivedError)
+        XCTAssert(receivedError == NetworkError.quotaLimitExceeded, "The error received \(String(describing: receivedError)) is different from the NetworkError.quotaLimitExceeded")
+        XCTAssertNil(receivedData)
+    }
+    
     // MARK: - Functions
     func loadJson<T: Decodable>(fromResource resource: String) -> T? {
         guard let url = Bundle(for: type(of: self)).url(forResource: resource, withExtension: "json"),

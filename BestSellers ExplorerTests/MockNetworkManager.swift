@@ -11,12 +11,15 @@ import XCTest
 class MockNetworkManager: NetworkManagerProtocol {
     
     var shoudReturnError = false
+    var quotaLimitError = false
     var mockedImageData: Data?
     var genericType: Any?
     
     func fetch<T>(_ type: T.Type, from url: String?, completion: @escaping (Result<T, BestSellers_Explorer.NetworkError>) -> Void) where T : Decodable {
         if shoudReturnError {
             completion(.failure(.decodingError))
+        } else if quotaLimitError {
+            completion(.failure(.quotaLimitExceeded))
         } else if let data = genericType as? T {
             if let collection = data as? (any Collection), collection.isEmpty {
                 completion(.failure(.noData))
