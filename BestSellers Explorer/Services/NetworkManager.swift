@@ -17,7 +17,6 @@ enum NetworkError: Error {
 enum Link {
     case topBooksList(date: String, category: String)
     case fullOverview(date: String)
-    case bookReview
     
     var url: String {
         switch self {
@@ -25,8 +24,6 @@ enum Link {
             return "https://api.nytimes.com/svc/books/v3/lists/\(date)/\(category).json?api-key=AkNsiAR3NZkyJqlUX98Xh4ExBrFX42Al"
         case .fullOverview(let date):
             return "https://api.nytimes.com/svc/books/v3/lists/full-overview/\(date).json?api-key=AkNsiAR3NZkyJqlUX98Xh4ExBrFX42Al"
-        case .bookReview:
-            return  "https://api.nytimes.com/svc/books/v3/reviews.json?api-key=AkNsiAR3NZkyJqlUX98Xh4ExBrFX42Al"
         }
     }
 }
