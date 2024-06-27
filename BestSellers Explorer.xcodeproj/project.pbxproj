@@ -27,6 +27,8 @@
 		53697D8C2C2BAB04003F5592 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */; };
 		53697D8E2C2BB876003F5592 /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697D8D2C2BB876003F5592 /* MockNetworkManager.swift */; };
 		53697D902C2BBD55003F5592 /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697D8F2C2BBD55003F5592 /* NetworkManagerTest.swift */; };
+		53697D922C2CF23A003F5592 /* CategotyListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 53697D912C2CF23A003F5592 /* CategotyListResponse.json */; };
+		53697D982C2CF3C5003F5592 /* TopBooksListResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 53697D972C2CF3C5003F5592 /* TopBooksListResponse.json */; };
 		537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592752C0FA3F60074D220 /* ActivityIndicator.swift */; };
 		537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592772C0FA4790074D220 /* CategoryListVC + Network.swift */; };
 		5375927A2C0FA5B30074D220 /* CategoryListVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */; };
@@ -83,6 +85,8 @@
 		53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		53697D8D2C2BB876003F5592 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 		53697D8F2C2BBD55003F5592 /* NetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
+		53697D912C2CF23A003F5592 /* CategotyListResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CategotyListResponse.json; sourceTree = "<group>"; };
+		53697D972C2CF3C5003F5592 /* TopBooksListResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TopBooksListResponse.json; sourceTree = "<group>"; };
 		537592752C0FA3F60074D220 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		537592772C0FA4790074D220 /* CategoryListVC + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + Network.swift"; sourceTree = "<group>"; };
 		537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + TableView.swift"; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 				5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */,
 				53697D8F2C2BBD55003F5592 /* NetworkManagerTest.swift */,
 				53697D8D2C2BB876003F5592 /* MockNetworkManager.swift */,
+				53697D912C2CF23A003F5592 /* CategotyListResponse.json */,
+				53697D972C2CF3C5003F5592 /* TopBooksListResponse.json */,
 			);
 			path = "BestSellers ExplorerTests";
 			sourceTree = "<group>";
@@ -208,13 +214,13 @@
 		538689902BC4D946000B79B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				53868B6F2BC4FD7D000B79B7 /* CategotyList.swift */,
+				530071792C0A7C8E00FB176F /* InfoList.swift */,
+				5300717B2C0A7CAD00FB176F /* List.swift */,
 				53868B6E2BC4FD7D000B79B7 /* TopBooksList.swift */,
 				530071752C0A7C2700FB176F /* Results.swift */,
 				530071772C0A7C5B00FB176F /* Book.swift */,
-				53868B6F2BC4FD7D000B79B7 /* CategotyList.swift */,
 				53868B702BC4FD7D000B79B7 /* BookReview.swift */,
-				530071792C0A7C8E00FB176F /* InfoList.swift */,
-				5300717B2C0A7CAD00FB176F /* List.swift */,
 				5300717D2C0A7D1500FB176F /* BookDescription.swift */,
 			);
 			path = Models;
@@ -355,6 +361,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53697D982C2CF3C5003F5592 /* TopBooksListResponse.json in Resources */,
+				53697D922C2CF23A003F5592 /* CategotyListResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

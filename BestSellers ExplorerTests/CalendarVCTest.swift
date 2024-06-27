@@ -10,7 +10,7 @@ import XCTest
 
 final class CalendarVCTest: XCTestCase {
 
-    func testSucessfulDateConvertion() {
+    func testDateConvertionSucessful() {
         // Given (Arrange)
         let calendarVC = CalendarVC()
         let date = DateComponents(year: 2024, month: 06, day: 14)

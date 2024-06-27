@@ -12,4 +12,6 @@ struct Book: Decodable {
     let title: String
     let author: String
     let bookImage: String
+    let bookImageWidth: Int
+    let bookImageHeight: Int
 }
