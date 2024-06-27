@@ -31,6 +31,8 @@
 		53697DA42C2D0546003F5592 /* QuotaLimitResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 53697DA32C2D0546003F5592 /* QuotaLimitResponse.json */; };
 		53697DA62C2E1624003F5592 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697DA52C2E1624003F5592 /* CoreDataStack.swift */; };
 		53697DA82C2E1840003F5592 /* CoreDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697DA72C2E1840003F5592 /* CoreDataManagerProtocol.swift */; };
+		53697DAA2C2E1B2E003F5592 /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697DA92C2E1B2E003F5592 /* CoreDataManagerTest.swift */; };
+		53697DAC2C2E1C04003F5592 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697DAB2C2E1C04003F5592 /* MockCoreDataStack.swift */; };
 		537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592752C0FA3F60074D220 /* ActivityIndicator.swift */; };
 		537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592772C0FA4790074D220 /* CategoryListVC + Network.swift */; };
 		5375927A2C0FA5B30074D220 /* CategoryListVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */; };
@@ -90,6 +92,8 @@
 		53697DA32C2D0546003F5592 /* QuotaLimitResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QuotaLimitResponse.json; sourceTree = "<group>"; };
 		53697DA52C2E1624003F5592 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		53697DA72C2E1840003F5592 /* CoreDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerProtocol.swift; sourceTree = "<group>"; };
+		53697DA92C2E1B2E003F5592 /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
+		53697DAB2C2E1C04003F5592 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		537592752C0FA3F60074D220 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		537592772C0FA4790074D220 /* CategoryListVC + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + Network.swift"; sourceTree = "<group>"; };
 		537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + TableView.swift"; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 				5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */,
 				53697D8F2C2BBD55003F5592 /* NetworkManagerTest.swift */,
 				53697D8D2C2BB876003F5592 /* MockNetworkManager.swift */,
+				53697DAB2C2E1C04003F5592 /* MockCoreDataStack.swift */,
+				53697DA92C2E1B2E003F5592 /* CoreDataManagerTest.swift */,
 				53697D912C2CF23A003F5592 /* CategotyListResponse.json */,
 				53697D972C2CF3C5003F5592 /* TopBooksListResponse.json */,
 				53697DA32C2D0546003F5592 /* QuotaLimitResponse.json */,
@@ -386,9 +392,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53697DAA2C2E1B2E003F5592 /* CoreDataManagerTest.swift in Sources */,
 				53697D902C2BBD55003F5592 /* NetworkManagerTest.swift in Sources */,
 				53697D8E2C2BB876003F5592 /* MockNetworkManager.swift in Sources */,
 				5368EB8B2C1D22F60096BF28 /* CalendarVCTest.swift in Sources */,
+				53697DAC2C2E1C04003F5592 /* MockCoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

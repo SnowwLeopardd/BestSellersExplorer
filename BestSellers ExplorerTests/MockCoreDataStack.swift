@@ -1,26 +1,25 @@
 //
-//  CoreDataStack.swift
-//  BestSellers Explorer
+//  MockCoreDataStack.swift
+//  BestSellers ExplorerTests
 //
 //  Created by Aleksandr Bochkarev on 6/27/24.
 //
 
-import Foundation
+import XCTest
 import CoreData
+@testable import BestSellers_Explorer
 
-class CoreDataStack {
-    
-    static let shared = CoreDataStack()
-    
+class MockCoreDataStack {
+
     let persistentContainer: NSPersistentContainer
     let mainContext: NSManagedObjectContext
-    
-    private init() {
+
+    init() {
         persistentContainer = NSPersistentContainer(name: "BestSellers_Explorer")
         mainContext = persistentContainer.viewContext
         let description = persistentContainer.persistentStoreDescriptions.first
-        // create persistentContainer in disc
-        description?.type = NSSQLiteStoreType
+        // create persistentContainer in memory
+        description?.type = NSInMemoryStoreType
         
         persistentContainer.loadPersistentStores { description, error in
             guard error == nil else {
