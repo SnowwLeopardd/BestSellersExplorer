@@ -8,6 +8,7 @@
 import UIKit
 
 class CategoryListVC: UIViewController {
+    
     private let tableView = UITableView()
     
     var delegate: CategoryListProtocol?
