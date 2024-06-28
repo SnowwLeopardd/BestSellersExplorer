@@ -5,7 +5,7 @@
 //  Created by Aleksandr Bochkarev on 5/31/24.
 //
 
-struct Book: Decodable {
+struct Book: Decodable, Equatable {
     let rank: Int
     let primaryIsbn13: String
     let description: String
