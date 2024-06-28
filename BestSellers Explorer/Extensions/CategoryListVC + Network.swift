@@ -20,7 +20,6 @@ extension CategoryListVC {
                 DispatchQueue.main.async {
                     self?.activityIndocator?.stopAnimating()
                     self?.setupTableView()
-                    self?.setQuizUI()
                 }
             case .failure(let error):
                 switch error {

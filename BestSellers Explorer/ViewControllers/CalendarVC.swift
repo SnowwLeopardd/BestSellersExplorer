@@ -11,20 +11,15 @@ class CalendarVC: UIViewController {
     
     private let calendarStack = UIStackView()
     
-    private var numberOfQuestionLabel = UILabel()
-    private var progressView = UIProgressView()
-    private var questionLabel = UILabel()
+    private var descriptionHeader = UILabel()
+    private var header = UILabel()
+    private let chooseCategoryButton = UIButton()
     private let calendarView = UICalendarView()
     
     private let NYTimesLogo: UIImage
     private let NYTimesLogoImageView: UIImageView
     
-    private var questions: [String]
-    private var currentQuestion = 0
-    private var currentProgress: Float = 0.00
-    
     init() {
-        questions = QuizManager.shared.getQuestions()
         NYTimesLogo = UIImage(named: "NYTimes Logo 1") ?? UIImage()
         NYTimesLogoImageView = UIImageView(image: NYTimesLogo)
         super.init(nibName: nil, bundle: nil)
@@ -40,115 +35,125 @@ class CalendarVC: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = #colorLiteral(red: 0.9610984921, green: 0.9610984921, blue: 0.9610984921, alpha: 1)
         navigationItem.hidesBackButton = true
         
-        setupQuizUI()
-        setupNumberOfQuestionsLabel()
-        setupProgreeView()
-        setupQuestionLabel()
+        headerLabel()
+        descriptionHeaderLabel()
+        setupChooseCategoryButton()
         setupCalendar()
-        setupNYTimesLogo()
-        setupCalendarStack()
+        setupNYTimesImageView()
+//        setupCalendarStack()
+        
+
+//        addShadow(to: header)
+//        addShadow(to: descriptionHeader)
+        addShadow(to: chooseCategoryButton)
+        addShadow(to: calendarView)
+        addShadow(to: NYTimesLogoImageView)
     }
     
     // MARK: - UIElements
-    private func setupQuizUI() {
-        currentProgress = Float(currentQuestion + 1) / Float(questions.count)
-        questionLabel.text = questions[currentQuestion]
-        progressView.setProgress(currentProgress, animated: true)
-        numberOfQuestionLabel.text = "Question \(currentQuestion + 1) from \(questions.count)"
-    }
-    
-    private func setupNumberOfQuestionsLabel() {
-        numberOfQuestionLabel.textAlignment = .center
-        numberOfQuestionLabel.textColor = UIColor.black
-        numberOfQuestionLabel.font = UIFont.boldSystemFont(ofSize: 25)
+    private func headerLabel() {
+        header.text = "The New York Times Best Sellers"
+        header.textColor = UIColor.black
+        header.textAlignment = .left
+        header.numberOfLines = 2
+        header.font = UIFont.boldSystemFont(ofSize: 27)
         
-        numberOfQuestionLabel.translatesAutoresizingMaskIntoConstraints = false
+        header.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(numberOfQuestionLabel)
+        view.addSubview(header)
         
         NSLayoutConstraint.activate([
-            numberOfQuestionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            numberOfQuestionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            numberOfQuestionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            numberOfQuestionLabel.heightAnchor.constraint(equalToConstant: 30)
+            header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            header.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            header.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 16),
+//            header.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
     
-    private func setupProgreeView() {
-        progressView.translatesAutoresizingMaskIntoConstraints = false
+    private func descriptionHeaderLabel() {
+        descriptionHeader.text = "Authoritatively ranked lists of books sold in US. Select date and topics"
+        descriptionHeader.textAlignment = .left
+        descriptionHeader.numberOfLines = 2
+        descriptionHeader.textColor = UIColor.black
+        descriptionHeader.font = UIFont.systemFont(ofSize: 19)
         
-        view.addSubview(progressView)
+        descriptionHeader.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(descriptionHeader)
         
         NSLayoutConstraint.activate([
-            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            progressView.topAnchor.constraint(equalTo: numberOfQuestionLabel.bottomAnchor, constant: 0),
-            progressView.heightAnchor.constraint(equalToConstant: 6)
+            descriptionHeader.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 16),
+            descriptionHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            descriptionHeader.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+//            descriptionHeader.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
     
-    private func setupQuestionLabel() {
-        questionLabel.textColor = UIColor.purple
-        questionLabel.textAlignment = .center
-        questionLabel.numberOfLines = 0
-        questionLabel.font = UIFont.boldSystemFont(ofSize: 27)
+    private func setupChooseCategoryButton() {
+        chooseCategoryButton.setTitle("Choose category", for: .normal)
+        chooseCategoryButton.backgroundColor = UIColor.white
+        chooseCategoryButton.setTitleColor(UIColor.lightGray, for: .normal)
+        chooseCategoryButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        chooseCategoryButton.layer.cornerRadius = 10
+//        chooseCategoryButton.addTarget(self, action: #selector(setupAddToFavoriesLogic), for: .touchUpInside)
         
-        questionLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(chooseCategoryButton)
         
-        view.addSubview(questionLabel)
+        chooseCategoryButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            questionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            questionLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            questionLabel.topAnchor.constraint(equalTo: progressView.safeAreaLayoutGuide.bottomAnchor, constant: 16),
-            questionLabel.heightAnchor.constraint(equalToConstant: 30),
+            chooseCategoryButton.topAnchor.constraint(equalTo: descriptionHeader.bottomAnchor, constant: 16),
+            chooseCategoryButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            chooseCategoryButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            chooseCategoryButton.heightAnchor.constraint(equalToConstant: 60)
         ])
-        
     }
     
     private func setupCalendar() {
         calendarView.calendar = .current
         calendarView.locale = .current
         calendarView.fontDesign = .rounded
+        calendarView.backgroundColor = .white
+//        calendarView.layer.borderColor = UIColor.lightGray.cgColor
+//        calendarView.layer.borderWidth = 1.0
+        calendarView.layer.cornerRadius = 10
+//        calendarView.layer.masksToBounds = true
         
-        calendarView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(calendarView)
         
         let dateSelection = UICalendarSelectionSingleDate(delegate: self)
         calendarView.selectionBehavior = dateSelection
-    }
-    
-    private func setupNYTimesLogo() {
-        NYTimesLogoImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(NYTimesLogoImageView)
+        calendarView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            NYTimesLogoImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 10),
+            calendarView.topAnchor.constraint(equalTo: chooseCategoryButton.bottomAnchor, constant: 16),
+            calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            calendarView.heightAnchor.constraint(equalToConstant: 380)
+        ])
+    }
+    
+    private func setupNYTimesImageView() {
+        view.addSubview(NYTimesLogoImageView)
+        
+        NYTimesLogoImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            NYTimesLogoImageView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 10),
             NYTimesLogoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
-    private func setupCalendarStack() {
-        calendarStack.axis = .vertical
-        calendarStack.alignment = .center
-        calendarStack.distribution = .fill
-        calendarStack.spacing = 16
-        
-        calendarStack.addArrangedSubview(calendarView)
-        calendarStack.addArrangedSubview(NYTimesLogoImageView)
-        
-        view.addSubview(calendarStack)
-        
-        calendarStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            calendarStack.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 20),
-            calendarStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            calendarStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            calendarStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
-        ])
+    // MARK: - Utility Function
+    private func addShadow(to view: UIView) {
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = CGSize(width: 2, height: 2)
+        view.layer.shadowRadius = 2
+        view.layer.masksToBounds = false
     }
 }

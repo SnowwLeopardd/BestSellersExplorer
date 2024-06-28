@@ -9,6 +9,8 @@ import UIKit
 
 class TabBarVC: UITabBarController {
     
+    let backgroundImage: UIImage = UIImage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -37,12 +39,12 @@ class TabBarVC: UITabBarController {
     
     private func setupTabBarAppearance() {
         let appearance = UITabBarAppearance()
-        appearance.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        appearance.backgroundColor = #colorLiteral(red: 0.9610984921, green: 0.9610984921, blue: 0.9610984921, alpha: 1)
         tabBar.standardAppearance = appearance
         tabBar.scrollEdgeAppearance = tabBar.standardAppearance
-        
-        tabBar.tintColor = .red
-        tabBar.unselectedItemTintColor = .purple
+                
+        tabBar.tintColor = .black
+        tabBar.unselectedItemTintColor = .black
     }
 }
 

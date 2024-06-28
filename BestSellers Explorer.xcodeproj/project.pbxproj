@@ -12,7 +12,6 @@
 		5300717A2C0A7C8E00FB176F /* InfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071792C0A7C8E00FB176F /* InfoList.swift */; };
 		5300717C2C0A7CAD00FB176F /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5300717B2C0A7CAD00FB176F /* List.swift */; };
 		530071822C0A8BCD00FB176F /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071812C0A8BCD00FB176F /* CalendarVC.swift */; };
-		530071842C0A974400FB176F /* QuizManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071832C0A974400FB176F /* QuizManager.swift */; };
 		532D2DE52C1AAED60047DD91 /* TopBooksVC+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D2DE42C1AAED60047DD91 /* TopBooksVC+Network.swift */; };
 		532D2DE72C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D2DE62C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift */; };
 		532D2DE92C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D2DE82C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift */; };
@@ -72,7 +71,6 @@
 		530071792C0A7C8E00FB176F /* InfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoList.swift; sourceTree = "<group>"; };
 		5300717B2C0A7CAD00FB176F /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		530071812C0A8BCD00FB176F /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
-		530071832C0A974400FB176F /* QuizManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizManager.swift; sourceTree = "<group>"; };
 		532D2DE42C1AAED60047DD91 /* TopBooksVC+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopBooksVC+Network.swift"; sourceTree = "<group>"; };
 		532D2DE62C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopBooksVC + CollectionView.swift"; sourceTree = "<group>"; };
 		532D2DE82C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopBooksViewCell + Network.swift"; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 				53868B742BC4FD89000B79B7 /* NetworkManager.swift */,
 				53697DA52C2E1624003F5592 /* CoreDataStack.swift */,
 				5386C1142BC608E7005EF50F /* CoreDataManager.swift */,
-				530071832C0A974400FB176F /* QuizManager.swift */,
 				5368EB792C1B8D740096BF28 /* Notifications.swift */,
 			);
 			path = Services;
@@ -416,7 +413,6 @@
 				5375927C2C0FD8740074D220 /* UIAlertController.swift in Sources */,
 				5386C1132BC608D3005EF50F /* BestSellers_Explorer.xcdatamodeld in Sources */,
 				5386C1152BC608E7005EF50F /* CoreDataManager.swift in Sources */,
-				530071842C0A974400FB176F /* QuizManager.swift in Sources */,
 				532D2DE52C1AAED60047DD91 /* TopBooksVC+Network.swift in Sources */,
 				53868B8B2BC4FDCD000B79B7 /* AppDelegate.swift in Sources */,
 				537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */,

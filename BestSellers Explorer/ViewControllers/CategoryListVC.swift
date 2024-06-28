@@ -10,13 +10,7 @@ import UIKit
 class CategoryListVC: UIViewController {
     private let tableView = UITableView()
     
-    private var numberOfQuestionLabel = UILabel()
-    private let progressView = UIProgressView()
     private let questionLabel = UILabel()
-    
-    private var questions: [String]
-    private var currentQuestion = 0
-    private var currentProgress: Float!
     
     internal var sortedCategories: [List] = []
     internal var activityIndocator: UIActivityIndicatorView?
@@ -24,7 +18,6 @@ class CategoryListVC: UIViewController {
     internal let networkManager: NetworkManagerProtocol = NetworkManager()
     
     init(with date: String) {
-        questions = QuizManager.shared.getQuestions()
         self.date = date
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,43 +38,12 @@ class CategoryListVC: UIViewController {
                                                     topAnchorConstant: 400,
                                                     size: .large)
         fetchCategoriesData()
-        setupNumberOfQuestionsLabel()
-        setupProgreeView()
         setupQuestionLabel()
     }
     
     // MARK: - UIElements
-    private func setupNumberOfQuestionsLabel() {
-        numberOfQuestionLabel.textAlignment = .center
-        numberOfQuestionLabel.textColor = UIColor.black
-        numberOfQuestionLabel.font = UIFont.boldSystemFont(ofSize: 25)
-        
-        numberOfQuestionLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(numberOfQuestionLabel)
-        
-        NSLayoutConstraint.activate([
-            numberOfQuestionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            numberOfQuestionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            numberOfQuestionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            numberOfQuestionLabel.heightAnchor.constraint(equalToConstant: 30)
-        ])
-    }
-    
-    private func setupProgreeView() {
-        progressView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(progressView)
-        
-        NSLayoutConstraint.activate([
-            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            progressView.topAnchor.constraint(equalTo: numberOfQuestionLabel.bottomAnchor, constant: 0),
-            progressView.heightAnchor.constraint(equalToConstant: 6)
-        ])
-    }
-    
     private func setupQuestionLabel() {
+        questionLabel.text = "Pick something"
         questionLabel.textColor = UIColor.purple
         questionLabel.textAlignment = .center
         questionLabel.numberOfLines = 0
@@ -94,7 +56,7 @@ class CategoryListVC: UIViewController {
         NSLayoutConstraint.activate([
             questionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             questionLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            questionLabel.topAnchor.constraint(equalTo: progressView.safeAreaLayoutGuide.bottomAnchor, constant: 16),
+            questionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             questionLabel.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
@@ -113,37 +75,6 @@ class CategoryListVC: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
-    }
-}
-
-
-
-
-
-
-
-
-// MARK: - QuizLogic
-extension CategoryListVC {
-    private func setCurrentProgress() {
-        currentProgress = Float(currentQuestion + 1) / Float(questions.count)
-        numberOfQuestionLabel.text = "Question \(currentQuestion + 1) from \(questions.count)"
-        progressView.setProgress(currentProgress, animated: false)
-        questionLabel.text = questions[currentQuestion]
-    }
-    
-     func setQuizUI() {
-        setCurrentProgress()
-        currentQuestion += 1
-        tableView.isHidden = false
-
-    }
-    
-     func resetQuizUI() {
-        tableView.isHidden = true
-         
-        currentQuestion = 1
-        setCurrentProgress()
     }
 }
 

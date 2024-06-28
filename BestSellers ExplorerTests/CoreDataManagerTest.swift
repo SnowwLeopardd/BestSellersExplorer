@@ -17,7 +17,7 @@ class CoreDataManagerTest: XCTestCase {
     override func setUp() {
         super.setUp()
         coreDataStack = MockCoreDataStack()
-        coreDataManager = CoreDataManager(mainContext: coreDataStack.mainContext)
+        coreDataManager = CoreDataManager(mainContext: coreDataStack!.mainContext)
         testBook = Book(rank: 0,
                         primaryIsbn13: "000000",
                         description: "Test description",
@@ -26,6 +26,13 @@ class CoreDataManagerTest: XCTestCase {
                         bookImage: "Test urlImage",
                         bookImageWidth: 0,
                         bookImageHeight: 0)
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        coreDataStack = nil
+        coreDataManager = nil
+        testBook = nil
     }
     
     func testCreateSuccess() {
