@@ -53,6 +53,7 @@
 		53868B8B2BC4FDCD000B79B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53868B892BC4FDCD000B79B7 /* AppDelegate.swift */; };
 		5386C1132BC608D3005EF50F /* BestSellers_Explorer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5386C1112BC608D3005EF50F /* BestSellers_Explorer.xcdatamodeld */; };
 		5386C1152BC608E7005EF50F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386C1142BC608E7005EF50F /* CoreDataManager.swift */; };
+		53C373362C2F52E8003A9B0D /* CategoryListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C373352C2F52E8003A9B0D /* CategoryListProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		53868B892BC4FDCD000B79B7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5386C1122BC608D3005EF50F /* BestSellers_Explorer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BestSellers_Explorer.xcdatamodel; sourceTree = "<group>"; };
 		5386C1142BC608E7005EF50F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		53C373352C2F52E8003A9B0D /* CategoryListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 			children = (
 				53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */,
 				53697DA72C2E1840003F5592 /* CoreDataManagerProtocol.swift */,
+				53C373352C2F52E8003A9B0D /* CategoryListProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				532D2DE72C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift in Sources */,
+				53C373362C2F52E8003A9B0D /* CategoryListProtocol.swift in Sources */,
 				5368EB762C1B80060096BF28 /* FavoritesVC + CoreData.swift in Sources */,
 				5368EB782C1B81250096BF28 /* FavoriteVC + TableView.swift in Sources */,
 				53697DA62C2E1624003F5592 /* CoreDataStack.swift in Sources */,

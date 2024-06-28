@@ -10,7 +10,7 @@ import UIKit
 class CategoryListVC: UIViewController {
     private let tableView = UITableView()
     
-    private let questionLabel = UILabel()
+    var delegate: CategoryListProtocol?
     
     internal var sortedCategories: [List] = []
     internal var activityIndocator: UIActivityIndicatorView?
@@ -34,43 +34,24 @@ class CategoryListVC: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         navigationItem.hidesBackButton = true
-        activityIndocator = ActivityIndicator.start(in: self.view, 
-                                                    topAnchorConstant: 400,
+        activityIndocator = ActivityIndicator.start(in: self.view,
+                                                    topAnchorConstant: 200,
                                                     size: .large)
         fetchCategoriesData()
-        setupQuestionLabel()
     }
     
     // MARK: - UIElements
-    private func setupQuestionLabel() {
-        questionLabel.text = "Pick something"
-        questionLabel.textColor = UIColor.purple
-        questionLabel.textAlignment = .center
-        questionLabel.numberOfLines = 0
-        questionLabel.font = UIFont.boldSystemFont(ofSize: 27)
-        
-        questionLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(questionLabel)
-        
-        NSLayoutConstraint.activate([
-            questionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            questionLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            questionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            questionLabel.heightAnchor.constraint(equalToConstant: 30),
-        ])
-    }
-    
     internal func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ListCell")
         
         view.addSubview(tableView)
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 20),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)

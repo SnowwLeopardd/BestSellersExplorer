@@ -7,17 +7,17 @@
 
 import UIKit
 
-class CalendarVC: UIViewController {
-    
-    private let calendarStack = UIStackView()
+class CalendarVC: UIViewController, CategoryListProtocol {
     
     private var descriptionHeader = UILabel()
     private var header = UILabel()
-    private let chooseCategoryButton = UIButton()
+    internal let chooseCategoryButton = UIButton()
     private let calendarView = UICalendarView()
     
     private let NYTimesLogo: UIImage
     private let NYTimesLogoImageView: UIImageView
+    
+    internal var choosenDate: String?
     
     init() {
         NYTimesLogo = UIImage(named: "NYTimes Logo 1") ?? UIImage()
@@ -40,14 +40,10 @@ class CalendarVC: UIViewController {
         
         headerLabel()
         descriptionHeaderLabel()
-        setupChooseCategoryButton()
         setupCalendar()
+        setupChooseCategoryButton()
         setupNYTimesImageView()
-//        setupCalendarStack()
         
-
-//        addShadow(to: header)
-//        addShadow(to: descriptionHeader)
         addShadow(to: chooseCategoryButton)
         addShadow(to: calendarView)
         addShadow(to: NYTimesLogoImageView)
@@ -61,15 +57,14 @@ class CalendarVC: UIViewController {
         header.numberOfLines = 2
         header.font = UIFont.boldSystemFont(ofSize: 27)
         
-        header.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(header)
+        
+        header.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             header.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            header.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 16),
-//            header.heightAnchor.constraint(equalToConstant: 30),
+            header.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 16)
         ])
     }
     
@@ -80,35 +75,14 @@ class CalendarVC: UIViewController {
         descriptionHeader.textColor = UIColor.black
         descriptionHeader.font = UIFont.systemFont(ofSize: 19)
         
-        descriptionHeader.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(descriptionHeader)
+        
+        descriptionHeader.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             descriptionHeader.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 16),
             descriptionHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             descriptionHeader.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-//            descriptionHeader.heightAnchor.constraint(equalToConstant: 30)
-        ])
-    }
-    
-    private func setupChooseCategoryButton() {
-        chooseCategoryButton.setTitle("Choose category", for: .normal)
-        chooseCategoryButton.backgroundColor = UIColor.white
-        chooseCategoryButton.setTitleColor(UIColor.lightGray, for: .normal)
-        chooseCategoryButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        chooseCategoryButton.layer.cornerRadius = 10
-//        chooseCategoryButton.addTarget(self, action: #selector(setupAddToFavoriesLogic), for: .touchUpInside)
-        
-        view.addSubview(chooseCategoryButton)
-        
-        chooseCategoryButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            chooseCategoryButton.topAnchor.constraint(equalTo: descriptionHeader.bottomAnchor, constant: 16),
-            chooseCategoryButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            chooseCategoryButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            chooseCategoryButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -117,10 +91,7 @@ class CalendarVC: UIViewController {
         calendarView.locale = .current
         calendarView.fontDesign = .rounded
         calendarView.backgroundColor = .white
-//        calendarView.layer.borderColor = UIColor.lightGray.cgColor
-//        calendarView.layer.borderWidth = 1.0
         calendarView.layer.cornerRadius = 10
-//        calendarView.layer.masksToBounds = true
         
         view.addSubview(calendarView)
         
@@ -130,10 +101,30 @@ class CalendarVC: UIViewController {
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            calendarView.topAnchor.constraint(equalTo: chooseCategoryButton.bottomAnchor, constant: 16),
+            calendarView.topAnchor.constraint(equalTo: descriptionHeader.bottomAnchor, constant: 16),
             calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             calendarView.heightAnchor.constraint(equalToConstant: 380)
+        ])
+    }
+    
+    private func setupChooseCategoryButton() {
+        chooseCategoryButton.setTitle("Please, choose above date first", for: .normal)
+        chooseCategoryButton.backgroundColor = UIColor.white
+        chooseCategoryButton.setTitleColor(UIColor.lightGray, for: .normal)
+        chooseCategoryButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        chooseCategoryButton.layer.cornerRadius = 10
+        chooseCategoryButton.addTarget(self, action: #selector(presentCategoryListVC), for: .touchUpInside)
+        
+        view.addSubview(chooseCategoryButton)
+        
+        chooseCategoryButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            chooseCategoryButton.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 16),
+            chooseCategoryButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            chooseCategoryButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            chooseCategoryButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -143,12 +134,32 @@ class CalendarVC: UIViewController {
         NYTimesLogoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            NYTimesLogoImageView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 10),
+            NYTimesLogoImageView.topAnchor.constraint(equalTo: chooseCategoryButton.bottomAnchor, constant: 10),
             NYTimesLogoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
-    // MARK: - Utility Function
+    internal func didSelectCategory(categoryName: String) {
+        chooseCategoryButton.setTitle(categoryName, for: .normal)
+        guard let choosenDate else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            let topBooksVC = TopBooksVC(selectedCategory: categoryName, selectedDate: choosenDate)
+            self.navigationController?.pushViewController(topBooksVC, animated: true)
+        }
+    }
+    
+    @objc func presentCategoryListVC() {
+        if let choosenDate = choosenDate {
+            let destinationVC = CategoryListVC(with: choosenDate)
+            destinationVC.delegate = self
+            
+            destinationVC.modalPresentationStyle = .pageSheet
+            destinationVC.sheetPresentationController?.detents = [.medium()]
+            destinationVC.sheetPresentationController?.prefersGrabberVisible = true
+            present(destinationVC, animated: true)
+        }
+    }
+    
     private func addShadow(to view: UIView) {
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 0.1
