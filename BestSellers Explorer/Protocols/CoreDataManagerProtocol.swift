@@ -2,12 +2,12 @@
 //  CoreDataProtocol.swift
 //  BestSellers Explorer
 //
-//  Created by Aleksandr Bochkarev on 6/25/24.
+//  Created by Aleksandr Bochkarev on 6/27/24.
 //
 
 import Foundation
 
-protocol CoreDataProtocol {
+protocol CoreDataManagerProtocol {
     func create(_ book: Book)
     func fetchData(completion: (Result<[FavoriteBook], Error>) -> Void)
     func delete(_ favoriteBook: FavoriteBook)

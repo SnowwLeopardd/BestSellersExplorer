@@ -20,7 +20,7 @@ extension CategoryListVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCategory = sortedCategories[indexPath.row].listName
-        let topBooksVC = TopBooksVC(selectedCategory: selectedCategory, selectedDate: date)
-        navigationController?.pushViewController(topBooksVC, animated: true)
+        delegate?.didSelectCategory(categoryName: selectedCategory)
+        dismiss(animated: true)
     }
 }

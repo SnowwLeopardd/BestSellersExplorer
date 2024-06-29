@@ -17,7 +17,6 @@ enum NetworkError: Error {
 enum Link {
     case topBooksList(date: String, category: String)
     case fullOverview(date: String)
-    case bookReview
     
     var url: String {
         switch self {
@@ -25,17 +24,11 @@ enum Link {
             return "https://api.nytimes.com/svc/books/v3/lists/\(date)/\(category).json?api-key=AkNsiAR3NZkyJqlUX98Xh4ExBrFX42Al"
         case .fullOverview(let date):
             return "https://api.nytimes.com/svc/books/v3/lists/full-overview/\(date).json?api-key=AkNsiAR3NZkyJqlUX98Xh4ExBrFX42Al"
-        case .bookReview:
-            return  "https://api.nytimes.com/svc/books/v3/reviews.json?api-key=AkNsiAR3NZkyJqlUX98Xh4ExBrFX42Al"
         }
     }
 }
 
-class NetworkManager {
-    
-    static let shared = NetworkManager()
-    
-    private init() {}
+class NetworkManager: NetworkManagerProtocol {
     
     func fetch<T:Decodable>(_ type: T.Type, from url: String?, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let url = URL(string:  url ?? "") else {
@@ -71,20 +64,21 @@ class NetworkManager {
     }
     
     
-    func fetchImage(from urlString: String, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-        guard let url = URL(string: urlString) else {
+    func fetchImage(from url: String?, completion: @escaping (Result<Data, NetworkError>) -> Void) {
+        guard let url = URL(string: url ?? "") else {
             completion(.failure(.invalidURL))
             return
         }
-
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard let data = data else {
+        
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: url) else {
                 completion(.failure(.noData))
                 return
             }
+        
             DispatchQueue.main.async {
-                completion(.success(data))
+                completion(.success(imageData))
             }
-        }.resume()
+        }
     }
 }

@@ -48,7 +48,7 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
         let selectedBook = favoritesBooks[indexPath.row]
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [unowned self] _, _, _ in
             self.favoritesBooks.remove(at: indexPath.row)
-            CoreDataManager.shared.delete(selectedBook)
+            coreDataManager.delete(selectedBook)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         

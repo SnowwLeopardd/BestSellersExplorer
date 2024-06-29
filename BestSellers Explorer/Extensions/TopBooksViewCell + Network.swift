@@ -17,7 +17,7 @@ extension TopBooksViewCell {
             return
         }
         
-        NetworkManager.shared.fetchImage(from: book.bookImage) { [weak self] result in
+        networkManager.fetchImage(from: book.bookImage) { [weak self] result in
             switch result {
             case .success(let bookImage):
                 guard let bookImage = UIImage(data: bookImage) else { return }

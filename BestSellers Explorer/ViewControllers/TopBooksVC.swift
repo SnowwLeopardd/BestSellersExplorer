@@ -14,6 +14,7 @@ class TopBooksVC: UIViewController {
     internal var selectedCategory: String
     internal var selectedDate: String
     private var collectionView: UICollectionView?
+    internal let networkManager: NetworkManagerProtocol = NetworkManager()
     
     init(selectedCategory: String, selectedDate: String) {
         self.selectedCategory = selectedCategory
@@ -40,7 +41,8 @@ class TopBooksVC: UIViewController {
     internal func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 190, height: 400)
+        layout.itemSize = CGSize(width: 300, height: 250)
+        layout.minimumLineSpacing = 17
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemBackground

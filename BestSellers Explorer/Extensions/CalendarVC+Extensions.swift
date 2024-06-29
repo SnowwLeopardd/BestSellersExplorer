@@ -10,8 +10,8 @@ import UIKit
 // MARK: - Calendar
 extension CalendarVC: UICalendarSelectionSingleDateDelegate {
     func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
-        let categoryListVC = CategoryListVC(with: dateToString(dateComponents))
-        navigationController?.pushViewController(categoryListVC, animated: false)
+        choosenDate = dateToString(dateComponents)
+        chooseCategoryButton.setTitle("Now, click here to choose category", for: .normal)
     }
     
     internal func dateToString(_ dateComponents: DateComponents?) -> String {
