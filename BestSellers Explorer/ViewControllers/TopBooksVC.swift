@@ -13,8 +13,19 @@ class TopBooksVC: UIViewController {
     internal var sortedBooks: [Book] = []
     internal var selectedCategory: String
     internal var selectedDate: String
-    private var collectionView: UICollectionView?
     internal let networkManager: NetworkManagerProtocol = NetworkManager()
+    
+    private var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: 300, height: 250)
+        layout.minimumLineSpacing = 17
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.register(TopBooksViewCell.self, forCellWithReuseIdentifier: "TopBestSellersViewCell")
+        return collectionView
+    }()
     
     init(selectedCategory: String, selectedDate: String) {
         self.selectedCategory = selectedCategory
@@ -39,15 +50,6 @@ class TopBooksVC: UIViewController {
     }
     
     internal func setupCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 300, height: 250)
-        layout.minimumLineSpacing = 17
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .systemBackground
-        collectionView.register(TopBooksViewCell.self, forCellWithReuseIdentifier: "TopBestSellersViewCell")
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -75,7 +77,7 @@ class TopBooksVC: UIViewController {
         let isAscending = sortButton.title == "Sort By: ↓"
         sortedBooks.sort { isAscending ? $0.rank < $1.rank : $0.rank > $1.rank }
         sortButton.title = isAscending ? "Sort By: ↑": "Sort By: ↓"
-        collectionView?.reloadData()
+        collectionView.reloadData()
     }
 }
 
