@@ -9,10 +9,10 @@ import UIKit
 
 class FavoriteViewCell: UITableViewCell {
         
-    private let bookImageView = UIImageView()
     private let bookAuthorLabel = UILabel()
     private let bookTitleLabel  = UILabel()
-    private let activityIndicator = UIActivityIndicatorView()
+    internal let bookImageView = UIImageView()
+    internal let activityIndicator = UIActivityIndicatorView()
     internal let networkManager: NetworkManagerProtocol = NetworkManager()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -24,9 +24,8 @@ class FavoriteViewCell: UITableViewCell {
         
         configureBookImageView()
         configureActivityIndicator()
-        configureBookAuthorLabel()
-        configureBookTitleLabel()
-        
+        configureBookImageView()
+
         setupBookImageConstrains()
         setupActivityIndicatorConstrains()
         setupBookTitleConstrains()
@@ -44,9 +43,9 @@ class FavoriteViewCell: UITableViewCell {
     
     func configure(with book: FavoriteBook) {
         fetchBookImage(from: book.imageUrl ?? "No url")
-        
-        bookAuthorLabel.text = book.author
-        bookTitleLabel.text = book.title
+        configureBookTitleLabel(with: book)
+        configureBookAuthorLabel(with: book)
+
     }
 
     private func configureActivityIndicator() {
@@ -55,17 +54,27 @@ class FavoriteViewCell: UITableViewCell {
     }
 
     private func configureBookImageView() {
+        bookImageView.layer.cornerRadius = 10
         
+        bookImageView.layer.shadowColor = UIColor.black.cgColor
+        bookImageView.layer.shadowOpacity = 0.5
+        bookImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        bookImageView.layer.shadowRadius = 4
+        
+        bookImageView.layer.masksToBounds = false
     }
     
-    private func configureBookAuthorLabel() {
-        
+    private func configureBookAuthorLabel(with book: FavoriteBook) {
+        bookAuthorLabel.text = book.author
+        bookAuthorLabel.textAlignment = .left
     }
 
-    private func configureBookTitleLabel() {
-        
+    private func configureBookTitleLabel(with book: FavoriteBook) {
+        bookTitleLabel.text = book.title
+        bookTitleLabel.numberOfLines = 2
+        bookTitleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        bookTitleLabel.textAlignment = .left
     }
-
 
     private func setupBookImageConstrains() {
         bookImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -91,7 +100,7 @@ class FavoriteViewCell: UITableViewCell {
         bookTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            bookTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            bookTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             bookTitleLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 20),
             bookTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
@@ -105,28 +114,5 @@ class FavoriteViewCell: UITableViewCell {
             bookAuthorLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 20),
             bookAuthorLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
-    }
-    
-}
-
-extension FavoriteViewCell {
-    private func fetchBookImage(from url: String) {
-        if let cacheImage = ImageCacheManager.shared.object(forKey: url as NSString) {
-            bookImageView.image = cacheImage
-            self.activityIndicator.stopAnimating()
-            return
-        }
-        
-        networkManager.fetchImage(from: url) { result in
-            switch result {
-            case .success(let bookImage):
-                guard let extractedImage = UIImage(data: bookImage) else { return }
-                self.bookImageView.image = extractedImage
-                ImageCacheManager.shared.setObject(extractedImage, forKey: url as NSString)
-                self.activityIndicator.stopAnimating()
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
     }
 }

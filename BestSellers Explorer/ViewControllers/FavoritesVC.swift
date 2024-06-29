@@ -28,6 +28,11 @@ class FavoritesVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(favoriteBooksUpdated), name: .favoriteBooksUpdated, object: nil)
     }
     
+    @objc private func favoriteBooksUpdated() {
+        fetchData()
+        tableView.reloadData()
+    }
+    
     private func setupTableViewUI() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,8 +51,4 @@ class FavoritesVC: UIViewController {
         ])
     }
     
-    @objc private func favoriteBooksUpdated() {
-        fetchData()
-        tableView.reloadData()
-    }
 }
