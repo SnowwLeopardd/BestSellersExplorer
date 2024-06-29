@@ -100,8 +100,8 @@ class TopBooksViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: self.topAnchor),
             containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            containerView.widthAnchor.constraint(equalToConstant: 165),
-            containerView.heightAnchor.constraint(equalToConstant: 250)
+            containerView.widthAnchor.constraint(equalToConstant: 140),
+            containerView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
 

@@ -18,7 +18,7 @@ class TopBooksVC: UIViewController {
     private var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 300, height: 250)
+        layout.itemSize = CGSize(width: 300, height: 200)
         layout.minimumLineSpacing = 17
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
