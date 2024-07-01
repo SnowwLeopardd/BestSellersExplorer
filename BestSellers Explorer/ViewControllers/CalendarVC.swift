@@ -55,14 +55,14 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         header.textColor = UIColor.black
         header.textAlignment = .left
         header.numberOfLines = 2
-        header.font = UIFont.boldSystemFont(ofSize: 27)
+        header.font = UIFont.boldSystemFont(ofSize: 34)
         
         view.addSubview(header)
         
         header.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             header.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             header.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 16)
         ])
@@ -72,7 +72,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         descriptionHeader.text = "Authoritatively ranked lists of books sold in US. Select date and topics"
         descriptionHeader.textAlignment = .left
         descriptionHeader.numberOfLines = 2
-        descriptionHeader.textColor = UIColor.black
+        descriptionHeader.textColor = UIColor.gray
         descriptionHeader.font = UIFont.systemFont(ofSize: 19)
         
         view.addSubview(descriptionHeader)

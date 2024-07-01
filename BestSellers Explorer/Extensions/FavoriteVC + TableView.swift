@@ -32,8 +32,8 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
         configureHeader(view: header)
     }
     
-    private func configureHeader (view: UITableViewHeaderFooterView) {
-        view.textLabel?.font = UIFont(name: "Verdana-Italic", size: 24)
+    private func configureHeader(view: UITableViewHeaderFooterView) {
+        view.textLabel?.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
         view.textLabel?.numberOfLines = 0
         view.textLabel?.lineBreakMode = .byWordWrapping
         view.textLabel?.textColor = UIColor.black
