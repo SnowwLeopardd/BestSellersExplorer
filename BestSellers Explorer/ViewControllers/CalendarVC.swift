@@ -12,7 +12,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
     private var descriptionHeader = UILabel()
     private var header = UILabel()
     internal let chooseCategoryButton = UIButton()
-    private let calendarView = UICalendarView()
+    internal let calendarView = UICalendarView()
     
     private let NYTimesLogo: UIImage
     private let NYTimesLogoImageView: UIImageView
@@ -37,6 +37,8 @@ class CalendarVC: UIViewController, CategoryListProtocol {
     private func setupUI() {
         view.backgroundColor = #colorLiteral(red: 0.9610984921, green: 0.9610984921, blue: 0.9610984921, alpha: 1)
         navigationItem.hidesBackButton = true
+        
+        setupCalendarRange()
         
         headerLabel()
         descriptionHeaderLabel()

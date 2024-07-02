@@ -11,7 +11,6 @@ import UIKit
 extension CategoryListVC {
     internal func fetchCategoriesData() {
         let fullOverviewURL = Link.fullOverview(date: date).url
-        print(fullOverviewURL)
         networkManager.fetch(CategotyList.self, from: fullOverviewURL) { [weak self] result in
             switch result {
             case .success(let list):
@@ -24,7 +23,6 @@ extension CategoryListVC {
             case .failure(let error):
                 switch error {
                 case .quotaLimitExceeded:
-                    print("Quota limit exceeded. Please try again later.")
                     DispatchQueue.main.async {
                         self?.activityIndocator?.stopAnimating()
                         guard let self = self else { return }

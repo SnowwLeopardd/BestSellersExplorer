@@ -21,4 +21,18 @@ extension CalendarVC: UICalendarSelectionSingleDateDelegate {
               let day = dateComponents.day else { return "no date" }
         return String(format: "%04d-%02d-%02d", year, month, day)
     }
+    
+    func createDate(from date: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let someDate = formatter.date(from: date)
+        guard let someDate else { return Date()}
+        return someDate
+        }
+    
+    func setupCalendarRange() {
+        let calendarViewDateRange = DateInterval(start: createDate(from: "2019/01/01"), end: Date())
+        calendarView.availableDateRange = calendarViewDateRange
+    }
+
 }
