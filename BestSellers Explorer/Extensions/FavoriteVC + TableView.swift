@@ -51,7 +51,6 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
             coreDataManager.delete(selectedBook)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-        
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }

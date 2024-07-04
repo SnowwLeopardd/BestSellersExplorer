@@ -24,12 +24,11 @@ class FavoriteViewCell: UITableViewCell {
         
         configureBookImageView()
         configureActivityIndicator()
-        configureBookImageView()
 
-        setupBookImageConstrains()
-        setupActivityIndicatorConstrains()
-        setupBookTitleConstrains()
-        setupBookAuthorConstrains()
+        setupBookImageConstraints()
+        setupActivityIndicatorConstraints()
+        setupBookTitleConstraints()
+        setupBookAuthorConstraints()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -39,17 +38,18 @@ class FavoriteViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         bookImageView.image = nil
+        activityIndicator.startAnimating()
     }
     
     func configure(with book: FavoriteBook) {
         fetchBookImage(from: book.imageUrl ?? "No url")
         configureBookTitleLabel(with: book)
         configureBookAuthorLabel(with: book)
-
     }
 
     private func configureActivityIndicator() {
         activityIndicator.style = .large
+        activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
     }
 
@@ -76,7 +76,7 @@ class FavoriteViewCell: UITableViewCell {
         bookTitleLabel.textAlignment = .left
     }
 
-    private func setupBookImageConstrains() {
+    private func setupBookImageConstraints() {
         bookImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -87,32 +87,32 @@ class FavoriteViewCell: UITableViewCell {
         ])
     }
     
-    private func setupActivityIndicatorConstrains() {
+    private func setupActivityIndicatorConstraints() {
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            activityIndicator.topAnchor.constraint(equalTo: bookImageView.topAnchor, constant: 20),
-            activityIndicator.centerXAnchor.constraint(equalTo: bookImageView.centerXAnchor)
+            activityIndicator.centerXAnchor.constraint(equalTo: bookImageView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: bookImageView.centerYAnchor)
         ])
     }
     
-    private func setupBookTitleConstrains() {
+    private func setupBookTitleConstraints() {
         bookTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             bookTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             bookTitleLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 20),
-            bookTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            bookTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
         ])
     }
 
-    private func setupBookAuthorConstrains() {
+    private func setupBookAuthorConstraints() {
         bookAuthorLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             bookAuthorLabel.topAnchor.constraint(equalTo: bookTitleLabel.bottomAnchor, constant: 10),
             bookAuthorLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 20),
-            bookAuthorLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+            bookAuthorLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
         ])
     }
 }

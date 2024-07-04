@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - Networking
 extension BookInfoVC {
     internal func fetchBookImage(from book: Book) {
         let chacheImage = ImageCacheManager.shared.object(forKey: book.bookImage as NSString)

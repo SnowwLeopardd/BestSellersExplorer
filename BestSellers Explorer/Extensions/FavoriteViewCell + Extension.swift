@@ -18,11 +18,16 @@ extension FavoriteViewCell {
             switch result {
             case .success(let bookImage):
                 guard let extractedImage = UIImage(data: bookImage) else { return }
-                self.bookImageView.image = extractedImage
-                ImageCacheManager.shared.setObject(extractedImage, forKey: url as NSString)
-                self.activityIndicator.stopAnimating()
+                DispatchQueue.main.async {
+                    self.bookImageView.image = extractedImage
+                    ImageCacheManager.shared.setObject(extractedImage, forKey: url as NSString)
+                    self.activityIndicator.stopAnimating()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
     }

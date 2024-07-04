@@ -9,10 +9,10 @@ import Foundation
 
 extension FavoritesVC {
     internal func fetchData() {
-        coreDataManager.fetchData { result in
+        coreDataManager.fetchData { [weak self] result in
             switch result {
             case .success(let favoritesBooks):
-                self.favoritesBooks = favoritesBooks
+                self?.favoritesBooks = favoritesBooks
             case .failure(let error):
                 print(error.localizedDescription)
             }

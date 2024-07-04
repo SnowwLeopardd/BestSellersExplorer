@@ -50,5 +50,4 @@ class FavoritesVC: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
-    
 }
