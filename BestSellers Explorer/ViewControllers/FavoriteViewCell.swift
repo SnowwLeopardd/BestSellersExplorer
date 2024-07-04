@@ -82,8 +82,8 @@ class FavoriteViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             bookImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             bookImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
-            bookImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             bookImageView.widthAnchor.constraint(equalToConstant: 80),
+            bookImageView.heightAnchor.constraint(equalTo: bookImageView.widthAnchor)
         ])
     }
     
