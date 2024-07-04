@@ -44,6 +44,7 @@ class TopBooksVC: UIViewController {
     }
     
     private func setupUI() {
+        navigationController?.navigationBar.tintColor = .black
         navigationItem.hidesBackButton = true
         fetchTopBestSellers()
         setupSortButton()
