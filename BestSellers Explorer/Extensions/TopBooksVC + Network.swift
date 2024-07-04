@@ -6,10 +6,10 @@
 //
 import UIKit
 
-// MARK: - FetchData
 extension TopBooksVC {
     internal func fetchTopBestSellers() {
         let topBooksURL = Link.topBooksList(date: selectedDate, category: selectedCategory).url
+        
         networkManager.fetch(TopBooksList.self, from: topBooksURL) { [weak self] result in
             switch result {
             case .success(let bestSellersList):

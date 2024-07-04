@@ -98,7 +98,7 @@ class BookInfoVC: UIViewController {
         bookName.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            bookName.topAnchor.constraint(equalTo: bookImage.bottomAnchor, constant: 16),
+            bookName.topAnchor.constraint(equalTo: bookImage.bottomAnchor, constant: 20),
             bookName.trailingAnchor.constraint(equalTo: bookImage.trailingAnchor),
             bookName.leadingAnchor.constraint(equalTo: bookImage.leadingAnchor)
         ])

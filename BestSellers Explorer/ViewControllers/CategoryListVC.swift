@@ -14,7 +14,7 @@ class CategoryListVC: UIViewController {
     var delegate: CategoryListProtocol?
     
     internal var sortedCategories: [List] = []
-    internal var activityIndocator: UIActivityIndicatorView?
+    internal var activityIndicator: UIActivityIndicatorView?
     internal var date: String
     internal let networkManager: NetworkManagerProtocol = NetworkManager()
     
@@ -35,7 +35,7 @@ class CategoryListVC: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         navigationItem.hidesBackButton = true
-        activityIndocator = ActivityIndicator.start(in: self.view,
+        activityIndicator = ActivityIndicator.start(in: self.view,
                                                     topAnchorConstant: 200,
                                                     size: .large)
         fetchCategoriesData()

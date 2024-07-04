@@ -7,7 +7,6 @@
 
 import UIKit
 
-// MARK: - UITabBarControllerDelegate
 extension TabBarVC: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if let selectedViewController = tabBarController.selectedViewController, selectedViewController == viewController {

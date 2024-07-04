@@ -7,7 +7,6 @@
 
 import UIKit
 
-// MARK: - Calendar
 extension CalendarVC: UICalendarSelectionSingleDateDelegate {
     func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
         choosenDate = dateToString(dateComponents)
@@ -22,17 +21,16 @@ extension CalendarVC: UICalendarSelectionSingleDateDelegate {
         return String(format: "%04d-%02d-%02d", year, month, day)
     }
     
-    func createDate(from date: String) -> Date {
+    func createDate(from date: String) -> Date? {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        let someDate = formatter.date(from: date)
-        guard let someDate else { return Date()}
-        return someDate
-        }
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.date(from: date)
+    }
     
     func setupCalendarRange() {
-        let calendarViewDateRange = DateInterval(start: createDate(from: "2019/01/01"), end: Date())
+        let startDate = createDate(from: "2019-01-01") ?? Date(timeIntervalSince1970: 0)
+        let endDate = Date()
+        let calendarViewDateRange = DateInterval(start: startDate, end: endDate)
         calendarView.availableDateRange = calendarViewDateRange
     }
-
 }

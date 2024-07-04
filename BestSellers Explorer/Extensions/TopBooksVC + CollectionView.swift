@@ -4,9 +4,9 @@
 //
 //  Created by Aleksandr Bochkarev on 6/12/24.
 //
+
 import UIKit
 
-// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension TopBooksVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sortedBooks.count

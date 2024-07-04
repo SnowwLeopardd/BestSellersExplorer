@@ -4,11 +4,12 @@
 //
 //  Created by Aleksandr Bochkarev on 6/4/24.
 //
+
 import UIKit
 
 extension CategoryListVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        sortedCategories.count
+        return sortedCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
