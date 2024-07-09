@@ -29,9 +29,11 @@ enum Link {
 }
 
 class NetworkManager: NetworkManagerProtocol {
-    
-    func fetch<T:Decodable>(_ type: T.Type, from url: String?, completion: @escaping (Result<T, NetworkError>) -> Void) {
-        guard let url = URL(string:  url ?? "") else {
+}
+
+extension NetworkManager {
+    func fetch<T: Decodable>(_ type: T.Type, from url: String?, completion: @escaping (Result<T, NetworkError>) -> Void) {
+        guard let url = URL(string: url ?? "") else {
             completion(.failure(.invalidURL))
             return
         }
@@ -56,14 +58,15 @@ class NetworkManager: NetworkManagerProtocol {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let result = try decoder.decode(T.self, from: data)
-                    completion(.success(result))
+                completion(.success(result))
             } catch {
                 completion(.failure(.decodingError))
             }
         }.resume()
     }
-    
-    
+}
+
+extension NetworkManager {
     func fetchImage(from url: String?, completion: @escaping (Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: url ?? "") else {
             completion(.failure(.invalidURL))
@@ -75,7 +78,7 @@ class NetworkManager: NetworkManagerProtocol {
                 completion(.failure(.noData))
                 return
             }
-        
+            
             DispatchQueue.main.async {
                 completion(.success(imageData))
             }

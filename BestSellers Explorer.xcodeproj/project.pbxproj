@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		530071762C0A7C2700FB176F /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071752C0A7C2700FB176F /* Results.swift */; };
+		530071762C0A7C2700FB176F /* BookResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071752C0A7C2700FB176F /* BookResults.swift */; };
 		530071782C0A7C5B00FB176F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071772C0A7C5B00FB176F /* Book.swift */; };
 		5300717A2C0A7C8E00FB176F /* InfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071792C0A7C8E00FB176F /* InfoList.swift */; };
 		5300717C2C0A7CAD00FB176F /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5300717B2C0A7CAD00FB176F /* List.swift */; };
@@ -68,7 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		530071752C0A7C2700FB176F /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		530071752C0A7C2700FB176F /* BookResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookResults.swift; sourceTree = "<group>"; };
 		530071772C0A7C5B00FB176F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		530071792C0A7C8E00FB176F /* InfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoList.swift; sourceTree = "<group>"; };
 		5300717B2C0A7CAD00FB176F /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 				530071792C0A7C8E00FB176F /* InfoList.swift */,
 				5300717B2C0A7CAD00FB176F /* List.swift */,
 				53868B6E2BC4FD7D000B79B7 /* TopBooksList.swift */,
-				530071752C0A7C2700FB176F /* Results.swift */,
+				530071752C0A7C2700FB176F /* BookResults.swift */,
 				530071772C0A7C5B00FB176F /* Book.swift */,
 			);
 			path = Models;
@@ -425,7 +425,7 @@
 				537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */,
 				5338659B2C0E802200E362CB /* CalendarVC + Extensions.swift in Sources */,
 				53868B722BC4FD7D000B79B7 /* CategotyList.swift in Sources */,
-				530071762C0A7C2700FB176F /* Results.swift in Sources */,
+				530071762C0A7C2700FB176F /* BookResults.swift in Sources */,
 				532D2DEB2C1AB7A40047DD91 /* TabBarVC + Delegate.swift in Sources */,
 				53868B822BC4FD9C000B79B7 /* CategoryListVC.swift in Sources */,
 				5368EB742C1B7F810096BF28 /* BookInfoVC + NSCache.swift in Sources */,

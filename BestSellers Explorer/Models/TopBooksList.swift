@@ -6,7 +6,7 @@
 //
 
 struct TopBooksList: Decodable {
-    let results: Results
+    let results: BookResults
 }
 
 

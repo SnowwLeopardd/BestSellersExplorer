@@ -13,6 +13,7 @@ class TopBooksVC: UIViewController {
     internal var sortedBooks: [Book] = []
     internal var selectedCategory: String
     internal var selectedDate: String
+    internal var activityIndicator: UIActivityIndicatorView?
     internal let networkManager: NetworkManagerProtocol = NetworkManager()
     
     private var collectionView: UICollectionView = {
@@ -40,6 +41,9 @@ class TopBooksVC: UIViewController {
     // MARK: - UI Components
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator = ActivityIndicator.start(in: self.view,
+                                                    topAnchorConstant: 400,
+                                                    size: .large)
         setupUI()
     }
     

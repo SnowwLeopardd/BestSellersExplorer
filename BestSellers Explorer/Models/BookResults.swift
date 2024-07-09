@@ -5,7 +5,7 @@
 //  Created by Aleksandr Bochkarev on 5/31/24.
 //
 
-struct Results: Decodable {
+struct BookResults: Decodable {
     let listName: String
     let books: [Book]
 }
