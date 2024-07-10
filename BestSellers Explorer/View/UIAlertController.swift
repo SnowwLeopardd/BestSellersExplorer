@@ -10,11 +10,13 @@ import UIKit
 struct AlertController {
 
     static func showErrorAlert(on viewController: UIViewController, title: String = "Error", message: String) {
+        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .destructive)
         
-        let restartAction = UIAlertAction(title: "Wait for timer", style: .cancel) {_ in
+        let restartAction = UIAlertAction(title: "Wait for timer", style: .cancel) { _ in
+            viewController.dismiss(animated: true)
             viewController.navigationController?.pushViewController(CalendarVC(), animated: true)
         }
         restartAction.isEnabled = false

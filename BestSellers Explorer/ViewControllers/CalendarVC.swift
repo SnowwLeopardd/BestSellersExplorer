@@ -11,7 +11,6 @@ class CalendarVC: UIViewController, CategoryListProtocol {
     
     private var descriptionHeader = UILabel()
     private var header = UILabel()
-    internal let chooseCategoryButton = UIButton()
     internal let calendarView = UICalendarView()
     
     private let NYTimesLogo: UIImage
@@ -43,10 +42,8 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         headerLabel()
         descriptionHeaderLabel()
         setupCalendar()
-        setupChooseCategoryButton()
         setupNYTimesImageView()
         
-        addShadow(to: chooseCategoryButton)
         addShadow(to: calendarView)
         addShadow(to: NYTimesLogoImageView)
     }
@@ -103,30 +100,9 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            calendarView.topAnchor.constraint(equalTo: descriptionHeader.bottomAnchor, constant: 16),
+            calendarView.topAnchor.constraint(equalTo: descriptionHeader.bottomAnchor, constant: 32),
             calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            calendarView.heightAnchor.constraint(equalToConstant: 380)
-        ])
-    }
-    
-    private func setupChooseCategoryButton() {
-        chooseCategoryButton.setTitle("Please, choose above date first", for: .normal)
-        chooseCategoryButton.backgroundColor = UIColor.white
-        chooseCategoryButton.setTitleColor(UIColor.lightGray, for: .normal)
-        chooseCategoryButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
-        chooseCategoryButton.layer.cornerRadius = 10
-        chooseCategoryButton.addTarget(self, action: #selector(presentCategoryListVC), for: .touchUpInside)
-        
-        view.addSubview(chooseCategoryButton)
-        
-        chooseCategoryButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            chooseCategoryButton.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 16),
-            chooseCategoryButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            chooseCategoryButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            chooseCategoryButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -136,13 +112,12 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         NYTimesLogoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            NYTimesLogoImageView.topAnchor.constraint(equalTo: chooseCategoryButton.bottomAnchor, constant: 10),
+            NYTimesLogoImageView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 32),
             NYTimesLogoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
     internal func didSelectCategory(categoryName: String) {
-        chooseCategoryButton.setTitle(categoryName, for: .normal)
         guard let choosenDate else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             let topBooksVC = TopBooksVC(selectedCategory: categoryName, selectedDate: choosenDate)
@@ -150,7 +125,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         }
     }
     
-    @objc func presentCategoryListVC() {
+    func presentCategoryListVC() {
         if let choosenDate = choosenDate {
             let destinationVC = CategoryListVC(with: choosenDate)
             destinationVC.delegate = self
