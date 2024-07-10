@@ -117,15 +117,15 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         ])
     }
     
-    internal func didSelectCategory(categoryName: String) {
-        guard let choosenDate else { return }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-            let topBooksVC = TopBooksVC(selectedCategory: categoryName, selectedDate: choosenDate)
-            self.navigationController?.pushViewController(topBooksVC, animated: true)
-        }
+    private func addShadow(to view: UIView) {
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = CGSize(width: 2, height: 2)
+        view.layer.shadowRadius = 2
+        view.layer.masksToBounds = false
     }
     
-    func presentCategoryListVC() {
+    internal func presentCategoryListVC() {
         if let choosenDate = choosenDate {
             let destinationVC = CategoryListVC(with: choosenDate)
             destinationVC.delegate = self
@@ -137,11 +137,11 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         }
     }
     
-    private func addShadow(to view: UIView) {
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOpacity = 0.1
-        view.layer.shadowOffset = CGSize(width: 2, height: 2)
-        view.layer.shadowRadius = 2
-        view.layer.masksToBounds = false
+    internal func didSelectCategory(categoryName: String) {
+        guard let choosenDate else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            let topBooksVC = TopBooksVC(selectedCategory: categoryName, selectedDate: choosenDate)
+            self.navigationController?.pushViewController(topBooksVC, animated: true)
+        }
     }
 }

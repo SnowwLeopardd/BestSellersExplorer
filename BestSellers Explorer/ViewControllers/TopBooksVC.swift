@@ -10,6 +10,7 @@ import UIKit
 class TopBooksVC: UIViewController {
     
     private let sortButton = UIBarButtonItem()
+    private let resetButton = UIBarButtonItem()
     internal var sortedBooks: [Book] = []
     internal var selectedCategory: String
     internal var selectedDate: String
@@ -41,17 +42,21 @@ class TopBooksVC: UIViewController {
     // MARK: - UI Components
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator = ActivityIndicator.start(in: self.view,
-                                                    topAnchorConstant: 400,
-                                                    size: .large)
         setupUI()
     }
     
     private func setupUI() {
+        view.backgroundColor = .white
+        activityIndicator = ActivityIndicator.start(in: self.view,
+                                                    topAnchorConstant: 400,
+                                                    size: .large)
+        
         navigationController?.navigationBar.tintColor = .black
         navigationItem.hidesBackButton = true
+        
         fetchTopBestSellers()
         setupSortButton()
+        setupResetButton()
     }
     
     internal func setupCollectionView() {
@@ -83,6 +88,19 @@ class TopBooksVC: UIViewController {
         sortedBooks.sort { isAscending ? $0.rank < $1.rank : $0.rank > $1.rank }
         sortButton.title = isAscending ? "Sort By: ↑": "Sort By: ↓"
         collectionView.reloadData()
+    }
+    
+    private func setupResetButton() {
+        resetButton.title = "Reset"
+        resetButton.style = .plain
+        resetButton.target = self
+        resetButton.action = #selector(resetButtonPressed)
+        
+        navigationItem.leftBarButtonItem = resetButton
+    }
+    
+    @objc func resetButtonPressed() {
+        navigationController?.pushViewController(CalendarVC(), animated: true)
     }
 }
 

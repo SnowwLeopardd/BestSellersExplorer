@@ -18,7 +18,6 @@ class BookInfoVC: UIViewController {
     private let authorLabel = UILabel()
     private let bookDescription = UILabel()
     
-    private let exploreAgain = UIButton()
     private let addToFavorites = UIButton()
     
     internal let coreDataManager: CoreDataManagerProtocol = CoreDataManager()
@@ -48,7 +47,6 @@ class BookInfoVC: UIViewController {
         setupAuthorLabel()
         setupBookDescriptionLabel()
         setupAddToFavoritesButton()
-        setupExploreAgainButton()
     }
     
     // MARK: - SetupUI
@@ -157,27 +155,7 @@ class BookInfoVC: UIViewController {
         ])
     }
     
-    private func setupExploreAgainButton() {
-        exploreAgain.setTitle("Explore again", for: .normal)
-        exploreAgain.backgroundColor = UIColor.black
-        exploreAgain.setTitleColor(UIColor.white, for: .normal)
-        exploreAgain.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        exploreAgain.layer.cornerRadius = 10
-        exploreAgain.addTarget(self, action: #selector(exploreAgainButtonTapped), for: .touchUpInside)
-        
-        view.addSubview(exploreAgain)
-    
-        exploreAgain.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            exploreAgain.topAnchor.constraint(equalTo: addToFavorites.bottomAnchor, constant: 16),
-            exploreAgain.trailingAnchor.constraint(equalTo: bookImage.trailingAnchor),
-            exploreAgain.leadingAnchor.constraint(equalTo: bookImage.leadingAnchor),
-            exploreAgain.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
-        ])
-    }
-    
-    // MARK: - ButtonsLogic
+    // MARK: - ButtonLogic
     @objc private func setupAddToFavoritesLogic() {
         let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
         if isUnique {
@@ -186,9 +164,5 @@ class BookInfoVC: UIViewController {
             AlertController.showErrorAlert(on: self,
                                            message: "This book has already been added to your favorites.")
         }
-    }
-    
-    @objc private func exploreAgainButtonTapped() {
-        navigationController?.pushViewController(CalendarVC(), animated: true)
     }
 }
