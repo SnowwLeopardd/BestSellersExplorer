@@ -20,6 +20,9 @@ class BookInfoVC: UIViewController {
     
     private let addToFavorites = UIButton()
     
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+    
     internal let coreDataManager: CoreDataManagerProtocol = CoreDataManager()
     
     init(book: Book) {
@@ -41,6 +44,8 @@ class BookInfoVC: UIViewController {
         
         fetchBookImage(from: book)
         
+        setupScrollView()
+        setupContentView()
         setupBookImageContainer()
         setupBookImageView()
         setupBookNameLabel()
@@ -50,6 +55,31 @@ class BookInfoVC: UIViewController {
     }
     
     // MARK: - SetupUI
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    private func setupContentView() {
+        scrollView.addSubview(contentView)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
+    }
+    
     private func setupBookImageContainer() {
         bookImageContainer.layer.shadowColor = UIColor.black.cgColor
         bookImageContainer.layer.shadowOpacity = 0.5
@@ -57,13 +87,13 @@ class BookInfoVC: UIViewController {
         bookImageContainer.layer.shadowRadius = 4
         bookImageContainer.layer.masksToBounds = false
         
-        view.addSubview(bookImageContainer)
+        contentView.addSubview(bookImageContainer)
         
         bookImageContainer.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            bookImageContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            bookImageContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bookImageContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            bookImageContainer.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             bookImageContainer.heightAnchor.constraint(equalToConstant: 340),
             bookImageContainer.widthAnchor.constraint(equalToConstant: 270),
         ])
@@ -91,7 +121,7 @@ class BookInfoVC: UIViewController {
         bookName.numberOfLines = 2
         bookName.font = UIFont.boldSystemFont(ofSize: 19)
         
-        view.addSubview(bookName)
+        contentView.addSubview(bookName)
         
         bookName.translatesAutoresizingMaskIntoConstraints = false
         
@@ -108,7 +138,7 @@ class BookInfoVC: UIViewController {
         authorLabel.numberOfLines = 2
         authorLabel.textColor = .gray
         
-        view.addSubview(authorLabel)
+        contentView.addSubview(authorLabel)
         
         authorLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -122,10 +152,10 @@ class BookInfoVC: UIViewController {
     private func setupBookDescriptionLabel() {
         let noDescription = "API doesn't provide description for books in this category"
         bookDescription.text = book.description.isEmpty ? noDescription : book.description
-        bookDescription.numberOfLines = 10
+        bookDescription.numberOfLines = 0
         bookDescription.textAlignment = .justified
         
-        view.addSubview(bookDescription)
+        contentView.addSubview(bookDescription)
         
         bookDescription.translatesAutoresizingMaskIntoConstraints = false
         
@@ -144,14 +174,15 @@ class BookInfoVC: UIViewController {
         addToFavorites.layer.cornerRadius = 10
         addToFavorites.addTarget(self, action: #selector(setupAddToFavoritesLogic), for: .touchUpInside)
         
-        view.addSubview(addToFavorites)
+        contentView.addSubview(addToFavorites)
         
         addToFavorites.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             addToFavorites.topAnchor.constraint(equalTo: bookDescription.bottomAnchor, constant: 16),
             addToFavorites.trailingAnchor.constraint(equalTo: bookImage.trailingAnchor),
-            addToFavorites.leadingAnchor.constraint(equalTo: bookImage.leadingAnchor)
+            addToFavorites.leadingAnchor.constraint(equalTo: bookImage.leadingAnchor),
+            addToFavorites.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
     }
     
