@@ -50,6 +50,7 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
             self.favoritesBooks.remove(at: indexPath.row)
             coreDataManager.delete(selectedBook)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }

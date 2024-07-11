@@ -54,7 +54,6 @@ class CoreDataManager: CoreDataManagerProtocol {
     
     func delete(_ favoriteBook: FavoriteBook) {
         mainContext.delete(favoriteBook)
-        NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
         saveContext()
     }
     

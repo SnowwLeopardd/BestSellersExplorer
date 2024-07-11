@@ -198,19 +198,22 @@ class BookInfoVC: UIViewController {
         ])
     }
     
+    private func updateAddToFavoritesButtonTitle() {
+        let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
+        let title = isUnique ? "Add to Favorites" : "Remove from Favorites"
+        addToFavorites.setTitle(title, for: .normal)
+    }
+    
     // MARK: - ButtonLogic
     @objc private func setupAddToFavoritesLogic() {
         let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
         if isUnique {
             coreDataManager.create(book)
-            DispatchQueue.main.async {
-                self.addToFavorites.setTitle("Remove from Favorites", for: .normal)
-            }
         } else {
-            DispatchQueue.main.async {
-                self.addToFavorites.setTitle("Add to Favorites", for: .normal)
-            }
             coreDataManager.deleteFavoriteBook(by: book.primaryIsbn13)
+        }
+        DispatchQueue.main.async {
+            self.updateAddToFavoritesButtonTitle()
         }
     }
     
