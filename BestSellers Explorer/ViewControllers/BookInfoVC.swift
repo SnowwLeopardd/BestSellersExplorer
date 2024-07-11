@@ -98,11 +98,15 @@ class BookInfoVC: UIViewController {
         
         bookImageContainer.translatesAutoresizingMaskIntoConstraints = false
         
+        let screenWidth = UIScreen.main.bounds.width
+        let itemWidth = screenWidth / 1.5
+        let itemHeight = itemWidth * 1.5
+        
         NSLayoutConstraint.activate([
             bookImageContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             bookImageContainer.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            bookImageContainer.heightAnchor.constraint(equalToConstant: 340),
-            bookImageContainer.widthAnchor.constraint(equalToConstant: 270),
+            bookImageContainer.widthAnchor.constraint(equalToConstant: itemWidth),
+            bookImageContainer.heightAnchor.constraint(equalToConstant: itemHeight),
         ])
     }
     
