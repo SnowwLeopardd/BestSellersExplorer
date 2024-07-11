@@ -55,11 +55,15 @@ class TopBooksViewCell: UICollectionViewCell {
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
+        let screenWidth = UIScreen.main.bounds.width
+        let itemWidth = screenWidth / 3
+        let itemHeight = itemWidth * 1.5
+        
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: self.topAnchor),
             containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            containerView.widthAnchor.constraint(equalToConstant: 140),
-            containerView.heightAnchor.constraint(equalToConstant: 200)
+            containerView.widthAnchor.constraint(equalToConstant: itemWidth),
+            containerView.heightAnchor.constraint(equalToConstant: itemHeight)
         ])
     }
 

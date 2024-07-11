@@ -20,9 +20,14 @@ class TopBooksVC: UIViewController {
     private var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 300, height: 200)
-        layout.minimumLineSpacing = 17
         
+        let screenWidth = UIScreen.main.bounds.width
+        let itemWidth = screenWidth - 40 
+        let itemHeight = itemWidth / 1.77
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        
+        layout.minimumLineSpacing = 17
+
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemBackground
         collectionView.register(TopBooksViewCell.self, forCellWithReuseIdentifier: "TopBestSellersViewCell")
