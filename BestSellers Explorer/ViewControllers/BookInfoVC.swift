@@ -34,6 +34,10 @@ class BookInfoVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .favoriteBooksUpdated, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -51,7 +55,9 @@ class BookInfoVC: UIViewController {
         setupBookNameLabel()
         setupAuthorLabel()
         setupBookDescriptionLabel()
+        
         setupAddToFavoritesButton()
+        NotificationCenter.default.addObserver(self, selector: #selector(favoriteBooksUpdated), name: .favoriteBooksUpdated, object: nil)
     }
     
     // MARK: - SetupUI
@@ -167,7 +173,13 @@ class BookInfoVC: UIViewController {
     }
     
     private func setupAddToFavoritesButton() {
-        addToFavorites.setTitle("Add to Favorites", for: .normal)
+        let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
+        if isUnique {
+            addToFavorites.setTitle("Add to Favorites", for: .normal)
+        } else {
+            addToFavorites.setTitle("Remove from Favorites", for: .normal)
+        }
+        
         addToFavorites.backgroundColor = UIColor.black
         addToFavorites.setTitleColor(UIColor.white, for: .normal)
         addToFavorites.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
@@ -191,9 +203,20 @@ class BookInfoVC: UIViewController {
         let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
         if isUnique {
             coreDataManager.create(book)
+            DispatchQueue.main.async {
+                self.addToFavorites.setTitle("Remove from Favorites", for: .normal)
+            }
         } else {
-            AlertController.showErrorAlert(on: self,
-                                           message: "This book has already been added to your favorites.")
+            DispatchQueue.main.async {
+                self.addToFavorites.setTitle("Add to Favorites", for: .normal)
+            }
+            coreDataManager.deleteFavoriteBook(by: book.primaryIsbn13)
+        }
+    }
+    
+    @objc private func favoriteBooksUpdated() {
+        DispatchQueue.main.async {
+            self.addToFavorites.setTitle("Add to Favorites", for: .normal)
         }
     }
 }

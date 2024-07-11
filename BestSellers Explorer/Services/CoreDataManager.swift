@@ -54,6 +54,7 @@ class CoreDataManager: CoreDataManagerProtocol {
     
     func delete(_ favoriteBook: FavoriteBook) {
         mainContext.delete(favoriteBook)
+        NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
         saveContext()
     }
     
@@ -71,5 +72,30 @@ class CoreDataManager: CoreDataManagerProtocol {
         }
         
         return similarbooks.isEmpty
+    }
+    
+    func fetchBook(_ primaryIsbn13: String) -> FavoriteBook? {
+        let fetchRequest = FavoriteBook.fetchRequest()
+        
+        fetchRequest.predicate = NSPredicate(format: "(primaryIsbn13 = %@)", primaryIsbn13)
+        
+        var similarbooks: [FavoriteBook] = []
+            
+        do {
+            similarbooks = try mainContext.fetch(fetchRequest)
+        } catch {
+            print("Error fetching")
+        }
+        
+        return similarbooks.first
+    }
+    
+    func deleteFavoriteBook(by primaryIsbn13: String) {
+        if let bookToDelete = fetchBook(primaryIsbn13) {
+            delete(bookToDelete)
+            NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
+        } else {
+            print("Book with ISBN \(primaryIsbn13) not found.")
+        }
     }
 }
