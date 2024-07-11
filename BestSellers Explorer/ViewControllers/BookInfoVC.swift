@@ -157,7 +157,7 @@ class BookInfoVC: UIViewController {
     }
     
     private func setupBookDescriptionLabel() {
-        let noDescription = "API doesn't provide description for books in this category"
+        let noDescription = String(localized: "API doesn't provide description for books in this category")
         bookDescription.text = book.description.isEmpty ? noDescription : book.description
         bookDescription.numberOfLines = 0
         bookDescription.textAlignment = .justified
@@ -176,9 +176,9 @@ class BookInfoVC: UIViewController {
     private func setupAddToFavoritesButton() {
         let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
         if isUnique {
-            addToFavorites.setTitle("Add to Favorites", for: .normal)
+            addToFavorites.setTitle(String(localized: "Add to Favorites"), for: .normal)
         } else {
-            addToFavorites.setTitle("Remove from Favorites", for: .normal)
+            addToFavorites.setTitle(String(localized: "Remove from Favorites"), for: .normal)
         }
         
         addToFavorites.backgroundColor = UIColor.black
@@ -201,7 +201,7 @@ class BookInfoVC: UIViewController {
     
     private func updateAddToFavoritesButtonTitle() {
         let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
-        let title = isUnique ? "Add to Favorites" : "Remove from Favorites"
+        let title = isUnique ? String(localized: "Add to Favorites") : String(localized: "Remove from Favorites")
         addToFavorites.setTitle(title, for: .normal)
     }
     
@@ -220,7 +220,7 @@ class BookInfoVC: UIViewController {
     
     @objc private func favoriteBooksUpdated() {
         DispatchQueue.main.async {
-            self.addToFavorites.setTitle("Add to Favorites", for: .normal)
+            self.addToFavorites.setTitle(String(localized: "Add to Favorites"), for: .normal)
         }
     }
 }

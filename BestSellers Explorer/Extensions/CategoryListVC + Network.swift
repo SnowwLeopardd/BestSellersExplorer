@@ -28,8 +28,8 @@ extension CategoryListVC {
                     switch error {
                     case .quotaLimitExceeded:
                         AlertController.showErrorAlert(on: self,
-                                                       title: "Quota limit exceeded",
-                                                       message: "NY Times API blocks too many inquiries. Please, wait 20 seconds.")
+                                                       title: String(localized: "Quota limit exceeded"),
+                                                       message: String(localized: "NY Times API blocks too many inquiries. Please, wait 20 seconds"))
                     default:
                         print("Error fetching data: \(error.localizedDescription)")
                     }

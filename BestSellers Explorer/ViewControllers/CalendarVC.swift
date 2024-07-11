@@ -50,7 +50,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
     
     // MARK: - UIElements
     private func headerLabel() {
-        header.text = "The New York Times Best Sellers"
+        header.text = String(localized: "The New York Times Best Sellers")
         header.textColor = UIColor.black
         header.textAlignment = .left
         header.numberOfLines = 2
@@ -68,7 +68,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
     }
     
     private func descriptionHeaderLabel() {
-        descriptionHeader.text = "Authoritatively ranked lists of books sold in US. Select date and topics"
+        descriptionHeader.text = String(localized: "Authoritatively ranked lists of books sold in US. Select date and topics")
         descriptionHeader.textAlignment = .left
         descriptionHeader.numberOfLines = 2
         descriptionHeader.textColor = UIColor.gray

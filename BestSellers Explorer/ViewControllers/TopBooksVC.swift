@@ -75,7 +75,7 @@ class TopBooksVC: UIViewController {
     }
     
     private func setupSortButton() {
-        sortButton.title = "Sort By: ↑"
+        sortButton.title = String(localized: "Sort By: ↑")
         sortButton.style = .plain
         sortButton.target = self
         sortButton.action = #selector(sortButtonPressed)
@@ -84,14 +84,14 @@ class TopBooksVC: UIViewController {
     }
     
     @objc func sortButtonPressed() {
-        let isAscending = sortButton.title == "Sort By: ↓"
+        let isAscending = sortButton.title == String(localized: "Sort By: ↓")
         sortedBooks.sort { isAscending ? $0.rank < $1.rank : $0.rank > $1.rank }
-        sortButton.title = isAscending ? "Sort By: ↑": "Sort By: ↓"
+        sortButton.title = isAscending ? String(localized: "Sort By: ↑") : String(localized: "Sort By: ↓")
         collectionView.reloadData()
     }
     
     private func setupResetButton() {
-        resetButton.title = "Reset"
+        resetButton.title = String(localized: "Reset")
         resetButton.style = .plain
         resetButton.target = self
         resetButton.action = #selector(resetButtonPressed)

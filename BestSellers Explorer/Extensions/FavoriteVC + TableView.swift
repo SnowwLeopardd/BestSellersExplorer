@@ -23,7 +23,7 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Favorites Books"
+        return String(localized: "Favorites Books")
     }
     
     // MARK: - UITableViewDelegate
@@ -59,7 +59,7 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let selectedBook = favoritesBooks[indexPath.row]
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [unowned self] _, _, _ in
+        let deleteAction = UIContextualAction(style: .destructive, title: String(localized: "Delete")) { [unowned self] _, _, _ in
             self.favoritesBooks.remove(at: indexPath.row)
             coreDataManager.delete(selectedBook)
             tableView.deleteRows(at: [indexPath], with: .automatic)

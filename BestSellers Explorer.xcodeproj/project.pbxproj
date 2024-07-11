@@ -56,6 +56,7 @@
 		5386C1132BC608D3005EF50F /* BestSellers_Explorer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5386C1112BC608D3005EF50F /* BestSellers_Explorer.xcdatamodeld */; };
 		5386C1152BC608E7005EF50F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386C1142BC608E7005EF50F /* CoreDataManager.swift */; };
 		53C373362C2F52E8003A9B0D /* CategoryListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C373352C2F52E8003A9B0D /* CategoryListProtocol.swift */; };
+		53CF8E932C40835E003E0136 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 53CF8E922C40835E003E0136 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		5386C1122BC608D3005EF50F /* BestSellers_Explorer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BestSellers_Explorer.xcdatamodel; sourceTree = "<group>"; };
 		5386C1142BC608E7005EF50F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		53C373352C2F52E8003A9B0D /* CategoryListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListProtocol.swift; sourceTree = "<group>"; };
+		53CF8E922C40835E003E0136 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				538689852BC4D243000B79B7 /* Assets.xcassets */,
+				53CF8E922C40835E003E0136 /* Localizable.xcstrings */,
 				5386C1112BC608D3005EF50F /* BestSellers_Explorer.xcdatamodeld */,
 			);
 			path = Resources;
@@ -359,6 +362,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 538689702BC4D242000B79B7;
 			productRefGroup = 5386897A2BC4D242000B79B7 /* Products */;
@@ -388,6 +392,7 @@
 			files = (
 				538689862BC4D243000B79B7 /* Assets.xcassets in Resources */,
 				538689892BC4D243000B79B7 /* Base in Resources */,
+				53CF8E932C40835E003E0136 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
