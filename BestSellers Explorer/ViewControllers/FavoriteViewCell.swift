@@ -80,7 +80,7 @@ class FavoriteViewCell: UITableViewCell {
         bookImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            bookImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            bookImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             bookImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
             bookImageView.widthAnchor.constraint(equalToConstant: 80),
             bookImageView.heightAnchor.constraint(equalTo: bookImageView.widthAnchor)
