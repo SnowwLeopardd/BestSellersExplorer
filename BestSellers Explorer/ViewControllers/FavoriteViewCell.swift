@@ -8,7 +8,7 @@
 import UIKit
 
 class FavoriteViewCell: UITableViewCell {
-        
+    
     private let bookAuthorLabel = UILabel()
     private let bookTitleLabel  = UILabel()
     internal let bookImageView = UIImageView()
@@ -55,12 +55,10 @@ class FavoriteViewCell: UITableViewCell {
 
     private func configureBookImageView() {
         bookImageView.layer.cornerRadius = 10
-        
         bookImageView.layer.shadowColor = UIColor.black.cgColor
         bookImageView.layer.shadowOpacity = 0.5
         bookImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
         bookImageView.layer.shadowRadius = 4
-        
         bookImageView.layer.masksToBounds = false
     }
     
@@ -82,8 +80,8 @@ class FavoriteViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             bookImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             bookImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
-            bookImageView.widthAnchor.constraint(equalToConstant: 80),
-            bookImageView.heightAnchor.constraint(equalTo: bookImageView.widthAnchor)
+            bookImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
+            bookImageView.heightAnchor.constraint(equalTo: bookImageView.widthAnchor, multiplier: 1.2)
         ])
     }
     
