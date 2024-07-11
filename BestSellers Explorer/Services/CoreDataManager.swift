@@ -28,7 +28,7 @@ class CoreDataManager: CoreDataManagerProtocol {
     }
     
     // MARK: - CRUD operators
-    func create(_ book: Book) {
+    func createFavoriteBook(from book: Book) {
         let favoriteBook = FavoriteBook(context: mainContext)
         
         favoriteBook.rank = Int32(book.rank)

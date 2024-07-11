@@ -36,7 +36,7 @@ class CoreDataManagerTest: XCTestCase {
     }
     
     func testCreateSuccess() {
-        coreDataManager.create(testBook)
+        coreDataManager.createFavoriteBook(from: testBook)
         
         var favoriteBooks: [FavoriteBook] = []
         var receivedError: Error?
@@ -114,7 +114,7 @@ class CoreDataManagerTest: XCTestCase {
     }
     
     func testDeleteSuccess() {
-        coreDataManager.create(testBook)
+        coreDataManager.createFavoriteBook(from: testBook)
         
         var favoriteBooks: [FavoriteBook] = []
         var receivedError: Error?
@@ -153,8 +153,8 @@ class CoreDataManagerTest: XCTestCase {
     }
     
     func testIsUniqueFailure() {
-        coreDataManager.create(testBook)
-        coreDataManager.create(testBook)
+        coreDataManager.createFavoriteBook(from: testBook)
+        coreDataManager.createFavoriteBook(from: testBook)
         
         let isUnique = coreDataManager.isUnique(testBook.primaryIsbn13)
         XCTAssertFalse(isUnique)

@@ -45,6 +45,7 @@ class BookInfoVC: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = #colorLiteral(red: 0.9610984921, green: 0.9610984921, blue: 0.9610984921, alpha: 1)
+        navigationController?.navigationBar.tintColor = .black
         
         fetchBookImage(from: book)
         
@@ -208,7 +209,7 @@ class BookInfoVC: UIViewController {
     @objc private func setupAddToFavoritesLogic() {
         let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
         if isUnique {
-            coreDataManager.create(book)
+            coreDataManager.createFavoriteBook(from: book)
         } else {
             coreDataManager.deleteFavoriteBook(by: book.primaryIsbn13)
         }

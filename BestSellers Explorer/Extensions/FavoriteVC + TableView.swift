@@ -41,6 +41,19 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedBook = favoritesBooks[indexPath.row]
+       
+        let convertedBook = Book(rank: Int(selectedBook.rank),
+             primaryIsbn13: selectedBook.primaryIsbn13 ?? "",
+             description: selectedBook.about ?? "",
+             title: selectedBook.title ?? "",
+             author: selectedBook.author ?? "",
+             bookImage: selectedBook.imageUrl ?? ""
+        )
+        
+        let bookInfoVC = BookInfoVC(book: convertedBook)
+        navigationController?.pushViewController(bookInfoVC, animated: true)
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
