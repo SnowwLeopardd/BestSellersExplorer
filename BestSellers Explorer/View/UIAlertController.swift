@@ -17,7 +17,7 @@ struct AlertController {
         
         let restartAction = UIAlertAction(title: String(localized: "Wait for timer"), style: .cancel) { _ in
             viewController.dismiss(animated: true)
-            viewController.navigationController?.pushViewController(CalendarVC(), animated: true)
+            viewController.navigationController?.popToRootViewController(animated: true)
         }
         restartAction.isEnabled = false
         

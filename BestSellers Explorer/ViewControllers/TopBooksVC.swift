@@ -105,7 +105,7 @@ class TopBooksVC: UIViewController {
     }
     
     @objc func resetButtonPressed() {
-        navigationController?.pushViewController(CalendarVC(), animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 
