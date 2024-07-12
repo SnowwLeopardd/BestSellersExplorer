@@ -11,11 +11,16 @@ class TopBooksVC: UIViewController {
     
     private let sortButton = UIBarButtonItem()
     private let resetButton = UIBarButtonItem()
+    private var activityIndicator: UIActivityIndicatorView?
+    
     private var sortedBooks: [Book] = []
     private var selectedCategory: String
     private var selectedDate: String
-    private var activityIndicator: UIActivityIndicatorView?
+    
+    static let cellId = "TopBestSellersViewCell"
+    
     private let networkManager: NetworkManagerProtocol = NetworkManager()
+    
     
     private var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -30,7 +35,7 @@ class TopBooksVC: UIViewController {
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemBackground
-        collectionView.register(TopBooksViewCell.self, forCellWithReuseIdentifier: "TopBestSellersViewCell")
+        collectionView.register(TopBooksViewCell.self, forCellWithReuseIdentifier: cellId )
         return collectionView
     }()
     
@@ -115,7 +120,7 @@ extension TopBooksVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopBestSellersViewCell", for: indexPath) as? TopBooksViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopBooksVC.cellId, for: indexPath) as? TopBooksViewCell else { return UICollectionViewCell() }
         
         let book = sortedBooks[indexPath.row]
         cell.configure(with: book)

@@ -10,6 +10,7 @@ import UIKit
 class CategoryListVC: UIViewController {
     
     private let tableView = UITableView()
+    private let cellId = "ListCell"
     
     var delegate: CategoryListProtocol?
     
@@ -45,7 +46,7 @@ class CategoryListVC: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ListCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
         view.addSubview(tableView)
         
@@ -66,7 +67,7 @@ extension CategoryListVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         let text = sortedCategories[indexPath.row].listName
         cell.textLabel?.text = text
         return cell

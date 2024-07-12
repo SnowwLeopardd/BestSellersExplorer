@@ -11,6 +11,7 @@ class FavoritesVC: UIViewController {
     
     private var favoritesBooks: [FavoriteBook] = []
     private let tableView = UITableView()
+    private let cellId = "Book"
     private let coreDataManager: CoreDataManagerProtocol = CoreDataManager()
 
     override func viewDidLoad() {
@@ -37,7 +38,7 @@ class FavoritesVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 120
-        tableView.register(FavoriteViewCell.self, forCellReuseIdentifier: "Book")
+        tableView.register(FavoriteViewCell.self, forCellReuseIdentifier: cellId)
         
         view.addSubview(tableView)
         
@@ -58,7 +59,7 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Book", for: indexPath) as? FavoriteViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? FavoriteViewCell else {
             fatalError("Unable to dequeue FavoriteViewCell")
         }
         let favoriteBook = favoritesBooks[indexPath.row]
