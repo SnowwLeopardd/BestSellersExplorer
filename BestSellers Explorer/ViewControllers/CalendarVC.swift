@@ -11,12 +11,12 @@ class CalendarVC: UIViewController, CategoryListProtocol {
     
     private var descriptionHeader = UILabel()
     private var header = UILabel()
-    internal let calendarView = UICalendarView()
+    let calendarView = UICalendarView()
     
     private let NYTimesLogo: UIImage
     private let NYTimesLogoImageView: UIImageView
     
-    internal var choosenDate: String?
+    var choosenDate: String?
     
     init() {
         NYTimesLogo = UIImage(named: "NYTimes Logo 1") ?? UIImage()
@@ -125,7 +125,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         view.layer.masksToBounds = false
     }
     
-    internal func presentCategoryListVC() {
+    func presentCategoryListVC() {
         if let choosenDate = choosenDate {
             let destinationVC = CategoryListVC(with: choosenDate)
             destinationVC.delegate = self
@@ -137,7 +137,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         }
     }
     
-    internal func didSelectCategory(categoryName: String) {
+    func didSelectCategory(categoryName: String) {
         guard let choosenDate else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             let topBooksVC = TopBooksVC(selectedCategory: categoryName, selectedDate: choosenDate)

@@ -13,10 +13,10 @@ class TopBooksViewCell: UICollectionViewCell {
     private let bookAuthorLabel = UILabel()
     private let bookTitleLabel = UILabel()
     private let bookRankLabel = UILabel()
-    internal let bookImageView = UIImageView()
-    internal var activityIndicator: UIActivityIndicatorView?
+    private let bookImageView = UIImageView()
+    private var activityIndicator: UIActivityIndicatorView?
     
-    internal let networkManager: NetworkManagerProtocol = NetworkManager()
+    private let networkManager: NetworkManagerProtocol = NetworkManager()
 
     func configure(with book: Book) {
         activityIndicator = ActivityIndicator.start(in: bookImageView,
@@ -125,4 +125,30 @@ class TopBooksViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Networking
+extension TopBooksViewCell {
+    private func fetchBookImage(from book: Book) {
+        if let cacheImage = ImageCacheManager.shared.object(forKey: book.bookImage as NSString) {
+            DispatchQueue.main.async {
+                self.bookImageView.image = cacheImage
+                self.activityIndicator?.stopAnimating()
+            }
+            return
+        }
+        
+        networkManager.fetchImage(from: book.bookImage) { [weak self] result in
+            switch result {
+            case .success(let bookImage):
+                guard let bookImage = UIImage(data: bookImage) else { return }
+                DispatchQueue.main.async {
+                    self?.bookImageView.image = bookImage
+                    self?.activityIndicator?.stopAnimating()
+                }
+                ImageCacheManager.shared.setObject(bookImage, forKey: book.bookImage as NSString)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
 

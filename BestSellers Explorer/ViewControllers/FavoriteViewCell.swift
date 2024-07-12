@@ -11,9 +11,9 @@ class FavoriteViewCell: UITableViewCell {
     
     private let bookAuthorLabel = UILabel()
     private let bookTitleLabel  = UILabel()
-    internal let bookImageView = UIImageView()
-    internal let activityIndicator = UIActivityIndicatorView()
-    internal let networkManager: NetworkManagerProtocol = NetworkManager()
+    private let bookImageView = UIImageView()
+    private let activityIndicator = UIActivityIndicatorView()
+    private let networkManager: NetworkManagerProtocol = NetworkManager()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -112,5 +112,32 @@ class FavoriteViewCell: UITableViewCell {
             bookAuthorLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 20),
             bookAuthorLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
         ])
+    }
+}
+
+extension FavoriteViewCell {
+    private func fetchBookImage(from url: String) {
+        if let cacheImage = ImageCacheManager.shared.object(forKey: url as NSString) {
+            bookImageView.image = cacheImage
+            self.activityIndicator.stopAnimating()
+            return
+        }
+        
+        networkManager.fetchImage(from: url) { result in
+            switch result {
+            case .success(let bookImage):
+                guard let extractedImage = UIImage(data: bookImage) else { return }
+                DispatchQueue.main.async {
+                    self.bookImageView.image = extractedImage
+                    ImageCacheManager.shared.setObject(extractedImage, forKey: url as NSString)
+                    self.activityIndicator.stopAnimating()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
+            }
+        }
     }
 }

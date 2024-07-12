@@ -11,11 +11,11 @@ class TopBooksVC: UIViewController {
     
     private let sortButton = UIBarButtonItem()
     private let resetButton = UIBarButtonItem()
-    internal var sortedBooks: [Book] = []
-    internal var selectedCategory: String
-    internal var selectedDate: String
-    internal var activityIndicator: UIActivityIndicatorView?
-    internal let networkManager: NetworkManagerProtocol = NetworkManager()
+    private var sortedBooks: [Book] = []
+    private var selectedCategory: String
+    private var selectedDate: String
+    private var activityIndicator: UIActivityIndicatorView?
+    private let networkManager: NetworkManagerProtocol = NetworkManager()
     
     private var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -64,7 +64,7 @@ class TopBooksVC: UIViewController {
         setupResetButton()
     }
     
-    internal func setupCollectionView() {
+    private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -109,6 +109,55 @@ class TopBooksVC: UIViewController {
     }
 }
 
+extension TopBooksVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sortedBooks.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopBestSellersViewCell", for: indexPath) as? TopBooksViewCell else { return UICollectionViewCell() }
+        
+        let book = sortedBooks[indexPath.row]
+        cell.configure(with: book)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let book = sortedBooks[indexPath.row]
+        
+        let bookInfoVC = BookInfoVC(book: book)
+        
+        navigationController?.pushViewController(bookInfoVC, animated: true)
+    }
+}
 
+extension TopBooksVC {
+    private func fetchTopBestSellers() {
+        let topBooksURL = Link.topBooksList(date: selectedDate, category: selectedCategory).url
+        
+        networkManager.fetch(TopBooksList.self, from: topBooksURL) { [weak self] result in
+            switch result {
+            case .success(let bestSellersList):
+                let sortedBooks = bestSellersList.results.books.sorted { $0.rank < $1.rank }
+                self?.sortedBooks = sortedBooks
+                DispatchQueue.main.async {
+                    self?.setupCollectionView()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    switch error {
+                    case .quotaLimitExceeded:
+                        guard let self = self else { return }
+                        AlertController.showErrorAlert(on: self,
+                                                       title: String(localized: "Quota limit exceeded"),
+                                                       message: String(localized: "NY Times API blocks too many inquiries. Please, wait 20 seconds"))
+                    default:
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+}
 
 

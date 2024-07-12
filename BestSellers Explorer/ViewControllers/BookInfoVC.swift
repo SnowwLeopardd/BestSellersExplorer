@@ -11,7 +11,7 @@ class BookInfoVC: UIViewController {
     
     private var book: Book
     
-    internal let bookImage = UIImageView()
+    private let bookImage = UIImageView()
     private let bookImageContainer = UIView()
     
     private let bookName = UILabel()
@@ -23,7 +23,7 @@ class BookInfoVC: UIViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
-    internal let coreDataManager: CoreDataManagerProtocol = CoreDataManager()
+    private let coreDataManager: CoreDataManagerProtocol = CoreDataManager()
     
     init(book: Book) {
         self.book = book
@@ -226,5 +226,12 @@ class BookInfoVC: UIViewController {
         DispatchQueue.main.async {
             self.addToFavorites.setTitle(String(localized: "Add to Favorites"), for: .normal)
         }
+    }
+}
+
+extension BookInfoVC {
+    private func fetchBookImage(from book: Book) {
+        let chacheImage = ImageCacheManager.shared.object(forKey: book.bookImage as NSString)
+        bookImage.image = chacheImage
     }
 }

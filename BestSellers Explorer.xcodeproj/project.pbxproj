@@ -12,15 +12,9 @@
 		5300717A2C0A7C8E00FB176F /* InfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071792C0A7C8E00FB176F /* InfoList.swift */; };
 		5300717C2C0A7CAD00FB176F /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5300717B2C0A7CAD00FB176F /* List.swift */; };
 		530071822C0A8BCD00FB176F /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071812C0A8BCD00FB176F /* CalendarVC.swift */; };
-		532D2DE52C1AAED60047DD91 /* TopBooksVC + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D2DE42C1AAED60047DD91 /* TopBooksVC + Network.swift */; };
-		532D2DE72C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D2DE62C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift */; };
-		532D2DE92C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D2DE82C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift */; };
-		532D2DEB2C1AB7A40047DD91 /* TabBarVC + Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D2DEA2C1AB7A40047DD91 /* TabBarVC + Delegate.swift */; };
+		532D2DEB2C1AB7A40047DD91 /* TabBarVC+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D2DEA2C1AB7A40047DD91 /* TabBarVC+Delegate.swift */; };
 		53472C9D2C3DF44C00BC1466 /* AppDataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53472C9C2C3DF44C00BC1466 /* AppDataFormatter.swift */; };
-		53472C9F2C3E037000BC1466 /* CalendarVC + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53472C9E2C3E037000BC1466 /* CalendarVC + Extensions.swift */; };
-		5368EB742C1B7F810096BF28 /* BookInfoVC + NSCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB732C1B7F810096BF28 /* BookInfoVC + NSCache.swift */; };
-		5368EB762C1B80060096BF28 /* FavoritesVC + CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB752C1B80060096BF28 /* FavoritesVC + CoreData.swift */; };
-		5368EB782C1B81250096BF28 /* FavoriteVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB772C1B81250096BF28 /* FavoriteVC + TableView.swift */; };
+		53472C9F2C3E037000BC1466 /* CalendarVC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53472C9E2C3E037000BC1466 /* CalendarVC+Extensions.swift */; };
 		5368EB7A2C1B8D740096BF28 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB792C1B8D740096BF28 /* Notifications.swift */; };
 		5368EB8B2C1D22F60096BF28 /* CalendarVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */; };
 		53697D8C2C2BAB04003F5592 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */; };
@@ -34,11 +28,8 @@
 		53697DAA2C2E1B2E003F5592 /* CoreDataManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697DA92C2E1B2E003F5592 /* CoreDataManagerTest.swift */; };
 		53697DAC2C2E1C04003F5592 /* MockCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697DAB2C2E1C04003F5592 /* MockCoreDataStack.swift */; };
 		537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592752C0FA3F60074D220 /* ActivityIndicator.swift */; };
-		537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592772C0FA4790074D220 /* CategoryListVC + Network.swift */; };
-		5375927A2C0FA5B30074D220 /* CategoryListVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */; };
 		5375927C2C0FD8740074D220 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5375927B2C0FD8740074D220 /* UIAlertController.swift */; };
 		5379F9E02BCCBD32003C9023 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5379F9DF2BCCBD32003C9023 /* FavoriteViewCell.swift */; };
-		537DF8A32C2FB136005D31E8 /* FavoriteViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537DF8A22C2FB136005D31E8 /* FavoriteViewCell + Extension.swift */; };
 		538689862BC4D243000B79B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538689852BC4D243000B79B7 /* Assets.xcassets */; };
 		538689892BC4D243000B79B7 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 538689882BC4D243000B79B7 /* Base */; };
 		53868B712BC4FD7D000B79B7 /* TopBooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53868B6E2BC4FD7D000B79B7 /* TopBooksList.swift */; };
@@ -75,15 +66,9 @@
 		530071792C0A7C8E00FB176F /* InfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoList.swift; sourceTree = "<group>"; };
 		5300717B2C0A7CAD00FB176F /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		530071812C0A8BCD00FB176F /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
-		532D2DE42C1AAED60047DD91 /* TopBooksVC + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopBooksVC + Network.swift"; sourceTree = "<group>"; };
-		532D2DE62C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopBooksVC + CollectionView.swift"; sourceTree = "<group>"; };
-		532D2DE82C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopBooksViewCell + Network.swift"; sourceTree = "<group>"; };
-		532D2DEA2C1AB7A40047DD91 /* TabBarVC + Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarVC + Delegate.swift"; sourceTree = "<group>"; };
+		532D2DEA2C1AB7A40047DD91 /* TabBarVC+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarVC+Delegate.swift"; sourceTree = "<group>"; };
 		53472C9C2C3DF44C00BC1466 /* AppDataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataFormatter.swift; sourceTree = "<group>"; };
-		53472C9E2C3E037000BC1466 /* CalendarVC + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CalendarVC + Extensions.swift"; path = "../../../../../.Trash/CalendarVC + Extensions.swift"; sourceTree = "<group>"; };
-		5368EB732C1B7F810096BF28 /* BookInfoVC + NSCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookInfoVC + NSCache.swift"; sourceTree = "<group>"; };
-		5368EB752C1B80060096BF28 /* FavoritesVC + CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesVC + CoreData.swift"; sourceTree = "<group>"; };
-		5368EB772C1B81250096BF28 /* FavoriteVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteVC + TableView.swift"; sourceTree = "<group>"; };
+		53472C9E2C3E037000BC1466 /* CalendarVC+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CalendarVC+Extensions.swift"; path = "../../../../../.Trash/CalendarVC+Extensions.swift"; sourceTree = "<group>"; };
 		5368EB792C1B8D740096BF28 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		5368EB812C1D228C0096BF28 /* BestSellers ExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BestSellers ExplorerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVCTest.swift; sourceTree = "<group>"; };
@@ -98,11 +83,8 @@
 		53697DA92C2E1B2E003F5592 /* CoreDataManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTest.swift; sourceTree = "<group>"; };
 		53697DAB2C2E1C04003F5592 /* MockCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreDataStack.swift; sourceTree = "<group>"; };
 		537592752C0FA3F60074D220 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		537592772C0FA4790074D220 /* CategoryListVC + Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + Network.swift"; sourceTree = "<group>"; };
-		537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryListVC + TableView.swift"; sourceTree = "<group>"; };
 		5375927B2C0FD8740074D220 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		5379F9DF2BCCBD32003C9023 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
-		537DF8A22C2FB136005D31E8 /* FavoriteViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteViewCell + Extension.swift"; sourceTree = "<group>"; };
 		538689792BC4D242000B79B7 /* BestSellers Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BestSellers Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		538689852BC4D243000B79B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		538689882BC4D243000B79B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -146,17 +128,8 @@
 		533865992C0E7FEF00E362CB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				532D2DEA2C1AB7A40047DD91 /* TabBarVC + Delegate.swift */,
-				53472C9E2C3E037000BC1466 /* CalendarVC + Extensions.swift */,
-				537592772C0FA4790074D220 /* CategoryListVC + Network.swift */,
-				537592792C0FA5B30074D220 /* CategoryListVC + TableView.swift */,
-				532D2DE42C1AAED60047DD91 /* TopBooksVC + Network.swift */,
-				532D2DE62C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift */,
-				532D2DE82C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift */,
-				5368EB732C1B7F810096BF28 /* BookInfoVC + NSCache.swift */,
-				5368EB752C1B80060096BF28 /* FavoritesVC + CoreData.swift */,
-				5368EB772C1B81250096BF28 /* FavoriteVC + TableView.swift */,
-				537DF8A22C2FB136005D31E8 /* FavoriteViewCell + Extension.swift */,
+				532D2DEA2C1AB7A40047DD91 /* TabBarVC+Delegate.swift */,
+				53472C9E2C3E037000BC1466 /* CalendarVC+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -415,10 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				532D2DE72C1AB00F0047DD91 /* TopBooksVC + CollectionView.swift in Sources */,
 				53C373362C2F52E8003A9B0D /* CategoryListProtocol.swift in Sources */,
-				5368EB762C1B80060096BF28 /* FavoritesVC + CoreData.swift in Sources */,
-				5368EB782C1B81250096BF28 /* FavoriteVC + TableView.swift in Sources */,
 				53697DA62C2E1624003F5592 /* CoreDataStack.swift in Sources */,
 				53868B832BC4FD9C000B79B7 /* FavoritesVC.swift in Sources */,
 				53868B8A2BC4FDCD000B79B7 /* SceneDelegate.swift in Sources */,
@@ -428,31 +398,25 @@
 				5375927C2C0FD8740074D220 /* UIAlertController.swift in Sources */,
 				5386C1132BC608D3005EF50F /* BestSellers_Explorer.xcdatamodeld in Sources */,
 				5386C1152BC608E7005EF50F /* CoreDataManager.swift in Sources */,
-				532D2DE52C1AAED60047DD91 /* TopBooksVC + Network.swift in Sources */,
 				53868B8B2BC4FDCD000B79B7 /* AppDelegate.swift in Sources */,
-				537592782C0FA4790074D220 /* CategoryListVC + Network.swift in Sources */,
 				53868B722BC4FD7D000B79B7 /* CategotyList.swift in Sources */,
 				530071762C0A7C2700FB176F /* BookResults.swift in Sources */,
-				532D2DEB2C1AB7A40047DD91 /* TabBarVC + Delegate.swift in Sources */,
+				532D2DEB2C1AB7A40047DD91 /* TabBarVC+Delegate.swift in Sources */,
 				53868B822BC4FD9C000B79B7 /* CategoryListVC.swift in Sources */,
-				5368EB742C1B7F810096BF28 /* BookInfoVC + NSCache.swift in Sources */,
 				53472C9D2C3DF44C00BC1466 /* AppDataFormatter.swift in Sources */,
 				53697DA82C2E1840003F5592 /* CoreDataManagerProtocol.swift in Sources */,
 				53868B862BC4FD9C000B79B7 /* TabBarVC.swift in Sources */,
-				537DF8A32C2FB136005D31E8 /* FavoriteViewCell + Extension.swift in Sources */,
 				53697D8C2C2BAB04003F5592 /* NetworkManagerProtocol.swift in Sources */,
 				537592762C0FA3F60074D220 /* ActivityIndicator.swift in Sources */,
 				53868B792BC4FD8A000B79B7 /* ImageCacheManager.swift in Sources */,
 				530071822C0A8BCD00FB176F /* CalendarVC.swift in Sources */,
 				530071782C0A7C5B00FB176F /* Book.swift in Sources */,
-				532D2DE92C1AB0DB0047DD91 /* TopBooksViewCell + Network.swift in Sources */,
-				5375927A2C0FA5B30074D220 /* CategoryListVC + TableView.swift in Sources */,
 				5300717A2C0A7C8E00FB176F /* InfoList.swift in Sources */,
 				5379F9E02BCCBD32003C9023 /* FavoriteViewCell.swift in Sources */,
 				53868B772BC4FD8A000B79B7 /* NetworkManager.swift in Sources */,
 				53868B712BC4FD7D000B79B7 /* TopBooksList.swift in Sources */,
 				53868B812BC4FD9C000B79B7 /* TopBooksVC.swift in Sources */,
-				53472C9F2C3E037000BC1466 /* CalendarVC + Extensions.swift in Sources */,
+				53472C9F2C3E037000BC1466 /* CalendarVC+Extensions.swift in Sources */,
 				53868B852BC4FD9C000B79B7 /* BookInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

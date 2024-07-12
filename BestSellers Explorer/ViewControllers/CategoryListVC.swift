@@ -13,10 +13,10 @@ class CategoryListVC: UIViewController {
     
     var delegate: CategoryListProtocol?
     
-    internal var sortedCategories: [List] = []
-    internal var activityIndicator: UIActivityIndicatorView?
-    internal var date: String
-    internal let networkManager: NetworkManagerProtocol = NetworkManager()
+    private var sortedCategories: [List] = []
+    private var activityIndicator: UIActivityIndicatorView?
+    private var date: String
+    private let networkManager: NetworkManagerProtocol = NetworkManager()
     
     init(with date: String) {
         self.date = date
@@ -42,7 +42,7 @@ class CategoryListVC: UIViewController {
     }
     
     // MARK: - UIElements
-    internal func setupTableView() {
+    private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ListCell")
@@ -57,6 +57,57 @@ class CategoryListVC: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
+    }
+}
+
+extension CategoryListVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sortedCategories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
+        let text = sortedCategories[indexPath.row].listName
+        cell.textLabel?.text = text
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCategory = sortedCategories[indexPath.row].listName
+        delegate?.didSelectCategory(categoryName: selectedCategory)
+        dismiss(animated: true)
+    }
+}
+
+extension CategoryListVC {
+    private func fetchCategoriesData() {
+        let fullOverviewURL = Link.fullOverview(date: date).url
+        
+        networkManager.fetch(CategotyList.self, from: fullOverviewURL) { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.activityIndicator?.stopAnimating()
+            }
+            switch result {
+            case .success(let list):
+                let sortedCategories = list.results.lists.sorted { $0.listName < $1.listName }
+                self.sortedCategories = sortedCategories
+                DispatchQueue.main.async {
+                    self.setupTableView()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    switch error {
+                    case .quotaLimitExceeded:
+                        AlertController.showErrorAlert(on: self,
+                                                       title: String(localized: "Quota limit exceeded"),
+                                                       message: String(localized: "NY Times API blocks too many inquiries. Please, wait 20 seconds"))
+                    default:
+                        print("Error fetching data: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
     }
 }
 
