@@ -134,7 +134,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		5368EB822C1D228C0096BF28 /* BestSellers ExplorerTests */ = {
+		5368EB822C1D228C0096BF28 /* BestSellersExplorerTests */ = {
 			isa = PBXGroup;
 			children = (
 				5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */,
@@ -146,7 +146,7 @@
 				53697D972C2CF3C5003F5592 /* TopBooksListResponse.json */,
 				53697DA32C2D0546003F5592 /* QuotaLimitResponse.json */,
 			);
-			path = "BestSellers ExplorerTests";
+			path = BestSellersExplorerTests;
 			sourceTree = "<group>";
 		};
 		53697D8A2C2BAAEB003F5592 /* Protocols */ = {
@@ -171,8 +171,8 @@
 		538689702BC4D242000B79B7 = {
 			isa = PBXGroup;
 			children = (
-				5386897B2BC4D242000B79B7 /* BestSellers Explorer */,
-				5368EB822C1D228C0096BF28 /* BestSellers ExplorerTests */,
+				5386897B2BC4D242000B79B7 /* BestSellersExplorer */,
+				5368EB822C1D228C0096BF28 /* BestSellersExplorerTests */,
 				5386897A2BC4D242000B79B7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5386897B2BC4D242000B79B7 /* BestSellers Explorer */ = {
+		5386897B2BC4D242000B79B7 /* BestSellersExplorer */ = {
 			isa = PBXGroup;
 			children = (
 				53697D8A2C2BAAEB003F5592 /* Protocols */,
@@ -199,7 +199,7 @@
 				538689942BC4DCFD000B79B7 /* Resources */,
 				538689952BC4DD0A000B79B7 /* App */,
 			);
-			path = "BestSellers Explorer";
+			path = BestSellersExplorer;
 			sourceTree = "<group>";
 		};
 		538689902BC4D946000B79B7 /* Models */ = {
@@ -607,7 +607,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BestSellers Explorer/App/Info.plist";
+				INFOPLIST_FILE = BestSellersExplorer/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -637,7 +637,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BestSellers Explorer/App/Info.plist";
+				INFOPLIST_FILE = BestSellersExplorer/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
