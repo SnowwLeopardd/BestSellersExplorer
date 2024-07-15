@@ -21,7 +21,6 @@ class TopBooksVC: UIViewController {
     
     private let networkManager: NetworkManagerProtocol = NetworkManager()
     
-    
     private var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical

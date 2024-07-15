@@ -17,6 +17,7 @@ class CategoryListVC: UIViewController {
     private var sortedCategories: [List] = []
     private var activityIndicator: UIActivityIndicatorView?
     private var date: String
+    
     private let networkManager: NetworkManagerProtocol = NetworkManager()
     
     init(with date: String) {
@@ -35,7 +36,6 @@ class CategoryListVC: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
-        navigationItem.hidesBackButton = true
         activityIndicator = ActivityIndicator.start(in: self.view,
                                                     topAnchorConstant: 200,
                                                     size: .large)

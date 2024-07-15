@@ -23,9 +23,8 @@ class CoreDataManagerTest: XCTestCase {
                         description: "Test description",
                         title: "Test title",
                         author: "Test author",
-                        bookImage: "Test urlImage",
-                        bookImageWidth: 0,
-                        bookImageHeight: 0)
+                        bookImage: "Test urlImage"
+        )
     }
     
     override func tearDown() {
