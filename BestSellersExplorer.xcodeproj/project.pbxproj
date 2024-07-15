@@ -70,7 +70,7 @@
 		53472C9C2C3DF44C00BC1466 /* AppDataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataFormatter.swift; sourceTree = "<group>"; };
 		53472C9E2C3E037000BC1466 /* CalendarVC+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CalendarVC+Extensions.swift"; path = "../../../../../.Trash/CalendarVC+Extensions.swift"; sourceTree = "<group>"; };
 		5368EB792C1B8D740096BF28 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		5368EB812C1D228C0096BF28 /* BestSellers ExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BestSellers ExplorerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5368EB812C1D228C0096BF28 /* BestSellersExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestSellersExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVCTest.swift; sourceTree = "<group>"; };
 		53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		53697D8D2C2BB876003F5592 /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		537592752C0FA3F60074D220 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		5375927B2C0FD8740074D220 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		5379F9DF2BCCBD32003C9023 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
-		538689792BC4D242000B79B7 /* BestSellers Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BestSellers Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		538689792BC4D242000B79B7 /* BestSellersExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestSellersExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538689852BC4D243000B79B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		538689882BC4D243000B79B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5386898A2BC4D243000B79B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -180,8 +180,8 @@
 		5386897A2BC4D242000B79B7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				538689792BC4D242000B79B7 /* BestSellers Explorer.app */,
-				5368EB812C1D228C0096BF28 /* BestSellers ExplorerTests.xctest */,
+				538689792BC4D242000B79B7 /* BestSellersExplorer.app */,
+				5368EB812C1D228C0096BF28 /* BestSellersExplorerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -274,9 +274,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5368EB802C1D228C0096BF28 /* BestSellers ExplorerTests */ = {
+		5368EB802C1D228C0096BF28 /* BestSellersExplorerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5368EB872C1D228C0096BF28 /* Build configuration list for PBXNativeTarget "BestSellers ExplorerTests" */;
+			buildConfigurationList = 5368EB872C1D228C0096BF28 /* Build configuration list for PBXNativeTarget "BestSellersExplorerTests" */;
 			buildPhases = (
 				5368EB7D2C1D228C0096BF28 /* Sources */,
 				5368EB7E2C1D228C0096BF28 /* Frameworks */,
@@ -287,14 +287,14 @@
 			dependencies = (
 				5368EB862C1D228C0096BF28 /* PBXTargetDependency */,
 			);
-			name = "BestSellers ExplorerTests";
+			name = BestSellersExplorerTests;
 			productName = "BestSellers ExplorerTests";
-			productReference = 5368EB812C1D228C0096BF28 /* BestSellers ExplorerTests.xctest */;
+			productReference = 5368EB812C1D228C0096BF28 /* BestSellersExplorerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		538689782BC4D242000B79B7 /* BestSellers Explorer */ = {
+		538689782BC4D242000B79B7 /* BestSellersExplorer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5386898D2BC4D243000B79B7 /* Build configuration list for PBXNativeTarget "BestSellers Explorer" */;
+			buildConfigurationList = 5386898D2BC4D243000B79B7 /* Build configuration list for PBXNativeTarget "BestSellersExplorer" */;
 			buildPhases = (
 				538689752BC4D242000B79B7 /* Sources */,
 				538689762BC4D242000B79B7 /* Frameworks */,
@@ -304,9 +304,9 @@
 			);
 			dependencies = (
 			);
-			name = "BestSellers Explorer";
+			name = BestSellersExplorer;
 			productName = "BestSellers Explorer";
-			productReference = 538689792BC4D242000B79B7 /* BestSellers Explorer.app */;
+			productReference = 538689792BC4D242000B79B7 /* BestSellersExplorer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -328,7 +328,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 538689742BC4D242000B79B7 /* Build configuration list for PBXProject "BestSellers Explorer" */;
+			buildConfigurationList = 538689742BC4D242000B79B7 /* Build configuration list for PBXProject "BestSellersExplorer" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -342,8 +342,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				538689782BC4D242000B79B7 /* BestSellers Explorer */,
-				5368EB802C1D228C0096BF28 /* BestSellers ExplorerTests */,
+				538689782BC4D242000B79B7 /* BestSellersExplorer */,
+				5368EB802C1D228C0096BF28 /* BestSellersExplorerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -426,7 +426,7 @@
 /* Begin PBXTargetDependency section */
 		5368EB862C1D228C0096BF28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 538689782BC4D242000B79B7 /* BestSellers Explorer */;
+			target = 538689782BC4D242000B79B7 /* BestSellersExplorer */;
 			targetProxy = 5368EB852C1D228C0096BF28 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -457,7 +457,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BestSellers Explorer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BestSellers Explorer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BestSellersExplorer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BestSellersExplorer";
 			};
 			name = Debug;
 		};
@@ -475,7 +475,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BestSellers Explorer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BestSellers Explorer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BestSellersExplorer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BestSellersExplorer";
 			};
 			name = Release;
 		};
@@ -662,7 +662,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5368EB872C1D228C0096BF28 /* Build configuration list for PBXNativeTarget "BestSellers ExplorerTests" */ = {
+		5368EB872C1D228C0096BF28 /* Build configuration list for PBXNativeTarget "BestSellersExplorerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5368EB882C1D228C0096BF28 /* Debug */,
@@ -671,7 +671,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		538689742BC4D242000B79B7 /* Build configuration list for PBXProject "BestSellers Explorer" */ = {
+		538689742BC4D242000B79B7 /* Build configuration list for PBXProject "BestSellersExplorer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5386898B2BC4D243000B79B7 /* Debug */,
@@ -680,7 +680,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5386898D2BC4D243000B79B7 /* Build configuration list for PBXNativeTarget "BestSellers Explorer" */ = {
+		5386898D2BC4D243000B79B7 /* Build configuration list for PBXNativeTarget "BestSellersExplorer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5386898E2BC4D243000B79B7 /* Debug */,

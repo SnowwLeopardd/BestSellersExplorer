@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "538689782BC4D242000B79B7"
-               BuildableName = "BestSellers Explorer.app"
-               BlueprintName = "BestSellers Explorer"
-               ReferencedContainer = "container:BestSellers Explorer.xcodeproj">
+               BuildableName = "BestSellersExplorer.app"
+               BlueprintName = "BestSellersExplorer"
+               ReferencedContainer = "container:BestSellersExplorer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5368EB802C1D228C0096BF28"
-               BuildableName = "BestSellers ExplorerTests.xctest"
-               BlueprintName = "BestSellers ExplorerTests"
-               ReferencedContainer = "container:BestSellers Explorer.xcodeproj">
+               BuildableName = "BestSellersExplorerTests.xctest"
+               BlueprintName = "BestSellersExplorerTests"
+               ReferencedContainer = "container:BestSellersExplorer.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -58,9 +58,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "538689782BC4D242000B79B7"
-            BuildableName = "BestSellers Explorer.app"
-            BlueprintName = "BestSellers Explorer"
-            ReferencedContainer = "container:BestSellers Explorer.xcodeproj">
+            BuildableName = "BestSellersExplorer.app"
+            BlueprintName = "BestSellersExplorer"
+            ReferencedContainer = "container:BestSellersExplorer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "538689782BC4D242000B79B7"
-            BuildableName = "BestSellers Explorer.app"
-            BlueprintName = "BestSellers Explorer"
-            ReferencedContainer = "container:BestSellers Explorer.xcodeproj">
+            BuildableName = "BestSellersExplorer.app"
+            BlueprintName = "BestSellersExplorer"
+            ReferencedContainer = "container:BestSellersExplorer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
