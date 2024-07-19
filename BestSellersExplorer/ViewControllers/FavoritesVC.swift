@@ -12,8 +12,9 @@ class FavoritesVC: UIViewController {
     private var favoritesBooks: [FavoriteBook] = []
     private let tableView = UITableView()
     private let cellId = "Book"
+    private let emptyLabel = UILabel()
     private let coreDataManager: CoreDataManagerProtocol = CoreDataManager()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFavoritesVC()
@@ -26,6 +27,7 @@ class FavoritesVC: UIViewController {
     private func setupFavoritesVC() {
         fetchData()
         setupTableViewUI()
+        setupEmptyLabelUI()
         NotificationCenter.default.addObserver(self, selector: #selector(favoriteBooksUpdated), name: .favoriteBooksUpdated, object: nil)
     }
     
@@ -50,6 +52,25 @@ class FavoritesVC: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
+    }
+    
+    private func setupEmptyLabelUI() {
+        emptyLabel.text = String(localized: "Add books to Favorites")
+        emptyLabel.textAlignment = .center
+        emptyLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        emptyLabel.textColor = .gray
+        emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(emptyLabel)
+        
+        NSLayoutConstraint.activate([
+            emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
+    private func updateEmptyLabelVisibility() {
+        emptyLabel.isHidden = !favoritesBooks.isEmpty
     }
 }
 
@@ -107,6 +128,7 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
             self.favoritesBooks.remove(at: indexPath.row)
             coreDataManager.delete(selectedBook)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            
             NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
@@ -119,6 +141,7 @@ extension FavoritesVC {
             switch result {
             case .success(let favoritesBooks):
                 self?.favoritesBooks = favoritesBooks
+                self?.updateEmptyLabelVisibility()
             case .failure(let error):
                 print(error.localizedDescription)
             }
