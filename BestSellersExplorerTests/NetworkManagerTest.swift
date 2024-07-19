@@ -29,7 +29,6 @@ class NetworkManagerTest: XCTestCase {
         var receivedData: Data?
         var receivedError: NetworkError?
         
-        
         mockNetworkManager.fetchImage(from: "Test") { result in
             switch result {
             case .success(let data):

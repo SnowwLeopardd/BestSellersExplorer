@@ -71,6 +71,9 @@
         }
       }
     },
+    "no_date" : {
+
+    },
     "NY Times API blocks too many inquiries. Please, wait 20 seconds" : {
       "localizations" : {
         "ru" : {

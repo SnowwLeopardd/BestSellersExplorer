@@ -14,7 +14,6 @@
 		530071822C0A8BCD00FB176F /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530071812C0A8BCD00FB176F /* CalendarVC.swift */; };
 		532D2DEB2C1AB7A40047DD91 /* TabBarVC+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D2DEA2C1AB7A40047DD91 /* TabBarVC+Delegate.swift */; };
 		53472C9D2C3DF44C00BC1466 /* AppDataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53472C9C2C3DF44C00BC1466 /* AppDataFormatter.swift */; };
-		53472C9F2C3E037000BC1466 /* CalendarVC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53472C9E2C3E037000BC1466 /* CalendarVC+Extensions.swift */; };
 		5368EB7A2C1B8D740096BF28 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB792C1B8D740096BF28 /* Notifications.swift */; };
 		5368EB8B2C1D22F60096BF28 /* CalendarVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */; };
 		53697D8C2C2BAB04003F5592 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53697D8B2C2BAB04003F5592 /* NetworkManagerProtocol.swift */; };
@@ -68,7 +67,6 @@
 		530071812C0A8BCD00FB176F /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		532D2DEA2C1AB7A40047DD91 /* TabBarVC+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarVC+Delegate.swift"; sourceTree = "<group>"; };
 		53472C9C2C3DF44C00BC1466 /* AppDataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataFormatter.swift; sourceTree = "<group>"; };
-		53472C9E2C3E037000BC1466 /* CalendarVC+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CalendarVC+Extensions.swift"; path = "../../../../../.Trash/CalendarVC+Extensions.swift"; sourceTree = "<group>"; };
 		5368EB792C1B8D740096BF28 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		5368EB812C1D228C0096BF28 /* BestSellersExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestSellersExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVCTest.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				532D2DEA2C1AB7A40047DD91 /* TabBarVC+Delegate.swift */,
-				53472C9E2C3E037000BC1466 /* CalendarVC+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -416,7 +413,6 @@
 				53868B772BC4FD8A000B79B7 /* NetworkManager.swift in Sources */,
 				53868B712BC4FD7D000B79B7 /* TopBooksList.swift in Sources */,
 				53868B812BC4FD9C000B79B7 /* TopBooksVC.swift in Sources */,
-				53472C9F2C3E037000BC1466 /* CalendarVC+Extensions.swift in Sources */,
 				53868B852BC4FD9C000B79B7 /* BookInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

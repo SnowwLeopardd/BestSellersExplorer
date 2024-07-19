@@ -9,11 +9,18 @@ import XCTest
 @testable import BestSellers_Explorer
 
 class MockNetworkManager: NetworkManagerProtocol {
+    init(shoudReturnError: Bool = false, quotaLimitError: Bool = false, mockedImageData: Data? = nil, genericType: Any? = nil) {
+        self.shoudReturnError = shoudReturnError
+        self.quotaLimitError = quotaLimitError
+        self.mockedImageData = mockedImageData
+        self.genericType = genericType
+    }
     
-    var shoudReturnError = false
-    var quotaLimitError = false
-    var mockedImageData: Data?
-    var genericType: Any?
+    
+    let shoudReturnError: Bool
+    let quotaLimitError: Bool
+    let mockedImageData: Data?
+    let genericType: Any?
     
     func fetch<T>(_ type: T.Type, from url: String?, completion: @escaping (Result<T, BestSellers_Explorer.NetworkError>) -> Void) where T : Decodable {
         if shoudReturnError {

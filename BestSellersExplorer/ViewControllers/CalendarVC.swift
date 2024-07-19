@@ -15,6 +15,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
     
     private let NYTimesLogo: UIImage
     private let NYTimesLogoImageView: UIImageView
+    private let initialDate = "2019-01-01"
     
     var choosenDate: String?
     
@@ -143,5 +144,25 @@ class CalendarVC: UIViewController, CategoryListProtocol {
             let topBooksVC = TopBooksVC(selectedCategory: categoryName, selectedDate: choosenDate)
             self.navigationController?.pushViewController(topBooksVC, animated: true)
         }
+    }
+}
+
+extension CalendarVC: UICalendarSelectionSingleDateDelegate {
+    func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
+        choosenDate = dateToString(dateComponents)
+        presentCategoryListVC()
+    }
+    
+    func dateToString(_ dateComponents: DateComponents?) -> String {
+        guard let dateComponents else { return String(localized: "no_date") }
+        let date = Calendar.current.date(from: dateComponents) ?? Date()
+        return AppDateFormatter.shared.string(from: date)
+    }
+    
+    func setupCalendarRange() {
+        let startDate = AppDateFormatter.shared.date(from: initialDate) ?? Date(timeIntervalSince1970: 0)
+        let endDate = Date()
+        let calendarViewDateRange = DateInterval(start: startDate, end: endDate)
+        calendarView.availableDateRange = calendarViewDateRange
     }
 }

@@ -189,7 +189,7 @@ class BookInfoVC: UIViewController {
         addToFavorites.setTitleColor(UIColor.white, for: .normal)
         addToFavorites.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         addToFavorites.layer.cornerRadius = 10
-        addToFavorites.addTarget(self, action: #selector(setupAddToFavoritesLogic), for: .touchUpInside)
+        addToFavorites.addTarget(self, action: #selector(handleAddToFavorites), for: .touchUpInside)
         
         contentView.addSubview(addToFavorites)
         
@@ -210,7 +210,7 @@ class BookInfoVC: UIViewController {
     }
     
     // MARK: - ButtonLogic
-    @objc private func setupAddToFavoritesLogic() {
+    @objc private func handleAddToFavorites() {
         let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
         if isUnique {
             coreDataManager.createFavoriteBook(from: book)
@@ -224,7 +224,7 @@ class BookInfoVC: UIViewController {
     
     @objc private func favoriteBooksUpdated() {
         DispatchQueue.main.async {
-            self.addToFavorites.setTitle(String(localized: "Add to Favorites"), for: .normal)
+            self.updateAddToFavoritesButtonTitle()
         }
     }
 }
