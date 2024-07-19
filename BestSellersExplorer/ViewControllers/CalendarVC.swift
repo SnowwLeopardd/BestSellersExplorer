@@ -12,13 +12,13 @@ class CalendarVC: UIViewController, CategoryListProtocol {
     private var descriptionHeader = UILabel()
     private var header = UILabel()
     let calendarView = UICalendarView()
-    
     private let NYTimesLogo: UIImage
     private let NYTimesLogoImageView: UIImageView
     private let initialDate = "2019-01-01"
     
     var choosenDate: String?
-    
+    private var dateSelection: UICalendarSelectionSingleDate?
+
     init() {
         NYTimesLogo = UIImage(named: "NYTimes Logo 1") ?? UIImage()
         NYTimesLogoImageView = UIImageView(image: NYTimesLogo)
@@ -95,7 +95,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         
         view.addSubview(calendarView)
         
-        let dateSelection = UICalendarSelectionSingleDate(delegate: self)
+        dateSelection = UICalendarSelectionSingleDate(delegate: self)
         calendarView.selectionBehavior = dateSelection
         
         calendarView.translatesAutoresizingMaskIntoConstraints = false
@@ -134,7 +134,9 @@ class CalendarVC: UIViewController, CategoryListProtocol {
             destinationVC.modalPresentationStyle = .pageSheet
             destinationVC.sheetPresentationController?.detents = [.medium()]
             destinationVC.sheetPresentationController?.prefersGrabberVisible = true
-            present(destinationVC, animated: true)
+            present(destinationVC, animated: true) {
+                self.dateSelection?.selectedDate = nil
+            }
         }
     }
     
