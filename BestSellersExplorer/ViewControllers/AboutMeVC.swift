@@ -14,6 +14,7 @@ class AboutMeVC: UIViewController {
     let jobExperienceLabel = UILabel()
     let bioTextView = UITextView()
     let contactButton = UIButton(type: .system)
+    let versionLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +29,14 @@ class AboutMeVC: UIViewController {
         view.addSubview(jobExperienceLabel)
         view.addSubview(bioTextView)
         view.addSubview(contactButton)
+        view.addSubview(versionLabel)
         
         setupProfileImageView()
         setupNameLabel()
         setupJobExperienceLabel()
         setupBioTextView()
         setupContactButton()
+        setupVersionLabel()
     }
     
     private func setupProfileImageView() {
@@ -91,7 +94,7 @@ class AboutMeVC: UIViewController {
         
         I can bring a comprehensive view of customer pain points and effectively solve them through iOS platform solutions.
         """
-        bioTextView.font = UIFont.systemFont(ofSize: 18)
+        bioTextView.font = UIFont.systemFont(ofSize: 17)
         bioTextView.isEditable = false
         bioTextView.backgroundColor = #colorLiteral(red: 0.9610984921, green: 0.9610984921, blue: 0.9610984921, alpha: 1)
         
@@ -114,9 +117,31 @@ class AboutMeVC: UIViewController {
         NSLayoutConstraint.activate([
             contactButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             contactButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            contactButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            contactButton.bottomAnchor.constraint(equalTo: versionLabel.safeAreaLayoutGuide.bottomAnchor, constant: -25),
         ])
     }
+    
+    private func setupVersionLabel() {
+        // Get the app version from the Info.plist
+        if let infoDictionary = Bundle.main.infoDictionary,
+           let version = infoDictionary["CFBundleShortVersionString"] as? String {
+            versionLabel.text = "App version \(version)"
+        } else {
+            versionLabel.text = "Version not available"
+        }
+
+        versionLabel.font = UIFont.systemFont(ofSize: 14)
+        versionLabel.textAlignment = .center
+        versionLabel.textColor = .black
+        
+        versionLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            versionLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            versionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
     
     @objc func contactButtonTapped() {
         let alert = UIAlertController(title: "Contact Me", message: "Email: s7604729700@gmail.com \nPhone: (760) 472-9700", preferredStyle: .alert)
