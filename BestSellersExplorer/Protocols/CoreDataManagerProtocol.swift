@@ -13,5 +13,5 @@ protocol CoreDataManagerProtocol {
     func deleteFavoriteBook(by primaryIsbn13: String)
     func fetchBook(_ primaryIsbn13: String) -> FavoriteBook?
     func delete(_ favoriteBook: FavoriteBook)
-    func isUnique(_ primaryIsbn13: String) -> Bool
+    func isUnique(_ primaryIsbn13: String ,completion: (Result<Bool, Error>) -> Void)
 }

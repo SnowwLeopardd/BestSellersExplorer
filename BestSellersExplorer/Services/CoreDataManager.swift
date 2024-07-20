@@ -57,21 +57,20 @@ class CoreDataManager: CoreDataManagerProtocol {
         saveContext()
     }
     
-    func isUnique(_ primaryIsbn13: String) -> Bool {
+    func isUnique(_ primaryIsbn13: String ,completion: (Result<Bool, Error>) -> Void) {
         let fetchRequest = FavoriteBook.fetchRequest()
         
         fetchRequest.predicate = NSPredicate(format: "(primaryIsbn13 = %@)", primaryIsbn13)
         
-        var similarbooks: [FavoriteBook] = []
-            
         do {
-            similarbooks = try mainContext.fetch(fetchRequest)
-        } catch {
-            print("Error fetching")
+            let similarbooks = try mainContext.fetch(fetchRequest)
+            let isEmpty = similarbooks.isEmpty
+            completion(.success(isEmpty))
+        } catch let error {
+            completion(.failure(error))
         }
-        
-        return similarbooks.isEmpty
     }
+    
     
     func fetchBook(_ primaryIsbn13: String) -> FavoriteBook? {
         let fetchRequest = FavoriteBook.fetchRequest()

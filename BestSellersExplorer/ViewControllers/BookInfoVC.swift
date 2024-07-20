@@ -70,7 +70,7 @@ class BookInfoVC: UIViewController {
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -178,18 +178,12 @@ class BookInfoVC: UIViewController {
     }
     
     private func setupAddToFavoritesButton() {
-        let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
-        if isUnique {
-            addToFavorites.setTitle(String(localized: "Add to Favorites"), for: .normal)
-        } else {
-            addToFavorites.setTitle(String(localized: "Remove from Favorites"), for: .normal)
-        }
-        
         addToFavorites.backgroundColor = UIColor.black
         addToFavorites.setTitleColor(UIColor.white, for: .normal)
         addToFavorites.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         addToFavorites.layer.cornerRadius = 10
         addToFavorites.addTarget(self, action: #selector(handleAddToFavorites), for: .touchUpInside)
+        updateAddToFavoritesButtonTitle()
         
         contentView.addSubview(addToFavorites)
         
@@ -204,27 +198,46 @@ class BookInfoVC: UIViewController {
     }
     
     private func updateAddToFavoritesButtonTitle() {
-        let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
-        let title = isUnique ? String(localized: "Add to Favorites") : String(localized: "Remove from Favorites")
-        addToFavorites.setTitle(title, for: .normal)
-    }
-    
-    // MARK: - ButtonLogic
-    @objc private func handleAddToFavorites() {
-        let isUnique = coreDataManager.isUnique(book.primaryIsbn13)
-        if isUnique {
-            coreDataManager.createFavoriteBook(from: book)
-        } else {
-            coreDataManager.deleteFavoriteBook(by: book.primaryIsbn13)
-        }
-        DispatchQueue.main.async {
-            self.updateAddToFavoritesButtonTitle()
+        coreDataManager.isUnique(book.primaryIsbn13) { [weak self] result in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let isUnique):
+                    let title = isUnique ? String(localized: "Add to Favorites") : String(localized: "Remove from Favorites")
+                    self.addToFavorites.setTitle(title, for: .normal)
+                case .failure(let error):
+                    AlertController.showErrorAlert(on: self, message: "\(error.localizedDescription)")
+                }
+            }
         }
     }
     
     @objc private func favoriteBooksUpdated() {
         DispatchQueue.main.async {
             self.updateAddToFavoritesButtonTitle()
+        }
+    }
+    
+    @objc private func handleAddToFavorites() {
+        coreDataManager.isUnique(book.primaryIsbn13) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let isUnique):
+                if isUnique {
+                    self.coreDataManager.createFavoriteBook(from: self.book)
+                } else {
+                    self.coreDataManager.deleteFavoriteBook(by: self.book.primaryIsbn13)
+                }
+                DispatchQueue.main.async {
+                    self.updateAddToFavoritesButtonTitle()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    AlertController.showErrorAlert(on: self, message: "\(error.localizedDescription)")
+                }
+            }
         }
     }
 }
