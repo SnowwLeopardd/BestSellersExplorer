@@ -23,11 +23,13 @@ class TabBarVC: UITabBarController {
     private func setupViewControllers() {
         let calendarVC = UINavigationController(rootViewController: CalendarVC())
         let favoritesVC = UINavigationController(rootViewController: FavoritesVC())
+        let aboutMeVC = UINavigationController(rootViewController: AboutMeVC())
         
         configureTabBarItem(for: calendarVC, withTitle: String(localized: "TopBooks"), andImage: UIImage(systemName: "books.vertical"))
         configureTabBarItem(for: favoritesVC, withTitle: String(localized: "Favorites"), andImage: UIImage(systemName: "star"))
+        configureTabBarItem(for: aboutMeVC, withTitle: String(localized: "AboutMe"), andImage: UIImage(systemName: "person.text.rectangle"))
         
-        setViewControllers([calendarVC, favoritesVC], animated: true)
+        setViewControllers([calendarVC, favoritesVC, aboutMeVC], animated: true)
     }
     
     private func configureTabBarItem(for viewController: UIViewController, withTitle title: String, andImage image: UIImage?) {

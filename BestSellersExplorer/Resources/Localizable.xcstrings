@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "AboutMe" : {
+
+    },
+    "Add books to Favorites" : {
+
+    },
     "Add to Favorites" : {
       "localizations" : {
         "ru" : {

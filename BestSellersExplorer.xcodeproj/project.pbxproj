@@ -45,6 +45,7 @@
 		53868B8B2BC4FDCD000B79B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53868B892BC4FDCD000B79B7 /* AppDelegate.swift */; };
 		5386C1132BC608D3005EF50F /* BestSellers_Explorer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5386C1112BC608D3005EF50F /* BestSellers_Explorer.xcdatamodeld */; };
 		5386C1152BC608E7005EF50F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386C1142BC608E7005EF50F /* CoreDataManager.swift */; };
+		539349F62C4B1BD400DC3EFA /* AboutMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539349F52C4B1BD400DC3EFA /* AboutMeVC.swift */; };
 		53C373362C2F52E8003A9B0D /* CategoryListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C373352C2F52E8003A9B0D /* CategoryListProtocol.swift */; };
 		53CF8E932C40835E003E0136 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 53CF8E922C40835E003E0136 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		53868B892BC4FDCD000B79B7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5386C1122BC608D3005EF50F /* BestSellers_Explorer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BestSellers_Explorer.xcdatamodel; sourceTree = "<group>"; };
 		5386C1142BC608E7005EF50F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		539349F52C4B1BD400DC3EFA /* AboutMeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeVC.swift; sourceTree = "<group>"; };
 		53C373352C2F52E8003A9B0D /* CategoryListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListProtocol.swift; sourceTree = "<group>"; };
 		53CF8E922C40835E003E0136 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +238,7 @@
 				53868B7E2BC4FD9C000B79B7 /* BookInfoVC.swift */,
 				53868B7C2BC4FD9C000B79B7 /* FavoritesVC.swift */,
 				5379F9DF2BCCBD32003C9023 /* FavoriteViewCell.swift */,
+				539349F52C4B1BD400DC3EFA /* AboutMeVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				5300717C2C0A7CAD00FB176F /* List.swift in Sources */,
 				53868B842BC4FD9C000B79B7 /* TopBooksViewCell.swift in Sources */,
 				5375927C2C0FD8740074D220 /* UIAlertController.swift in Sources */,
+				539349F62C4B1BD400DC3EFA /* AboutMeVC.swift in Sources */,
 				5386C1132BC608D3005EF50F /* BestSellers_Explorer.xcdatamodeld in Sources */,
 				5386C1152BC608E7005EF50F /* CoreDataManager.swift in Sources */,
 				53868B8B2BC4FDCD000B79B7 /* AppDelegate.swift in Sources */,
