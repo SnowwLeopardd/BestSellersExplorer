@@ -7,7 +7,7 @@
 
 import XCTest
 import CoreData
-@testable import BestSellers_Explorer
+@testable import BestSellersExplorer
 
 class MockCoreDataStack {
 

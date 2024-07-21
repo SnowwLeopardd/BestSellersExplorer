@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import BestSellers_Explorer
+@testable import BestSellersExplorer
 
 class CoreDataManagerTest: XCTestCase {
     
@@ -147,15 +147,27 @@ class CoreDataManagerTest: XCTestCase {
     }
     
     func testIsUniqueSuccess() {
-        let isUnique = coreDataManager.isUnique(testBook.primaryIsbn13)
-        XCTAssertTrue(isUnique)
+        coreDataManager.isUnique(testBook.primaryIsbn13) { result in
+            switch result {
+            case .success(let data):
+                XCTAssertTrue(data)
+            case .failure(let error):
+                XCTAssertNil(error)
+            }
+        }
     }
     
     func testIsUniqueFailure() {
         coreDataManager.createFavoriteBook(from: testBook)
         coreDataManager.createFavoriteBook(from: testBook)
         
-        let isUnique = coreDataManager.isUnique(testBook.primaryIsbn13)
-        XCTAssertFalse(isUnique)
+        coreDataManager.isUnique(testBook.primaryIsbn13) { result in
+            switch result {
+            case .success(let data):
+                XCTAssertFalse(data)
+            case .failure(let error):
+                XCTAssertNil(error)
+            }
+        }
     }
 }

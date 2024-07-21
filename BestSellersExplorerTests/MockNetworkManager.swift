@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import BestSellers_Explorer
+@testable import BestSellersExplorer
 
 class MockNetworkManager: NetworkManagerProtocol {
     init(shoudReturnError: Bool = false, quotaLimitError: Bool = false, mockedImageData: Data? = nil, genericType: Any? = nil) {
@@ -16,13 +16,12 @@ class MockNetworkManager: NetworkManagerProtocol {
         self.genericType = genericType
     }
     
-    
     let shoudReturnError: Bool
     let quotaLimitError: Bool
     let mockedImageData: Data?
     let genericType: Any?
     
-    func fetch<T>(_ type: T.Type, from url: String?, completion: @escaping (Result<T, BestSellers_Explorer.NetworkError>) -> Void) where T : Decodable {
+    func fetch<T>(_ type: T.Type, from url: String?, completion: @escaping (Result<T, BestSellersExplorer.NetworkError>) -> Void) where T : Decodable {
         if shoudReturnError {
             completion(.failure(.decodingError))
         } else if quotaLimitError {
@@ -38,7 +37,7 @@ class MockNetworkManager: NetworkManagerProtocol {
         }
     }
     
-    func fetchImage(from url: String?, completion: @escaping (Result<Data, BestSellers_Explorer.NetworkError>) -> Void) {
+    func fetchImage(from url: String?, completion: @escaping (Result<Data, BestSellersExplorer.NetworkError>) -> Void) {
         if shoudReturnError {
             completion(.failure(.decodingError))
         } else if let imageData = mockedImageData, !imageData.isEmpty {

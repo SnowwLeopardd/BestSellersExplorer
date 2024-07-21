@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import BestSellers_Explorer
+@testable import BestSellersExplorer
 
 final class CalendarVCTest: XCTestCase {
 

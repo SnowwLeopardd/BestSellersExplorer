@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import BestSellers_Explorer
+@testable import BestSellersExplorer
 
 class NetworkManagerTest: XCTestCase {
     var mockNetworkManager: MockNetworkManager!
@@ -24,7 +24,7 @@ class NetworkManagerTest: XCTestCase {
     // MARK: - FetchImage
     func testFetchImageSuccess() {
         let expectedData = createImageData()
-        mockNetworkManager.mockedImageData = expectedData
+        mockNetworkManager = MockNetworkManager(mockedImageData: expectedData)
         
         var receivedData: Data?
         var receivedError: NetworkError?
@@ -61,7 +61,8 @@ class NetworkManagerTest: XCTestCase {
     }
     
     func testFetchImageDecodingError() {
-        mockNetworkManager.shoudReturnError = true
+        mockNetworkManager = MockNetworkManager(shoudReturnError: true)
+        
         var receivedData: Data?
         var receivedError: NetworkError?
         
@@ -82,7 +83,8 @@ class NetworkManagerTest: XCTestCase {
     // MARK: - FetchCategoryList
     func testFetchCategoryListSuccess() {
         let expectedData: CategotyList? = loadJson(fromResource: "CategoryListResponse")
-        mockNetworkManager.genericType = expectedData
+        
+        mockNetworkManager = MockNetworkManager(genericType: expectedData)
         
         var receivedData: CategotyList?
         var receivedError: NetworkError?
@@ -102,7 +104,8 @@ class NetworkManagerTest: XCTestCase {
     }
     
     func testFetchCategoryDecodingError() {
-        mockNetworkManager.shoudReturnError = true
+        mockNetworkManager = MockNetworkManager(shoudReturnError: true)
+
         var receivedData: CategotyList?
         var receivedError: NetworkError?
         
@@ -123,7 +126,8 @@ class NetworkManagerTest: XCTestCase {
     // MARK: - FetchTopBooksList
     func testFetchTopBooksListSuccess() {
         let expectedData: CategotyList? = loadJson(fromResource: "TopBooksListResponse")
-        mockNetworkManager.genericType = expectedData
+        
+        mockNetworkManager = MockNetworkManager(genericType: expectedData)
         
         var receivedData: TopBooksList?
         var receivedError: NetworkError?
@@ -143,7 +147,8 @@ class NetworkManagerTest: XCTestCase {
     }
     
     func testTopBooksListDecodingError() {
-        mockNetworkManager.shoudReturnError = true
+        mockNetworkManager = MockNetworkManager(shoudReturnError: true)
+        
         var receivedData: TopBooksList?
         var receivedError: NetworkError?
         
@@ -163,7 +168,7 @@ class NetworkManagerTest: XCTestCase {
     
     // MARK: - QuotaLimit
     func testQuotaLimitSuccess() {
-        mockNetworkManager.quotaLimitError = true
+        mockNetworkManager = MockNetworkManager(quotaLimitError: true)
         var receivedData: TopBooksList?
         var receivedError: NetworkError?
         
