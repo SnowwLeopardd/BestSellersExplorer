@@ -82,7 +82,7 @@ class NetworkManagerTest: XCTestCase {
     
     // MARK: - FetchCategoryList
     func testFetchCategoryListSuccess() {
-        let expectedData: CategotyList? = loadJson(fromResource: "CategoryListResponse")
+        let expectedData: CategotyList? = Bundle.main.loadJson(fromResource: "CategoryListResponse")
         
         mockNetworkManager = MockNetworkManager(genericType: expectedData)
         
@@ -125,7 +125,7 @@ class NetworkManagerTest: XCTestCase {
     
     // MARK: - FetchTopBooksList
     func testFetchTopBooksListSuccess() {
-        let expectedData: CategotyList? = loadJson(fromResource: "TopBooksListResponse")
+        let expectedData: CategotyList? = Bundle.main.loadJson(fromResource: "CategoryListResponse")
         
         mockNetworkManager = MockNetworkManager(genericType: expectedData)
         
