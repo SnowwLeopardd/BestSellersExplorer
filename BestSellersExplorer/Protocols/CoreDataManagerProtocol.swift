@@ -10,8 +10,7 @@ import Foundation
 protocol CoreDataManagerProtocol {
     func createFavoriteBook(from book: Book)
     func fetchData(completion: (Result<[FavoriteBook], Error>) -> Void)
-    func deleteFavoriteBook(by primaryIsbn13: String)
-    func fetchBook(_ primaryIsbn13: String) -> FavoriteBook?
+    func deleteFavoriteBook(by primaryIsbn13: String, completion: (Result<Void, Error>) -> Void)
     func delete(_ favoriteBook: FavoriteBook)
     func isUnique(_ primaryIsbn13: String ,completion: (Result<Bool, Error>) -> Void)
 }

@@ -57,7 +57,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         saveContext()
     }
     
-    func isUnique(_ primaryIsbn13: String ,completion: (Result<Bool, Error>) -> Void) {
+    func isUnique(_ primaryIsbn13: String, completion: (Result<Bool, Error>) -> Void) {
         let fetchRequest = FavoriteBook.fetchRequest()
         
         fetchRequest.predicate = NSPredicate(format: "(primaryIsbn13 = %@)", primaryIsbn13)
@@ -71,29 +71,26 @@ class CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
-    
-    func fetchBook(_ primaryIsbn13: String) -> FavoriteBook? {
+    func deleteFavoriteBook(by primaryIsbn13: String, completion: (Result<Void, Error>) -> Void) {
         let fetchRequest = FavoriteBook.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "primaryIsbn13 = %@", primaryIsbn13)
         
-        fetchRequest.predicate = NSPredicate(format: "(primaryIsbn13 = %@)", primaryIsbn13)
+        var similarBooks: [FavoriteBook] = []
         
-        var similarbooks: [FavoriteBook] = []
-            
         do {
-            similarbooks = try mainContext.fetch(fetchRequest)
-        } catch {
-            print("Error fetching")
+            similarBooks = try mainContext.fetch(fetchRequest)
+        } catch let error {
+            completion(.failure(error))
+            return
         }
         
-        return similarbooks.first
-    }
-    
-    func deleteFavoriteBook(by primaryIsbn13: String) {
-        if let bookToDelete = fetchBook(primaryIsbn13) {
+        if let bookToDelete = similarBooks.first {
             delete(bookToDelete)
             NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
+            completion(.success(()))
         } else {
-            print("Book with ISBN \(primaryIsbn13) not found.")
+            let error = NSError(domain: "CoreData", code: 404, userInfo: [NSLocalizedDescriptionKey: "Book with ISBN \(primaryIsbn13) not found."])
+            completion(.failure(error))
         }
     }
 }

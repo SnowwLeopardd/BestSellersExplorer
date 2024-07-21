@@ -228,7 +228,14 @@ class BookInfoVC: UIViewController {
                 if isUnique {
                     self.coreDataManager.createFavoriteBook(from: self.book)
                 } else {
-                    self.coreDataManager.deleteFavoriteBook(by: self.book.primaryIsbn13)
+                    self.coreDataManager.deleteFavoriteBook(by: self.book.primaryIsbn13) { result in
+                        switch result {
+                        case .success():
+                            break
+                        case .failure(let error):
+                            AlertController.showErrorAlert(on: self, message: "\(error)")
+                        }
+                    }
                 }
                 DispatchQueue.main.async {
                     self.updateAddToFavoritesButtonTitle()
