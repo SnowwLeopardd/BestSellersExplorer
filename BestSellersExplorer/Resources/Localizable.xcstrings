@@ -2,10 +2,24 @@
   "sourceLanguage" : "en",
   "strings" : {
     "AboutMe" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обо мне"
+          }
+        }
+      }
     },
     "Add books to Favorites" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить книги в избранное"
+          }
+        }
+      }
     },
     "Add to Favorites" : {
       "localizations" : {
@@ -37,6 +51,16 @@
         }
       }
     },
+    "Book with ISBN %@ not found." : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Книга с ISBN %@ не найдена."
+          }
+        }
+      }
+    },
     "Delete" : {
       "localizations" : {
         "ru" : {
@@ -53,6 +77,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ошибка"
+          }
+        }
+      }
+    },
+    "Error fetching data: %@" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка загрузки данных: %@"
           }
         }
       }
@@ -77,8 +111,15 @@
         }
       }
     },
-    "no_date" : {
-
+    "no date" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "дата отсутсвует"
+          }
+        }
+      }
     },
     "NY Times API blocks too many inquiries. Please, wait 20 seconds" : {
       "localizations" : {

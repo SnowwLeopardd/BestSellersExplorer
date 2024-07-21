@@ -149,14 +149,15 @@ extension TopBooksVC {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
+                    guard let self = self else { return }
                     switch error {
                     case .quotaLimitExceeded:
-                        guard let self = self else { return }
                         AlertController.showErrorAlert(on: self,
                                                        title: String(localized: "Quota limit exceeded"),
                                                        message: String(localized: "NY Times API blocks too many inquiries. Please, wait 20 seconds"))
                     default:
-                        print(error.localizedDescription)
+                        AlertController.showErrorAlert(on: self,
+                                                       message: "\(error.localizedDescription)")
                     }
                 }
             }

@@ -89,7 +89,7 @@ class CoreDataManager: CoreDataManagerProtocol {
             NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
             completion(.success(()))
         } else {
-            let error = NSError(domain: "CoreData", code: 404, userInfo: [NSLocalizedDescriptionKey: "Book with ISBN \(primaryIsbn13) not found."])
+            let error = NSError(domain: "CoreData", code: 404, userInfo: [NSLocalizedDescriptionKey: String(localized: "Book with ISBN \(primaryIsbn13) not found.")])
             completion(.failure(error))
         }
     }

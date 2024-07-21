@@ -143,7 +143,9 @@ extension FavoritesVC {
                 self?.favoritesBooks = favoritesBooks
                 self?.updateEmptyLabelVisibility()
             case .failure(let error):
-                print(error.localizedDescription)
+                guard let self else { return }
+                AlertController.showErrorAlert(on: self,
+                                               message: "\(error.localizedDescription)")
             }
         }
     }

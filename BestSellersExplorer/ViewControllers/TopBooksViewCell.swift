@@ -146,7 +146,9 @@ extension TopBooksViewCell {
                 }
                 ImageCacheManager.shared.setObject(bookImage, forKey: book.bookImage as NSString)
             case .failure(let error):
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self?.bookTitleLabel.text = "\(error.localizedDescription)"
+                }
             }
         }
     }

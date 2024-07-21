@@ -146,7 +146,6 @@
 		5368EB822C1D228C0096BF28 /* BestSellersExplorerTests */ = {
 			isa = PBXGroup;
 			children = (
-				535E9C252C4DB2DA006EF7BF /* Extensions */,
 				5368EB8A2C1D22F60096BF28 /* CalendarVCTest.swift */,
 				53697D8F2C2BBD55003F5592 /* NetworkManagerTest.swift */,
 				53697D8D2C2BB876003F5592 /* MockNetworkManager.swift */,
@@ -155,6 +154,7 @@
 				53697D912C2CF23A003F5592 /* CategotyListResponse.json */,
 				53697D972C2CF3C5003F5592 /* TopBooksListResponse.json */,
 				53697DA32C2D0546003F5592 /* QuotaLimitResponse.json */,
+				535E9C252C4DB2DA006EF7BF /* Extensions */,
 			);
 			path = BestSellersExplorerTests;
 			sourceTree = "<group>";

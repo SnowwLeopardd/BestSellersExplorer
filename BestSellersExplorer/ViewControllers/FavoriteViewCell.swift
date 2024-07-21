@@ -133,8 +133,8 @@ extension FavoriteViewCell {
                     self.activityIndicator.stopAnimating()
                 }
             case .failure(let error):
-                print(error.localizedDescription)
                 DispatchQueue.main.async {
+                    self.bookTitleLabel.text = "\(error.localizedDescription)"
                     self.activityIndicator.stopAnimating()
                 }
             }

@@ -104,7 +104,9 @@ extension CategoryListVC {
                                                        title: String(localized: "Quota limit exceeded"),
                                                        message: String(localized: "NY Times API blocks too many inquiries. Please, wait 20 seconds"))
                     default:
-                        print("Error fetching data: \(error.localizedDescription)")
+                        AlertController.showErrorAlert(on: self,
+                                                       message: String(localized: "Error fetching data: \(error.localizedDescription)")
+                                                       )
                     }
                 }
             }

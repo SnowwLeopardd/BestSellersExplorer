@@ -156,7 +156,7 @@ extension CalendarVC: UICalendarSelectionSingleDateDelegate {
     }
     
     func dateToString(_ dateComponents: DateComponents?) -> String {
-        guard let dateComponents else { return String(localized: "no_date") }
+        guard let dateComponents else { return String(localized: "no date") }
         let date = Calendar.current.date(from: dateComponents) ?? Date()
         return AppDateFormatter.shared.string(from: date)
     }
