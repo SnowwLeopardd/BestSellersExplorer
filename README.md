@@ -16,7 +16,7 @@ https://github.com/user-attachments/assets/fbffe5e9-bcbd-4db1-9043-78c1cad29ee7
 - UITableViewController, UITableViewCell
 - CoreData
 - NSCache
-- Combine (notification?)
+- Combine
 - URLSession, JSONDecoder with generics
 - UIActivityIndicatorView
 - UIAlertController
