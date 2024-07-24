@@ -233,7 +233,9 @@ class BookInfoVC: UIViewController {
                         case .success():
                             break
                         case .failure(let error):
-                            AlertController.showErrorAlert(on: self, message: "\(error)")
+                            DispatchQueue.main.async {
+                                AlertController.showErrorAlert(on: self, message: "\(error)")
+                            }
                         }
                     }
                 }

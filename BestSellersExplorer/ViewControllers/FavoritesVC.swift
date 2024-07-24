@@ -70,7 +70,9 @@ class FavoritesVC: UIViewController {
     }
     
     private func updateEmptyLabelVisibility() {
-        emptyLabel.isHidden = !favoritesBooks.isEmpty
+        DispatchQueue.main.async {
+            emptyLabel.isHidden = !favoritesBooks.isEmpty
+        }
     }
 }
 
@@ -144,8 +146,10 @@ extension FavoritesVC {
                 self?.updateEmptyLabelVisibility()
             case .failure(let error):
                 guard let self else { return }
-                AlertController.showErrorAlert(on: self,
-                                               message: "\(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    AlertController.showErrorAlert(on: self,
+                                                   message: "\(error.localizedDescription)")
+                }
             }
         }
     }
