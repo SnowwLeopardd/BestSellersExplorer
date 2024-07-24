@@ -71,7 +71,7 @@ class FavoritesVC: UIViewController {
     
     private func updateEmptyLabelVisibility() {
         DispatchQueue.main.async {
-            emptyLabel.isHidden = !favoritesBooks.isEmpty
+            self.emptyLabel.isHidden = !self.favoritesBooks.isEmpty
         }
     }
 }
