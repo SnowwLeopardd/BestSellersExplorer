@@ -115,7 +115,8 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
              description: selectedBook.about ?? "",
              title: selectedBook.title ?? "",
              author: selectedBook.author ?? "",
-             bookImage: selectedBook.imageUrl ?? ""
+             bookImage: selectedBook.imageUrl ?? "",
+             amazonProductUrl: selectedBook.amazonProductUrl ?? ""
         )
         
         let bookInfoVC = BookInfoVC(book: convertedBook)

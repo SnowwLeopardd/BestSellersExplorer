@@ -19,6 +19,7 @@ class BookInfoVC: UIViewController {
     private let bookDescription = UILabel()
     
     private let addToFavorites = UIButton()
+    private let viewOnAmazonButton = UIButton()
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
@@ -58,6 +59,7 @@ class BookInfoVC: UIViewController {
         setupBookDescriptionLabel()
         
         setupAddToFavoritesButton()
+        setupViewOnAmazonButton()
         NotificationCenter.default.addObserver(self, selector: #selector(favoriteBooksUpdated), name: .favoriteBooksUpdated, object: nil)
     }
     
@@ -193,8 +195,41 @@ class BookInfoVC: UIViewController {
             addToFavorites.topAnchor.constraint(equalTo: bookDescription.bottomAnchor, constant: 16),
             addToFavorites.trailingAnchor.constraint(equalTo: bookImage.trailingAnchor),
             addToFavorites.leadingAnchor.constraint(equalTo: bookImage.leadingAnchor),
-            addToFavorites.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
+    }
+    
+    private func setupViewOnAmazonButton() {
+        viewOnAmazonButton.backgroundColor = UIColor.black
+        viewOnAmazonButton.setTitleColor(UIColor.white, for: .normal)
+        viewOnAmazonButton.setTitle(String(localized: "BookInfoVC_View_on_Amazon"), for: .normal)
+        viewOnAmazonButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        viewOnAmazonButton.layer.cornerRadius = 10
+        viewOnAmazonButton.addTarget(self, action: #selector(handleViewOnAmazon), for: .touchUpInside)
+        
+        contentView.addSubview(viewOnAmazonButton)
+        
+        viewOnAmazonButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            viewOnAmazonButton.topAnchor.constraint(equalTo: addToFavorites.bottomAnchor, constant: 16),
+            viewOnAmazonButton.trailingAnchor.constraint(equalTo: bookImage.trailingAnchor),
+            viewOnAmazonButton.leadingAnchor.constraint(equalTo: bookImage.leadingAnchor),
+            viewOnAmazonButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+        ])
+    }
+    
+    @objc private func handleViewOnAmazon() {
+        guard let url = URL(string: book.amazonProductUrl) else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            DispatchQueue.main.async {
+                AlertController.showErrorAlert(on: self,
+                                               message: String(localized: "BookInfoVC_can't_open_browser"))
+            }
+        }
     }
     
     private func updateAddToFavoritesButtonTitle() {

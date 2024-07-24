@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="FavoriteBook" representedClassName="FavoriteBook" syncable="YES" codeGenerationType="class">
         <attribute name="about" optional="YES" attributeType="String"/>
+        <attribute name="amazonProductUrl" optional="YES" attributeType="String"/>
         <attribute name="author" attributeType="String"/>
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="primaryIsbn13" optional="YES" attributeType="String"/>

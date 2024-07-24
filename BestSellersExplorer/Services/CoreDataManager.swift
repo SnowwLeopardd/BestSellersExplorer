@@ -37,6 +37,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         favoriteBook.about = book.description
         favoriteBook.primaryIsbn13 = book.primaryIsbn13
         favoriteBook.imageUrl = book.bookImage
+        favoriteBook.amazonProductUrl = book.amazonProductUrl
         saveContext()
         NotificationCenter.default.post(name: .favoriteBooksUpdated, object: nil)
     }
