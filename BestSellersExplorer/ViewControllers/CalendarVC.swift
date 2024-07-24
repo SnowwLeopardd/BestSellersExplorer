@@ -18,6 +18,9 @@ class CalendarVC: UIViewController, CategoryListProtocol {
     
     var choosenDate: String?
     private var dateSelection: UICalendarSelectionSingleDate?
+    
+    private let scrollView = UIScrollView()
+    private let containerView = UIView()
 
     init() {
         NYTimesLogo = UIImage(named: "NYTimes Logo 1") ?? UIImage()
@@ -40,6 +43,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         
         setupCalendarRange()
         
+        setupScrollView()
         headerLabel()
         descriptionHeaderLabel()
         setupCalendar()
@@ -49,6 +53,27 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         addShadow(to: NYTimesLogoImageView)
     }
     
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(containerView)
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
+    }
+
     // MARK: - UIElements
     private func headerLabel() {
         header.text = String(localized: "CalendarVC_header")
@@ -57,14 +82,14 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         header.numberOfLines = 2
         header.font = UIFont.boldSystemFont(ofSize: 34)
         
-        view.addSubview(header)
+        containerView.addSubview(header)
         
         header.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            header.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            header.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
+            header.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor),
+            header.leadingAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            header.trailingAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.trailingAnchor, constant: -16)
         ])
     }
     
@@ -75,14 +100,14 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         descriptionHeader.textColor = UIColor.gray
         descriptionHeader.font = UIFont.systemFont(ofSize: 19)
         
-        view.addSubview(descriptionHeader)
+        containerView.addSubview(descriptionHeader)
         
         descriptionHeader.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             descriptionHeader.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 16),
-            descriptionHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            descriptionHeader.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            descriptionHeader.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            descriptionHeader.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
         ])
     }
     
@@ -93,7 +118,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         calendarView.backgroundColor = .white
         calendarView.layer.cornerRadius = 10
         
-        view.addSubview(calendarView)
+        containerView.addSubview(calendarView)
         
         dateSelection = UICalendarSelectionSingleDate(delegate: self)
         calendarView.selectionBehavior = dateSelection
@@ -102,19 +127,20 @@ class CalendarVC: UIViewController, CategoryListProtocol {
         
         NSLayoutConstraint.activate([
             calendarView.topAnchor.constraint(equalTo: descriptionHeader.bottomAnchor, constant: 32),
-            calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            calendarView.leadingAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            calendarView.trailingAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
         ])
     }
     
     private func setupNYTimesImageView() {
-        view.addSubview(NYTimesLogoImageView)
+        containerView.addSubview(NYTimesLogoImageView)
         
         NYTimesLogoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             NYTimesLogoImageView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 32),
-            NYTimesLogoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            NYTimesLogoImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            NYTimesLogoImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -32) // Added bottom constraint
         ])
     }
     
