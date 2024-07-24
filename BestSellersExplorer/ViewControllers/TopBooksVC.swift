@@ -84,7 +84,7 @@ class TopBooksVC: UIViewController {
     }
     
     private func setupSortButton() {
-        sortButton.title = String(localized: "Sort By: ↑")
+        sortButton.title = String(localized: "TopBooksVC_Sort_By:_↑")
         sortButton.style = .plain
         sortButton.target = self
         sortButton.action = #selector(sortButtonPressed)
@@ -93,14 +93,14 @@ class TopBooksVC: UIViewController {
     }
     
     @objc func sortButtonPressed() {
-        let isAscending = sortButton.title == String(localized: "Sort By: ↓")
+        let isAscending = sortButton.title == String(localized: "TopBooksVC_Sort_By:_↓")
         sortedBooks.sort { isAscending ? $0.rank < $1.rank : $0.rank > $1.rank }
-        sortButton.title = isAscending ? String(localized: "Sort By: ↑") : String(localized: "Sort By: ↓")
+        sortButton.title = isAscending ? String(localized: "TopBooksVC_Sort_By:_↑") : String(localized: "TopBooksVC_Sort_By:_↓")
         collectionView.reloadData()
     }
     
     private func setupResetButton() {
-        resetButton.title = String(localized: "Reset")
+        resetButton.title = String(localized: "TopBooksVC_Reset")
         resetButton.style = .plain
         resetButton.target = self
         resetButton.action = #selector(resetButtonPressed)
@@ -153,8 +153,8 @@ extension TopBooksVC {
                     switch error {
                     case .quotaLimitExceeded:
                         AlertController.showErrorAlert(on: self,
-                                                       title: String(localized: "Quota limit exceeded"),
-                                                       message: String(localized: "NY Times API blocks too many inquiries. Please, wait 20 seconds"))
+                                                       title: String(localized: "TopBooksVC_error_qoutaLimit_title"),
+                                                       message: String(localized: "TopBooksVC_error_qoutaLimit_description"))
                     default:
                         AlertController.showErrorAlert(on: self,
                                                        message: "\(error.localizedDescription)")

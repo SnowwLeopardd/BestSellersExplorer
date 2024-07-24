@@ -51,7 +51,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
     
     // MARK: - UIElements
     private func headerLabel() {
-        header.text = String(localized: "The New York Times Best Sellers")
+        header.text = String(localized: "CalendarVC_header")
         header.textColor = UIColor.black
         header.textAlignment = .left
         header.numberOfLines = 2
@@ -69,7 +69,7 @@ class CalendarVC: UIViewController, CategoryListProtocol {
     }
     
     private func descriptionHeaderLabel() {
-        descriptionHeader.text = String(localized: "Authoritatively ranked lists of books sold in US. Select date and topics")
+        descriptionHeader.text = String(localized: "CalendarVC_description_header")
         descriptionHeader.textAlignment = .left
         descriptionHeader.numberOfLines = 2
         descriptionHeader.textColor = UIColor.gray
@@ -156,7 +156,7 @@ extension CalendarVC: UICalendarSelectionSingleDateDelegate {
     }
     
     func dateToString(_ dateComponents: DateComponents?) -> String {
-        guard let dateComponents else { return String(localized: "no date") }
+        guard let dateComponents else { return String(localized: "no_date_CalendarVC_dateToString") }
         let date = Calendar.current.date(from: dateComponents) ?? Date()
         return AppDateFormatter.shared.string(from: date)
     }

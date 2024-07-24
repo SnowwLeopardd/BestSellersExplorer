@@ -101,11 +101,11 @@ extension CategoryListVC {
                     switch error {
                     case .quotaLimitExceeded:
                         AlertController.showErrorAlert(on: self,
-                                                       title: String(localized: "Quota limit exceeded"),
-                                                       message: String(localized: "NY Times API blocks too many inquiries. Please, wait 20 seconds"))
+                                                       title: String(localized: "CategoryListVC_error_qoutaLimit_title"), //Quota limit exceeded
+                                                       message: String(localized: "CategoryListVC_error_qoutaLimit_description")) //NY Times API blocks too many inquiries. Please, wait 20 seconds
                     default:
                         AlertController.showErrorAlert(on: self,
-                                                       message: String(localized: "Error fetching data: \(error.localizedDescription)")
+                                                       message: String(localized: "CategoryListVC_error_fetchingData: \(error.localizedDescription)") //Error fetching data:
                                                        )
                     }
                 }

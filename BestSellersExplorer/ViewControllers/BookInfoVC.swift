@@ -161,7 +161,7 @@ class BookInfoVC: UIViewController {
     }
     
     private func setupBookDescriptionLabel() {
-        let noDescription = String(localized: "API doesn't provide description for books in this category")
+        let noDescription = String(localized: "BookInfoVC_noAPiDescription")
         bookDescription.text = book.description.isEmpty ? noDescription : book.description
         bookDescription.numberOfLines = 0
         bookDescription.textAlignment = .justified
@@ -204,7 +204,7 @@ class BookInfoVC: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let isUnique):
-                    let title = isUnique ? String(localized: "Add to Favorites") : String(localized: "Remove from Favorites")
+                    let title = isUnique ? String(localized: "BookInfoVC_Add_to_Favorites") : String(localized: "BookInfoVC_Remove from Favorites")
                     self.addToFavorites.setTitle(title, for: .normal)
                 case .failure(let error):
                     AlertController.showErrorAlert(on: self, message: "\(error.localizedDescription)")

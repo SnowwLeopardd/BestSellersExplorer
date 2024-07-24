@@ -1,284 +1,272 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "AboutMe" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Обо мне"
-          }
-        }
-      }
-    },
-    "Add books to Favorites" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Добавить книги в избранное"
-          }
-        }
-      }
-    },
-    "Add to Favorites" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Добавить в избранное"
-          }
-        }
-      }
-    },
-    "API doesn't provide description for books in this category" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "API не предоставляет описание вниг в этой категории"
-          }
-        }
-      }
-    },
-    "Authoritatively ranked lists of books sold in US. Select date and topics" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Топ книг от NY Times продаваемые в США. Выберите дату и жанр:"
-          }
-        }
-      }
-    },
-    "Book with ISBN %@ not found." : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Книга с ISBN %@ не найдена."
-          }
-        }
-      }
-    },
-    "Delete" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Удалить"
-          }
-        }
-      }
-    },
-    "Error" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ошибка"
-          }
-        }
-      }
-    },
-    "Error fetching data: %@" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ошибка загрузки данных: %@"
-          }
-        }
-      }
-    },
-    "Favorites" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Избранное"
-          }
-        }
-      }
-    },
-    "Favorites Books" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Избранные книги"
-          }
-        }
-      }
-    },
-    "no date" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "дата отсутсвует"
-          }
-        }
-      }
-    },
-    "NY Times API blocks too many inquiries. Please, wait 20 seconds" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "NY Times API блокирует частные запросы. Пожалуйста, подождите 20 секунд"
-          }
-        }
-      }
-    },
-    "OK" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ок"
-          }
-        }
-      }
-    },
-    "Press restart in: (%lld) seconds" : {
+    "AboutMe_TabBar" : {
       "localizations" : {
         "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Press restart in: (%lld) second"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "Press restart in: (%lld) seconds"
-                }
-              }
-            }
-          }
-        },
-        "ru" : {
-          "variations" : {
-            "plural" : {
-              "few" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Нажмите кнопку \"Начать с начала\" через (%lld) секунды"
-                }
-              },
-              "many" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Нажмите кнопку \"Начать с начала\" через (%lld) секунд"
-                }
-              },
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Нажмите кнопку \"Начать с начала\" через (%lld) секунду"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Нажмите кнопку \"Начать с начала\" через (%lld) секунд"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About me"
           }
         }
       }
     },
-    "Quota limit exceeded" : {
+    "Book_with_ISBN_%@_not_found_CoreData_deleteFavotiteBooks." : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Лимит запросов исчерпан"
+            "value" : "Book with ISBN %@ not found"
           }
         }
       }
     },
-    "Remove from Favorites" : {
+    "BookInfoVC_Add_to_Favorites" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Удалить из избранного"
+            "value" : "Add to Favorites"
           }
         }
       }
     },
-    "Reset" : {
+    "BookInfoVC_noAPiDescription" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Начать с начала"
+            "value" : "API doesn't provide description for books in this category"
           }
         }
       }
     },
-    "Restart" : {
+    "BookInfoVC_Remove from Favorites" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Начать с начала"
+            "value" : "Remove from favorites"
           }
         }
       }
     },
-    "Sort By: ↑" : {
+    "CalendarVC_description_header" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Сортировать: ↑"
+            "value" : "Authoritatively ranked lists of books sold in US. Select date and topics"
           }
         }
       }
     },
-    "Sort By: ↓" : {
+    "CalendarVC_header" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Сортировать: ↓"
+            "value" : "The New York Times Best Sellers"
           }
         }
       }
     },
-    "The New York Times Best Sellers" : {
+    "CategoryListVC_error_fetchingData: %@" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Бестселлеры New York Times"
+            "value" : "Error fetching data: %@"
           }
         }
       }
     },
-    "TopBooks" : {
+    "CategoryListVC_error_qoutaLimit_description" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Топ Книг"
+            "value" : "NY Times API blocks too many inquiries. Please, wait 20 seconds"
           }
         }
       }
     },
-    "Wait for timer" : {
+    "CategoryListVC_error_qoutaLimit_title" : {
       "localizations" : {
-        "ru" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Подождите"
+            "value" : "Quota limit exceeded"
+          }
+        }
+      }
+    },
+    "Favorites_TabBar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorites"
+          }
+        }
+      }
+    },
+    "FavoritesVC_Add books_to_Favorites" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add books to Favorites"
+          }
+        }
+      }
+    },
+    "FavoritesVC_Delete" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "FavoritesVC_Favorites_Books" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorites Books"
+          }
+        }
+      }
+    },
+    "no_date_CalendarVC_dateToString" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no date"
+          }
+        }
+      }
+    },
+    "TopBooks_TabBar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TopBooks"
+          }
+        }
+      }
+    },
+    "TopBooksVC_error_qoutaLimit_description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NY Times API blocks too many inquiries. Please, wait 20 seconds"
+          }
+        }
+      }
+    },
+    "TopBooksVC_error_qoutaLimit_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quota limit exceeded"
+          }
+        }
+      }
+    },
+    "TopBooksVC_Reset" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
+          }
+        }
+      }
+    },
+    "TopBooksVC_Sort_By:_↑" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sort By: ↑"
+          }
+        }
+      }
+    },
+    "TopBooksVC_Sort_By:_↓" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sort By: ↓"
+          }
+        }
+      }
+    },
+    "UIAlerController_Quota_limit_exceeded" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quota limit exceeded"
+          }
+        }
+      }
+    },
+    "UIAlertController_Error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        }
+      }
+    },
+    "UIAlertController_OK" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "UIAlertController_Press_restart_in: (%lld)_seconds" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Press restart in: (%lld) seconds"
+          }
+        }
+      }
+    },
+    "UIAlertController_Restart" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restart"
+          }
+        }
+      }
+    },
+    "UIAlertController_Wait_for_timer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wait for timer"
           }
         }
       }

@@ -55,7 +55,7 @@ class FavoritesVC: UIViewController {
     }
     
     private func setupEmptyLabelUI() {
-        emptyLabel.text = String(localized: "Add books to Favorites")
+        emptyLabel.text = String(localized: "FavoritesVC_Add books_to_Favorites")
         emptyLabel.textAlignment = .center
         emptyLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         emptyLabel.textColor = .gray
@@ -91,7 +91,7 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return String(localized: "Favorites Books")
+        return String(localized: "FavoritesVC_Favorites_Books")
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -126,7 +126,7 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let selectedBook = favoritesBooks[indexPath.row]
-        let deleteAction = UIContextualAction(style: .destructive, title: String(localized: "Delete")) { [unowned self] _, _, _ in
+        let deleteAction = UIContextualAction(style: .destructive, title: String(localized: "FavoritesVC_Delete")) { [unowned self] _, _, _ in
             self.favoritesBooks.remove(at: indexPath.row)
             coreDataManager.delete(selectedBook)
             tableView.deleteRows(at: [indexPath], with: .automatic)
