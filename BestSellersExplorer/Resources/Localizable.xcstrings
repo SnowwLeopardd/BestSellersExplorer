@@ -8,6 +8,140 @@
             "state" : "translated",
             "value" : "About me"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обо мне"
+          }
+        }
+      }
+    },
+    "AboutMeVC_about_me" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "   Hi!\n   My name is Alex Bochkarev.\n    I am an iOS developer with expertise in UIKit and SwiftUI.\n    My background in business analysis (CJM, Lean Six Sigma) makes me a strong fit for your startup.\n    I can offer a thorough understanding of customer pain points and deliver effective solutions through iOS platform."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "    Приветствую!\n    Меня зовут Александр Бочкарев.\n    Я iOS разработчик с опытом работы с UIKit и SwiftUI.\n    Мой предыдущий опыт бизнес аналитика (CJM, Lean Six Sigma) отлично подойдет для вашего стартапа.\n    Я могу понять боль клиента и предложить эффективные решения на iOS платформе."
+          }
+        }
+      }
+    },
+    "AboutMeVC_email" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "s7604729700@gmail.com"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "s7604729700@gmail.com"
+          }
+        }
+      }
+    },
+    "AboutMeVC_Email:_%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Адрес электронной почты: %@"
+          }
+        }
+      }
+    },
+    "AboutMeVC_Phone:_%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phone: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Номер телефона: %@"
+          }
+        }
+      }
+    },
+    "AboutMeVC_phoneNumber" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7604729700"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7604729700"
+          }
+        }
+      }
+    },
+    "AboutMeVC_section_one_header" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My experience"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мой опыт"
+          }
+        }
+      }
+    },
+    "AboutMeVC_section_two_header" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact Info"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Контактная информация"
+          }
+        }
+      }
+    },
+    "AboutMeVC_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About me"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обо мне"
+          }
         }
       }
     },
@@ -17,6 +151,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Book with ISBN %@ not found"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Книга с ISBN %@ не найдена"
           }
         }
       }
@@ -28,11 +168,30 @@
             "state" : "translated",
             "value" : "Add to Favorites"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить в избранное"
+          }
         }
       }
     },
     "BookInfoVC_can't_open_browser" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Can't open browser"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Невозможно открыть браузер"
+          }
+        }
+      }
     },
     "BookInfoVC_noAPiDescription" : {
       "localizations" : {
@@ -40,6 +199,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "API doesn't provide description for books in this category"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "API не предоставляет описание книг в данной категории"
           }
         }
       }
@@ -51,11 +216,30 @@
             "state" : "translated",
             "value" : "Remove from favorites"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить из избранного"
+          }
         }
       }
     },
     "BookInfoVC_View_on_Amazon" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View on Amazon"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Посмотреть на Amazon"
+          }
+        }
+      }
     },
     "CalendarVC_description_header" : {
       "localizations" : {
@@ -64,12 +248,24 @@
             "state" : "translated",
             "value" : "Authoritatively ranked lists of books sold in US. Select date and topics"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рейтинг самых продаваемых книг в США. Выберите дату и тематику"
+          }
         }
       }
     },
     "CalendarVC_header" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The New York Times Best Sellers"
+          }
+        },
+        "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "The New York Times Best Sellers"
@@ -84,6 +280,12 @@
             "state" : "translated",
             "value" : "Error fetching data: %@"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка загрузки данных: %@"
+          }
         }
       }
     },
@@ -93,6 +295,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NY Times API blocks too many inquiries. Please, wait 20 seconds"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NY Times API блокирует слишком много запросов. Пожалуйста, подождите 20 секунд."
           }
         }
       }
@@ -104,6 +312,12 @@
             "state" : "translated",
             "value" : "Quota limit exceeded"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Превышен лимит запросов"
+          }
         }
       }
     },
@@ -113,6 +327,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Favorites"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Избранное"
           }
         }
       }
@@ -124,6 +344,12 @@
             "state" : "translated",
             "value" : "Add books to Favorites"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить книгу в избранное"
+          }
         }
       }
     },
@@ -133,6 +359,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Delete"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить"
           }
         }
       }
@@ -144,6 +376,12 @@
             "state" : "translated",
             "value" : "Favorites Books"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Избранные книги"
+          }
         }
       }
     },
@@ -153,6 +391,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "no date"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "нет даты"
           }
         }
       }
@@ -164,6 +408,12 @@
             "state" : "translated",
             "value" : "TopBooks"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Топ книг"
+          }
         }
       }
     },
@@ -173,6 +423,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NY Times API blocks too many inquiries. Please, wait 20 seconds"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NY Times API блокирует слишком много запросов. Пожалуйста, подождите 20 секунд."
           }
         }
       }
@@ -184,6 +440,12 @@
             "state" : "translated",
             "value" : "Quota limit exceeded"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Превышен лимит запросов"
+          }
         }
       }
     },
@@ -193,6 +455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reset"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начать с начала"
           }
         }
       }
@@ -204,6 +472,12 @@
             "state" : "translated",
             "value" : "Sort By: ↑"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отсортировать по: ↑"
+          }
         }
       }
     },
@@ -213,6 +487,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sort By: ↓"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отсортировать по: ↓"
           }
         }
       }
@@ -224,6 +504,12 @@
             "state" : "translated",
             "value" : "Quota limit exceeded"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Превышен лимит запросов"
+          }
         }
       }
     },
@@ -233,6 +519,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ошибка"
           }
         }
       }
@@ -244,6 +536,12 @@
             "state" : "translated",
             "value" : "OK"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ОК"
+          }
         }
       }
     },
@@ -253,6 +551,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Press restart in: (%lld) seconds"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите \"Начать сначала\" через: (%lld) секунд"
           }
         }
       }
@@ -264,6 +568,12 @@
             "state" : "translated",
             "value" : "Restart"
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начать сначала"
+          }
         }
       }
     },
@@ -273,6 +583,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wait for timer"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дождитесь истечения времени таймера"
           }
         }
       }

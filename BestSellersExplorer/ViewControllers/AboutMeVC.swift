@@ -7,145 +7,96 @@
 
 import UIKit
 
-class AboutMeVC: UIViewController {
+class AboutMeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let profileImageView = UIImageView()
-    let nameLabel = UILabel()
-    let jobExperienceLabel = UILabel()
-    let bioTextView = UITextView()
-    let contactButton = UIButton(type: .system)
-    let versionLabel = UILabel()
+    let tableView = UITableView()
+    private let cellID = "cell"
+    
+    private let titleName = String(localized: "AboutMeVC_title")
+    private let email = String(localized: "AboutMeVC_email")
+    private let phoneNumber = String(localized: "AboutMeVC_phoneNumber")
+    private let aboutMe = String(localized: "AboutMeVC_about_me")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        
+        title = titleName
+        
+        tableView.frame = view.bounds
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        
+        view.addSubview(tableView)
     }
     
-    private func setupUI() {
-        view.backgroundColor = #colorLiteral(red: 0.9610984921, green: 0.9610984921, blue: 0.9610984921, alpha: 1)
-        
-        view.addSubview(profileImageView)
-        view.addSubview(nameLabel)
-        view.addSubview(jobExperienceLabel)
-        view.addSubview(bioTextView)
-        view.addSubview(contactButton)
-        view.addSubview(versionLabel)
-        
-        setupProfileImageView()
-        setupNameLabel()
-        setupJobExperienceLabel()
-        setupBioTextView()
-        setupContactButton()
-        setupVersionLabel()
+    // MARK: - UITableViewDataSource
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
-    private func setupProfileImageView() {
-        profileImageView.contentMode = .scaleAspectFill
-        profileImageView.clipsToBounds = true
-        profileImageView.layer.cornerRadius = 75
-        profileImageView.layer.borderWidth = 2
-        profileImageView.layer.borderColor = UIColor.gray.cgColor
-        profileImageView.image = UIImage(named: "MyPhoto")
-        
-        profileImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            profileImageView.widthAnchor.constraint(equalToConstant: 150),
-            profileImageView.heightAnchor.constraint(equalToConstant: 150)
-        ])
-    }
-        
-    private func setupNameLabel() {
-        nameLabel.text = "Alex Bochkarev"
-        nameLabel.font = UIFont.boldSystemFont(ofSize: 24)
-        nameLabel.textAlignment = .center
-        
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 20),
-            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-        ])
-    }
-    
-    private func setupJobExperienceLabel() {
-        jobExperienceLabel.text = "iOS Developer with Business Analysis background"
-        jobExperienceLabel.font = UIFont.systemFont(ofSize: 18)
-        jobExperienceLabel.numberOfLines = 0
-        jobExperienceLabel.textAlignment = .center
-        
-        jobExperienceLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            jobExperienceLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
-            jobExperienceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            jobExperienceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-        ])
-    }
-        
-    private func setupBioTextView() {
-        bioTextView.text = """
-        I am an iOS developer with mid-level expertise in UIKit and SwiftUI.
-        
-        My combined experience in business analysis (CJM, Lean Six Sigma), management (head of customer care/legal department) and law, makes me an ideal candidate for your start-up.
-        
-        I can bring a comprehensive view of customer pain points and effectively solve them through iOS platform solutions.
-        """
-        bioTextView.font = UIFont.systemFont(ofSize: 17)
-        bioTextView.isEditable = false
-        bioTextView.backgroundColor = #colorLiteral(red: 0.9610984921, green: 0.9610984921, blue: 0.9610984921, alpha: 1)
-        
-        bioTextView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            bioTextView.topAnchor.constraint(equalTo: jobExperienceLabel.bottomAnchor, constant: 20),
-            bioTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            bioTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            bioTextView.bottomAnchor.constraint(equalTo: contactButton.topAnchor, constant: -20),
-        ])
-    }
-        
-    private func setupContactButton() {
-        contactButton.setTitle("Contact Me", for: .normal)
-        contactButton.addTarget(self, action: #selector(contactButtonTapped), for: .touchUpInside)
-        
-        contactButton.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            contactButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            contactButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            contactButton.bottomAnchor.constraint(equalTo: versionLabel.safeAreaLayoutGuide.bottomAnchor, constant: -25),
-        ])
-    }
-    
-    private func setupVersionLabel() {
-        // Get the app version from the Info.plist
-        if let infoDictionary = Bundle.main.infoDictionary,
-           let version = infoDictionary["CFBundleShortVersionString"] as? String {
-            versionLabel.text = "App version \(version)"
-        } else {
-            versionLabel.text = "Version not available"
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 2
+        default:
+            return 0
         }
-
-        versionLabel.font = UIFont.systemFont(ofSize: 14)
-        versionLabel.textAlignment = .center
-        versionLabel.textColor = .black
-        
-        versionLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            versionLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
-            versionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        
+        switch indexPath.section {
+        case 0:
+            cell.textLabel?.text = aboutMe
+            cell.textLabel?.textAlignment = .justified
+            cell.textLabel?.numberOfLines = 0
+        case 1:
+            if indexPath.row == 0 {
+                cell.textLabel?.text = String(localized: "AboutMeVC_Email:_\(email)")
+            } else if indexPath.row == 1 {
+                cell.textLabel?.text = String(localized: "AboutMeVC_Phone:_\(phoneNumber)")
+            }
+        default:
+            cell.textLabel?.text = ""
+        }
+        return cell
+    }
     
-    @objc func contactButtonTapped() {
-        let alert = UIAlertController(title: "Contact Me", message: "Email: s7604729700@gmail.com \nPhone: (760) 472-9700", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+    // MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return String(localized: "AboutMeVC_section_one_header")
+        case 1:
+            return String(localized: "AboutMeVC_section_two_header")
+        default:
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                if let emailURL = URL(string: "mailto:\(email)"),
+                    UIApplication.shared.canOpenURL(emailURL) 
+                {
+                    UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
+                }
+            } else if indexPath.row == 1 {
+                if let phoneURL = URL(string: "tel://\(phoneNumber)"), 
+                    UIApplication.shared.canOpenURL(phoneURL)
+                {
+                    UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+                }
+            }
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
