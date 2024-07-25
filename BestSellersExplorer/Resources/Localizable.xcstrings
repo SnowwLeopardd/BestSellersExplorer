@@ -22,13 +22,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "   Hi!\n   My name is Alex Bochkarev.\n    I am an iOS developer with expertise in UIKit and SwiftUI.\n    My background in business analysis (CJM, Lean Six Sigma) makes me a strong fit for your startup.\n    I can offer a thorough understanding of customer pain points and deliver effective solutions through iOS platform."
+            "value" : "    Hi!\n    My name is Alex Bochkarev.\n    I am an iOS developer with expertise in UIKit and SwiftUI.\n    My background in business analysis (CJM, Lean Six Sigma) makes me a strong fit for your startup.\n    I can offer a thorough understanding of customer pain points and deliver effective solutions through iOS platform."
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "    Приветствую!\n    Меня зовут Александр Бочкарев.\n    Я iOS разработчик с опытом работы с UIKit и SwiftUI.\n    Мой предыдущий опыт бизнес аналитика (CJM, Lean Six Sigma) отлично подойдет для вашего стартапа.\n    Я могу понять боль клиента и предложить эффективные решения на iOS платформе."
+            "state" : "translated",
+            "value" : "   Приветствую!\n   Меня зовут Александр Бочкарев.\n    Я iOS разработчик с опытом работы с UIKit и SwiftUI.\n    Мой предыдущий опыт бизнес аналитика (CJM, Lean Six Sigma) отлично подойдет для вашего стартапа.\n    Я могу понять боль клиента и предложить эффективные решения на iOS платформе."
           }
         }
       }
