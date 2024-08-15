@@ -30,4 +30,6 @@ https://github.com/user-attachments/assets/fbffe5e9-bcbd-4db1-9043-78c1cad29ee7
 **API:** This project utilizes the [NY Times Books API](https://developer.nytimes.com/docs/books-product/1/overview).
 
 # Contacts
-[LinkedIn](https://www.linkedin.com/in/alex-bochkarev/)
+iOS developer - [Alex Bochkarev (LinkedIn)](https://www.linkedin.com/in/alex-bochkarev/)
+
+Design - Ksenia Smelkova
