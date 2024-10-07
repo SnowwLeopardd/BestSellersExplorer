@@ -28,13 +28,14 @@ struct AlertController {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             if countdown > 1 {
                 countdown -= 1
-                restartAction.setValue(String(localized: "UIAlertController_Press_restart_in: (\(countdown))_seconds"), forKey: "UIAlertController_title")
+                restartAction.setValue(String(localized: "UIAlertController_Press_restart_in: \(countdown) seconds"), forKey: "title")
             } else {
                 timer.invalidate()
-                restartAction.setValue(String(localized: "UIAlertController_Restart"), forKey: "UIAlertController_title")
+                restartAction.setValue(String(localized: "UIAlertController_Restart"), forKey: "title")
                 restartAction.isEnabled = true
             }
         }
+        
         viewController.present(alert, animated: true)
     }
 
